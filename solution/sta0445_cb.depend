@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1476907637 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/main.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<algorithm>
+	<vector>
+	<string>
+	<cstdlib>
+	<unistd.h>
+	"jezdec/jezdec.h"
+
+1476904999 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/jezdec/jezdec.h
+
+1476911904 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/funkce/funkce.cpp
+	<fstream>
+
+1476911910 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/jezdec/jezdec.cpp
+
