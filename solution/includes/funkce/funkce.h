@@ -1,9 +1,8 @@
-#ifndef JEZDEC_HPP
-#define JEZDEC_HPP
-
+#ifndef JEZDEC_H
+#define JEZDEC_H
 
 using namespace std;
 
-int pocetZaznamu(ifstream f);
+int pocetZaznamu(ifstream &f);
 
 #endif

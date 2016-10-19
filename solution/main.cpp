@@ -1,15 +1,10 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <algorithm>
-#include <vector>
-#include <string>
-#include <cstdlib>
 
-#include <unistd.h>
-
-#include "includes/jezdec/jezdec.h"
 #include "includes/funkce/funkce.h"
+#include "includes/jezdec/jezdec.h"
+
 
 /**
  * @brief Hlavni soubor programu
@@ -17,9 +12,6 @@
  * @author Lukas Stankovic
  * @mainpage STA0445 - Formule 1
  */
-
-
-
 
 using namespace std;
 
@@ -34,6 +26,8 @@ int main()
         return 0;
     }
 
+
+    int pocet_jezdcu = pocetZaznamu(f_jezdci);
 
 
 

@@ -4,7 +4,10 @@
  * @author Lukas Stankovic
  * @mainpage STA0445 - Formule 1
  */
+
 #include <fstream>
+
+
 using namespace std;
 
 int pocetZaznamu(ifstream &f){
