@@ -1,5 +1,5 @@
-#ifndef JEZDEC_HPP
-#define JEZDEC_HPP
+#ifndef JEZDEC_H
+#define JEZDEC_H
 
 
 using namespace std;
@@ -15,7 +15,7 @@ using namespace std;
 
 typedef struct{
 
-    int id_jezdec;
+    int id_j;
 
     string jmeno;
     string prijmeni;
@@ -24,5 +24,7 @@ typedef struct{
 
 }TJEZDEC;
 
+void naplnitJezdce(ifstream &f, vector<TJEZDEC> &jezdci);
+void vypisJezdcu(vector<TJEZDEC> const &jezdci, int pocet);
 
 #endif
