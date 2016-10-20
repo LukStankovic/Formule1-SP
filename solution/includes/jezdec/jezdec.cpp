@@ -14,9 +14,10 @@
 #include "jezdec.h"
 #include "../funkce/funkce.h"
 
+
 using namespace std;
 
-void naplnitJezdce(ifstream &f, vector<TJEZDEC> &jezdci){
+void naplnitJezdce(ifstream &f, vector<TJEZDEC> &jezdci, vector<TCAS> &casy, int pocet_casu){
 
     int i = 0;
     int velikost;
@@ -28,14 +29,25 @@ void naplnitJezdce(ifstream &f, vector<TJEZDEC> &jezdci){
 
         rozdelitString(';',radek,radek_v_csv);
 
-        jezdci.at(i).id_j = stoi(radek_v_csv.at(0));
-        jezdci.at(i).jmeno = radek_v_csv.at(1);
-        jezdci.at(i).prijmeni = radek_v_csv.at(2);
-        jezdci.at(i).poc_kol = stoi(radek_v_csv.at(3));
+        jezdci.at(i).id_j = stoi(radek_v_csv.at(2));
+        jezdci.at(i).jmeno = radek_v_csv.at(0);
+        jezdci.at(i).prijmeni = radek_v_csv.at(1);
+
+        // POCET KOL
+
+        for(int j = 0; j < pocet_casu; j++){
+            if(casy.at(j).id_j == jezdci.at(i).id_j)
+                jezdci.at(i).poc_kol++;
+        }
+
+
+
 
         i++;
     }
-
+    // NA ZACATEK SOUBORU
+    f.clear();
+    f.seekg(0);
 }
 
 
@@ -54,6 +66,7 @@ void vypisJezdcu(vector<TJEZDEC> const &jezdci, int pocet){
     try{
         for(int i = 0; i < pocet; i++)
             cout << setw(4) << jezdci.at(i).id_j << " | " << setw(15) << jezdci.at(i).jmeno << " | " <<  setw(15) <<  jezdci.at(i).prijmeni << " |" << setw(13) << jezdci.at(i).poc_kol << " |"<< endl;
+        cout << endl;
     }
     catch (out_of_range e){
         cout << endl << "Zachycena vyjimka! "<< endl;

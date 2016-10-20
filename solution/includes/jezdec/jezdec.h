@@ -1,7 +1,7 @@
 #ifndef JEZDEC_H
 #define JEZDEC_H
 
-
+#include "../cas/cas.h"
 using namespace std;
 
 /** @struct TJEZDEC
@@ -22,9 +22,10 @@ typedef struct{
 
     int poc_kol;
 
+
 }TJEZDEC;
 
-void naplnitJezdce(ifstream &f, vector<TJEZDEC> &jezdci);
+void naplnitJezdce(ifstream &f, vector<TJEZDEC> &jezdci, vector<TCAS> &casy, int pocet_casu);
 void vypisJezdcu(vector<TJEZDEC> const &jezdci, int pocet);
 
 #endif

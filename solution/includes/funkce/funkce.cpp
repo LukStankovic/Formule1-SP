@@ -20,16 +20,19 @@ void rozdelitString(char delic, string retezec,vector<string>& pole){
     int index_minuly_delic = 0;
     int poc_bunek = 0;
 
-    if(retezec[delka_retezce] != ';')
-        retezec += ";";
+    // PRO SNADNEJSI PRACI SE STRINGEM
+    if(retezec.back() != delic)
+        retezec += delic;
 
     try{
         for(int i = 0; i < delka_retezce+1; i++){
 
             if(retezec[i] == delic){
 
-                for(int k = index_minuly_delic; k < i; k++)
+                for(int k = index_minuly_delic; k < i; k++){
                     pole.at(poc_bunek) += retezec[k];
+
+                }
 
                 index_minuly_delic = i+1;
                 poc_bunek++;
