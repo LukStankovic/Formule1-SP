@@ -36,6 +36,8 @@ int main(){
     }
 
 
+
+
     int pocet_jezdcu = pocetZaznamu(f_jezdci);
     int pocet_casu = pocetZaznamu(f_casy);
 
@@ -49,26 +51,33 @@ int main(){
 
 
 
+    while(true){
+
+        vypisMenu();
+
+        cout << "Vase volba: ";
+        cin >> volba;
+
+        switch(volba){
+            case 1:{
+                vypisJezdcu(vsichni,pocet_jezdcu);
+            }break;
+            case 2:{
+                vypisCasu(casy,pocet_casu);
+            }break;
 
 
-    cout << "1 - Vypis vsech jezdcu | 2 - vypis casu" << endl;
-    for (int i = 0; i < 50; i++)
-        cout << "-";
-    cout << endl;
-    cout << "Vase volba: ";
-    cin >> volba;
+            case 0:{
+                return 0;
+            }break;
 
-    switch(volba){
-        case 1:{
-            vypisJezdcu(vsichni,pocet_jezdcu);
-        }break;
-        case 2:{
-            vypisCasu(casy,pocet_casu);
+            default:{
+                cout << "Neexistujici polozka menu." << endl;
+            }
+
         }
 
     }
-
-
 
 
     return 0;

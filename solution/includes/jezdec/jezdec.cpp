@@ -20,7 +20,6 @@ using namespace std;
 void naplnitJezdce(ifstream &f, vector<TJEZDEC> &jezdci, vector<TCAS> &casy, int pocet_casu){
 
     int i = 0;
-    int velikost;
     string radek;
 
     while(getline(f,radek)){
@@ -34,14 +33,39 @@ void naplnitJezdce(ifstream &f, vector<TJEZDEC> &jezdci, vector<TCAS> &casy, int
         jezdci.at(i).prijmeni = radek_v_csv.at(1);
 
         // POCET KOL
+        unsigned nejmensi_cas = 100000000, nejvetsi_cas = 0;
+        long unsigned celkovy = 0;
 
         for(int j = 0; j < pocet_casu; j++){
-            if(casy.at(j).id_j == jezdci.at(i).id_j)
+            if(casy.at(j).id_j == jezdci.at(i).id_j){
+
                 jezdci.at(i).poc_kol++;
+                celkovy += casy.at(j).cas_ms;
+
+                if(casy.at(j).cas_ms < nejmensi_cas)
+                    nejmensi_cas = casy.at(j).cas_ms;
+
+
+                if(casy.at(j).cas_ms > nejvetsi_cas)
+                    nejvetsi_cas = casy.at(j).cas_ms;
+            }
+
         }
 
+        if(nejvetsi_cas != 0)
+            jezdci.at(i).nejpomalejsi = nejvetsi_cas;
+        else
+            jezdci.at(i).nejpomalejsi = 0;
 
+        if(nejmensi_cas != 100000000)
+            jezdci.at(i).nejrychlejsi = nejmensi_cas;
+        else
+            jezdci.at(i).nejrychlejsi = 0;
 
+        if(jezdci.at(i).poc_kol != 0)
+            jezdci.at(i).prumerny = celkovy/jezdci.at(i).poc_kol;
+        else
+            jezdci.at(i).prumerny = 0;
 
         i++;
     }
@@ -55,17 +79,21 @@ void naplnitJezdce(ifstream &f, vector<TJEZDEC> &jezdci, vector<TCAS> &casy, int
 void vypisJezdcu(vector<TJEZDEC> const &jezdci, int pocet){
 
     cout << endl << "VYPIS VSECH JEZDCU" << endl;
-    cout << "------------------" << endl << endl;
+    cout << "------------------" << endl << "/Pro spravne zobrazeni je nutne si zvetsit okno konzole!/" << endl << endl;
 
-    cout << " ID " << " | " << setw(15) << " JMENO " << " | " <<  setw(15) << " PRIJMENI " << " | " <<  setw(15) << " ZAJETYCH KOL " << endl;
-    for(int i = 0; i < 57; i++)
+
+    cout << " ID " << " | " << setw(10) << " JMENO " << " | " <<  setw(10) << " PRIJMENI " << " | " << "KOL |" << setw(13) << " NEJLEPSI |"<< setw(13) << " NEJHORSI |"<< setw(13) << " PRUMERNY"<<endl;
+    for(int i = 0; i < 78; i++)
         cout << "-";
     cout << endl;
 
 
     try{
-        for(int i = 0; i < pocet; i++)
-            cout << setw(4) << jezdci.at(i).id_j << " | " << setw(15) << jezdci.at(i).jmeno << " | " <<  setw(15) <<  jezdci.at(i).prijmeni << " |" << setw(13) << jezdci.at(i).poc_kol << " |"<< endl;
+        for(int i = 0; i < pocet; i++){
+            cout << setw(4) << jezdci.at(i).id_j << " | " << setw(10) << jezdci.at(i).jmeno << " | " <<  setw(10) <<  jezdci.at(i).prijmeni << " |" << setw(4) << jezdci.at(i).poc_kol << " |"
+            << setw(11) << msNaCas(jezdci.at(i).nejrychlejsi) << " |" << setw(11) << msNaCas(jezdci.at(i).nejpomalejsi) << " |" << setw(13) << msNaCas(jezdci.at(i).prumerny) << endl;
+        }
+
         cout << endl;
     }
     catch (out_of_range e){

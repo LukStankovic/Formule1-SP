@@ -34,6 +34,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="includes/cas/cas.cpp" />
+		<Unit filename="includes/cas/cas.h" />
 		<Unit filename="includes/funkce/funkce.cpp" />
 		<Unit filename="includes/funkce/funkce.h" />
 		<Unit filename="includes/jezdec/jezdec.cpp" />

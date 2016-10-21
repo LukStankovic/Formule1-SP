@@ -28,9 +28,13 @@ void naplnitCas(ifstream &f, vector<TCAS> &casy){
 
         casy.at(i).cas = radek_v_csv.at(0);
         casy.at(i).id_j = stoi(radek_v_csv.at(1));
-        casy.at(i).cas_ms = 0;
+        casy.at(i).id_c = stoi(radek_v_csv.at(2));
 
         // PREPOCET NA MS
+
+        vector<string> pouze_cas(3);
+        rozdelitString(':',radek_v_csv.at(0),pouze_cas);
+        casy.at(i).cas_ms = casNaMs(pouze_cas);
 
 
         i++;
@@ -50,7 +54,6 @@ void vypisCasu(vector<TCAS> const &casy, int pocet){
     for(int i = 0; i < 57; i++)
         cout << "-";
     cout << endl;
-
 
     try{
         for(int i = 0; i < pocet; i++)

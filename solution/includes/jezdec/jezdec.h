@@ -22,6 +22,9 @@ typedef struct{
 
     int poc_kol;
 
+    double prumerny;
+    unsigned nejrychlejsi;
+    unsigned nejpomalejsi;
 
 }TJEZDEC;
 

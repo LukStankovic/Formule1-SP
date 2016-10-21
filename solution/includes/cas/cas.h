@@ -13,6 +13,7 @@ using namespace std;
  */
 
 typedef struct{
+    int id_c;
     int id_j;
     string cas;
     unsigned int cas_ms;

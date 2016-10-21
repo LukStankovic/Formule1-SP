@@ -72,3 +72,46 @@ int pocetZaznamu(ifstream &f){
 
     return pocet;
 }
+
+unsigned casNaMs(vector<string> cas){
+    return ( ( stoi(cas.at(0)) *60 + stoi(cas.at(1)) ) * 1000 + stoi(cas.at(2)) );
+}
+
+void msNaCasRozdelene(unsigned ms, vector<int> &cas){
+    int tmp;
+
+    tmp = ms/1000;
+
+    cas.at(0) = tmp/60;
+    cas.at(1) = (tmp%1000) - cas.at(0)*60;
+    cas.at(2) = ms%1000;
+}
+
+string msNaCas(unsigned ms){
+    int tmp, minuty = 0, sekundy = 0, setiny = 0;
+
+    tmp = ms/1000;
+
+    minuty = tmp/60;
+    sekundy = (tmp%1000) - minuty*60;
+    setiny = ms%1000;
+
+    string retezec = to_string(minuty) + ":" + to_string(sekundy) + ":" + to_string(setiny);
+
+    return retezec;
+}
+
+void vypisMenu(){
+    cout << endl;
+    for (int i = 0; i < 30; i++)
+        cout << "=";
+    cout << endl;
+    cout << "1  -  Vypis vsech jezdcu " << endl
+         << "2  -  Vypis vsech zajetych kol" << endl
+         << "0  -  Ukonceni programu" << endl;
+
+
+    for (int i = 0; i < 30; i++)
+        cout << "=";
+    cout << endl;
+}
