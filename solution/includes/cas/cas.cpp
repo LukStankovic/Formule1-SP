@@ -15,6 +15,11 @@
 
 
 /// NAPLNI STRUKTURU DATY ZE SOUBORU
+/**
+ * @brief Naplni strukturu TCAS datdy z csv souboru
+ * @param f              Soubor ze ktereho se nacitaji jezdci
+ * @param casy           Vektor struktury TCAS do ktereho se vkladaji casy okruhu
+ */
 void naplnitCas(ifstream &f, vector<TCAS> &casy){
 
     int i = 0;
@@ -44,8 +49,12 @@ void naplnitCas(ifstream &f, vector<TCAS> &casy){
     f.seekg(0);
 }
 
-/// VYPISE TABULKU DO KONZOLE SE VSEMI CASY
-void vypisCasu(vector<TCAS> const &casy, int pocet){
+
+/**
+ * @brief Vypise seznam okruhu do konzole
+ * @param casy         Vektor struktury TCAS ze ktereho se cerpa
+ */
+void vypisCasu(const vector<TCAS> &casy){
 
     cout << endl << "VYPIS VSECH CASU" << endl
                  << "----------------" << endl << "/Pro spravne zobrazeni je nutne si zvetsit okno konzole!/" << endl << endl;
@@ -56,7 +65,7 @@ void vypisCasu(vector<TCAS> const &casy, int pocet){
     cout << endl;
 
     try{
-        for(int i = 0; i < pocet; i++)
+        for(int i = 0; i < casy.size(); i++)
             cout << setw(11) << casy.at(i).id_j << " | " << setw(15) << casy.at(i).cas << " | " <<  setw(15) <<  casy.at(i).cas_ms << " |"<< endl;
         cout << endl;
     }

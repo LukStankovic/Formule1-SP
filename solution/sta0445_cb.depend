@@ -17,7 +17,7 @@
 	<iostream>
 	<string>
 
-1477084682 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/jezdec/jezdec.cpp
+1477087458 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/jezdec/jezdec.cpp
 	<vector>
 	<fstream>
 	<iostream>
@@ -27,10 +27,10 @@
 
 1477085161 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/funkce/funkce.h
 
-1477084713 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/jezdec/jezdec.h
+1477087344 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/jezdec/jezdec.h
 	"../cas/cas.h"
 
-1477062275 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/cas/cas.cpp
+1477087508 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/cas/cas.cpp
 	<vector>
 	<fstream>
 	<iostream>
@@ -39,5 +39,5 @@
 	"../jezdec/jezdec.h"
 	"../funkce/funkce.h"
 
-1477085339 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/cas/cas.h
+1477087529 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/cas/cas.h
 

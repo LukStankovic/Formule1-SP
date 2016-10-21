@@ -55,10 +55,10 @@ int main(){
 
         switch(volba){
             case 1:{
-                vypisJezdcu(vsichni,pocet_jezdcu);
+                vypisJezdcu(vsichni);
             }break;
             case 2:{
-                vypisCasu(casy,pocet_casu);
+                vypisCasu(casy);
             }break;
             case 0:{
                 return 0;

@@ -30,6 +30,6 @@ typedef struct{
 void naplnitJezdce(ifstream &f, vector<TJEZDEC> &jezdci, vector<TCAS> &casy, int pocet_casu);
 
 /// VYPISE SEZNAM JEZDCU DO KONZOLE
-void vypisJezdcu(vector<TJEZDEC> const &jezdci, int pocet);
+void vypisJezdcu(const vector<TJEZDEC> &jezdci);
 
 #endif

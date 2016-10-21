@@ -15,7 +15,13 @@
 
 using namespace std;
 
-/// NAPLNI STRUKTURU TJEZDEC DATY Z CSV SOUBORU
+/**
+ * @brief Naplni strukturu TJEZDEC daty z csv souboru
+ * @param f              Soubor ze ktereho se nacitaji jezdci
+ * @param jezdci         Vektor struktury TJEZDEC do ktereho se bude ukladat
+ * @param casy           Vektor struktury TCAS ze ktereho se nacitaji casy okruhu
+ * @param jezdci         Pocet zajetych okruhu
+ */
 void naplnitJezdce(ifstream &f, vector<TJEZDEC> &jezdci, vector<TCAS> &casy, int pocet_casu){
 
     int i = 0;
@@ -75,9 +81,11 @@ void naplnitJezdce(ifstream &f, vector<TJEZDEC> &jezdci, vector<TCAS> &casy, int
     f.seekg(0);
 }
 
-
-/// VYPISE SEZNAM JEZDCU DO KONZOLE
-void vypisJezdcu(vector<TJEZDEC> const &jezdci, int pocet){
+/**
+ * @brief Vypise seznam jezdcu do konzole
+ * @param jezdci         Vektor struktury TJEZDEC ze ktereho se cerpa
+ */
+void vypisJezdcu(const vector<TJEZDEC> &jezdci){
 
     cout << endl << "VYPIS VSECH JEZDCU" << endl
                  << "------------------" << endl << "/Pro spravne zobrazeni je nutne si zvetsit okno konzole!/" << endl << endl;
@@ -90,7 +98,7 @@ void vypisJezdcu(vector<TJEZDEC> const &jezdci, int pocet){
 
 
     try{
-        for(int i = 0; i < pocet; i++){
+        for(int i = 0; i < jezdci.size(); i++){
             cout << setw(4) << jezdci.at(i).id_j << " | " << setw(10) << jezdci.at(i).jmeno << " | " <<  setw(10) <<  jezdci.at(i).prijmeni << " |" << setw(4) << jezdci.at(i).poc_kol << " |"
             << setw(11) << msNaCas(jezdci.at(i).nejrychlejsi) << " |" << setw(11) << msNaCas(jezdci.at(i).nejpomalejsi) << " |" << setw(13) << msNaCas(jezdci.at(i).prumerny) << endl;
         }

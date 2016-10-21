@@ -11,8 +11,13 @@
 
 using namespace std;
 
-/// ROZDELI STRING PODLE DELICE DO VEKTORU
-void rozdelitString(char delic, string retezec,vector<string>& pole){
+/**
+ * @brief Rozdeli string podle delice do vektoru stringu
+ * @param delic          Znak, pomoci ktereho se rozdeluje string
+ * @param retezec        String, ktery se bude delit
+ * @param pole           Vektor s rozdelenym stringem, vraci se pomoci reference
+ */
+void rozdelitString(char delic, string retezec,vector<string> &pole){
 
     int delka_retezce = retezec.length();
     int index_minuly_delic = 0;
@@ -44,8 +49,12 @@ void rozdelitString(char delic, string retezec,vector<string>& pole){
 
 }
 
-
-/// VRATI POCET ZAZNAMU (RADKU) V SOUBORU
+/**
+ * @brief Vrati pocet bunek v stringu (radku), zjistuje pomoci delice
+ * @param delic          Znak, pomoci ktereho se rozdeluje string
+ * @param retezec        String, ktery se bude delit
+ * @return Funkce vraci pocet bunek oddelenych delicem
+ */
 int pocetBunekVRadku(char delic, string retezec){
 
     int pocet = 0;
@@ -58,7 +67,11 @@ int pocetBunekVRadku(char delic, string retezec){
 
 }
 
-/// VRATI POCET BUNEK V STRINGU (RADKU), ZJISTUJE POMOCI DELICE
+/**
+ * @brief Vrati pocet zaznamu (radku) v souboru
+ * @param f          Soubor ve kterem se pocitaji radky
+ * @return Vraci pocet zaznamu v danem souboru
+ */
 int pocetZaznamu(ifstream &f){
     int pocet = 0;
     string radek;
@@ -74,11 +87,22 @@ int pocetZaznamu(ifstream &f){
 }
 
 /// VRATI CAS V MS ZE STRINGU
+
+/**
+ * @brief Prevadi cas na ms ze stringu
+ * @param cas          Vector stringu ze ktereho se bere cas
+ * @return Vraci milisekundy
+ */
 unsigned casNaMs(vector<string> cas){
     return ( ( stoi(cas.at(0)) *60 + stoi(cas.at(1)) ) * 1000 + stoi(cas.at(2)) );
 }
 
-/// POSILA REFERENCI VEKTORU S CASEM ROZDELENYM NA MINUTY, VTERINY, SETINY
+
+/**
+ * @brief Posila referenci vektoru s casem rozdelenym na minuty, vteriny, setiny
+ * @param ms           Cas v milisekundach
+ * @param cas          Vektor intu do ktereho se posila
+ */
 void msNaCasRozdelene(unsigned ms, vector<int> &cas){
     int tmp;
 
@@ -89,7 +113,11 @@ void msNaCasRozdelene(unsigned ms, vector<int> &cas){
     cas.at(2) = ms%1000;
 }
 
-/// VRATI STRING S CASEM VE FORMATU MIN:SEK:SET
+/**
+ * @brief Vrati string s casem
+ * @param ms           Cas v milisekundach
+ * @return Vrati string s casem ve formatu min:sek:set
+ */
 string msNaCas(unsigned ms){
     int tmp, minuty = 0, sekundy = 0, setiny = 0;
 
@@ -105,6 +133,10 @@ string msNaCas(unsigned ms){
 }
 
 /// VYPISE DO KONZOLE MENU
+
+/**
+ * @brief Vypise do konzole menu
+ */
 void vypisMenu(){
     cout << endl;
     for (int i = 0; i < 30; i++)

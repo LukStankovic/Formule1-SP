@@ -22,6 +22,6 @@ typedef struct{
 void naplnitCas(ifstream &f, vector<TCAS> &casy);
 
 /// VYPISE TABULKU DO KONZOLE SE VSEMI CASY
-void vypisCasu(vector<TCAS> const &casy, int pocet);
+void vypisCasu(const vector<TCAS> &casy);
 
 #endif
