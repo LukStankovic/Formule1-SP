@@ -1,15 +1,14 @@
 #ifndef CASY_H
 #define CASY_H
 
-
 using namespace std;
 
 /** @struct TCAS
  *  @brief Struktura pro uchovavani dat jezdcu
- *  @param TJEZDEC.id_j          Specificke ID urcene pro identifikaci jezdce
+ *  @param TJEZDEC.id_c          Specificke ID urcene pro identifikaci casu - PK
+ *  @param TJEZDEC.id_j          Specificke ID urcene pro identifikaci jezdce - FK
  *  @param TJEZDEC.cas           Cas kola v retezci
  *  @param TJEZDEC.cas_ms        Cas kola prevedeny na ms
-
  */
 
 typedef struct{
@@ -19,7 +18,10 @@ typedef struct{
     unsigned int cas_ms;
 }TCAS;
 
+/// NAPLNI STRUKTURU DATY ZE SOUBORU
 void naplnitCas(ifstream &f, vector<TCAS> &casy);
+
+/// VYPISE TABULKU DO KONZOLE SE VSEMI CASY
 void vypisCasu(vector<TCAS> const &casy, int pocet);
 
 #endif

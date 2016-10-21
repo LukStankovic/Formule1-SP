@@ -1,6 +1,5 @@
 /**
- * @brief Funkce pro praci s jezdcem
- * @file main.cpp
+ * @brief Funkce pro praci s casem
  * @author Lukas Stankovic
  * @mainpage STA0445 - Formule 1
  */
@@ -14,41 +13,42 @@
 #include "../jezdec/jezdec.h"
 #include "../funkce/funkce.h"
 
+
+/// NAPLNI STRUKTURU DATY ZE SOUBORU
 void naplnitCas(ifstream &f, vector<TCAS> &casy){
 
     int i = 0;
-    int velikost;
     string radek;
 
     while(getline(f,radek)){
+        /// ZJISTENI POCET BUNEK V CSV SOUBORU A NASLEDNE VYTVORENI VEKTORU
         int poc_bunek = pocetBunekVRadku(';',radek);
         vector<string> radek_v_csv(poc_bunek);
 
+        /// ROZDELI RADEK DO BUNEK
         rozdelitString(';',radek,radek_v_csv);
 
         casy.at(i).cas = radek_v_csv.at(0);
         casy.at(i).id_j = stoi(radek_v_csv.at(1));
         casy.at(i).id_c = stoi(radek_v_csv.at(2));
 
-        // PREPOCET NA MS
-
+        /// PREPOCET ZE STRINGU NA MS
         vector<string> pouze_cas(3);
         rozdelitString(':',radek_v_csv.at(0),pouze_cas);
         casy.at(i).cas_ms = casNaMs(pouze_cas);
 
-
         i++;
     }
-    // NA ZACATEK SOUBORU
+    /// PRESUNUTI "KURZORU" NA ZACATEK SOUBORU
     f.clear();
     f.seekg(0);
 }
 
-
+/// VYPISE TABULKU DO KONZOLE SE VSEMI CASY
 void vypisCasu(vector<TCAS> const &casy, int pocet){
 
-    cout << endl << "VYPIS VSECH CASU" << endl;
-    cout << "------------------" << endl << endl;
+    cout << endl << "VYPIS VSECH CASU" << endl
+                 << "----------------" << endl << "/Pro spravne zobrazeni je nutne si zvetsit okno konzole!/" << endl << endl;
 
     cout << setw(10) << " ID JEZDCE " << " | " << setw(15) << " CAS " << " | " <<  setw(15) << " CAS V MS " << endl;
     for(int i = 0; i < 57; i++)

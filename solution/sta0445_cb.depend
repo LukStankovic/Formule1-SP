@@ -1,23 +1,23 @@
 # depslib dependency file v1.0
-1477036741 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/main.cpp
+1477084416 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/main.cpp
 	<iostream>
 	<fstream>
 	<string>
 	<vector>
+	<algorithm>
 	"includes/funkce/funkce.h"
 	"includes/jezdec/jezdec.h"
 	"includes/cas/cas.h"
 
 1476904999 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/jezdec/jezdec.h
 
-1477040649 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/funkce/funkce.cpp
+1477085197 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/funkce/funkce.cpp
 	<fstream>
 	<vector>
 	<iostream>
 	<string>
-	"../jezdec/jezdec.h"
 
-1477040776 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/jezdec/jezdec.cpp
+1477084682 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/jezdec/jezdec.cpp
 	<vector>
 	<fstream>
 	<iostream>
@@ -25,12 +25,12 @@
 	"jezdec.h"
 	"../funkce/funkce.h"
 
-1477040645 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/funkce/funkce.h
+1477085161 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/funkce/funkce.h
 
-1477041103 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/jezdec/jezdec.h
+1477084713 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/jezdec/jezdec.h
 	"../cas/cas.h"
 
-1477036881 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/cas/cas.cpp
+1477062275 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/cas/cas.cpp
 	<vector>
 	<fstream>
 	<iostream>
@@ -39,5 +39,5 @@
 	"../jezdec/jezdec.h"
 	"../funkce/funkce.h"
 
-1477001269 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/cas/cas.h
+1477085339 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/cas/cas.h
 

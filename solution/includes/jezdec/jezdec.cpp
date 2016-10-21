@@ -1,7 +1,5 @@
 /**
  * @brief Funkce pro praci s jezdcem
- * @file main.cpp
- * @author Lukas Stankovic
  * @mainpage STA0445 - Formule 1
  */
 
@@ -17,24 +15,28 @@
 
 using namespace std;
 
+/// NAPLNI STRUKTURU TJEZDEC DATY Z CSV SOUBORU
 void naplnitJezdce(ifstream &f, vector<TJEZDEC> &jezdci, vector<TCAS> &casy, int pocet_casu){
 
     int i = 0;
     string radek;
 
     while(getline(f,radek)){
+        /// ZJISTENI POCET BUNEK V CSV SOUBORU A NASLEDNE VYTVORENI VEKTORU
         int poc_bunek = pocetBunekVRadku(';',radek);
         vector<string> radek_v_csv(poc_bunek);
 
+        /// ROZDELI RADEK DO BUNEK
         rozdelitString(';',radek,radek_v_csv);
 
         jezdci.at(i).id_j = stoi(radek_v_csv.at(2));
         jezdci.at(i).jmeno = radek_v_csv.at(0);
         jezdci.at(i).prijmeni = radek_v_csv.at(1);
 
-        // POCET KOL
+        /// VKLADANI ZAJETYCH KOL ZE STRUKTURY TCAS A ZJISTOVANI NEJLEPSIHO, NEJHORSIHO A PRUMERNEHO CASU
+
         unsigned nejmensi_cas = 100000000, nejvetsi_cas = 0;
-        long unsigned celkovy = 0;
+        unsigned long celkovy = 0;
 
         for(int j = 0; j < pocet_casu; j++){
             if(casy.at(j).id_j == jezdci.at(i).id_j){
@@ -44,7 +46,6 @@ void naplnitJezdce(ifstream &f, vector<TJEZDEC> &jezdci, vector<TCAS> &casy, int
 
                 if(casy.at(j).cas_ms < nejmensi_cas)
                     nejmensi_cas = casy.at(j).cas_ms;
-
 
                 if(casy.at(j).cas_ms > nejvetsi_cas)
                     nejvetsi_cas = casy.at(j).cas_ms;
@@ -69,17 +70,17 @@ void naplnitJezdce(ifstream &f, vector<TJEZDEC> &jezdci, vector<TCAS> &casy, int
 
         i++;
     }
-    // NA ZACATEK SOUBORU
+    /// PRESUNE "KURZOR" ZPET NA ZACETEK SOUBORU
     f.clear();
     f.seekg(0);
 }
 
 
-
+/// VYPISE SEZNAM JEZDCU DO KONZOLE
 void vypisJezdcu(vector<TJEZDEC> const &jezdci, int pocet){
 
-    cout << endl << "VYPIS VSECH JEZDCU" << endl;
-    cout << "------------------" << endl << "/Pro spravne zobrazeni je nutne si zvetsit okno konzole!/" << endl << endl;
+    cout << endl << "VYPIS VSECH JEZDCU" << endl
+                 << "------------------" << endl << "/Pro spravne zobrazeni je nutne si zvetsit okno konzole!/" << endl << endl;
 
 
     cout << " ID " << " | " << setw(10) << " JMENO " << " | " <<  setw(10) << " PRIJMENI " << " | " << "KOL |" << setw(13) << " NEJLEPSI |"<< setw(13) << " NEJHORSI |"<< setw(13) << " PRUMERNY"<<endl;

@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 
 #include "includes/funkce/funkce.h"
@@ -10,38 +11,32 @@
 
 /**
  * @brief Hlavni soubor programu
- * @file main.cpp
  * @author Lukas Stankovic
  * @mainpage STA0445 - Formule 1
  */
 
 using namespace std;
 
-
 int main(){
-    int volba;
+
 
     ifstream f_jezdci("Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/vstupnidata/jezdci.csv");
-
-    if(!(f_jezdci.is_open())){
-        cout << "Chyba pri nacitani souboru s jezdci! Chyba: " << strerror(errno) << endl;
+    if(f_jezdci.fail()){
+        cout << endl << "Chyba pri nacitani souboru s jezdci! " << "Nazev chyby: " << strerror(errno) << endl;
         return 0;
     }
 
     ifstream f_casy("Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/vstupnidata/casy.csv");
-
-    if(!(f_casy.is_open())){
-        cout << "Chyba pri nacitani souboru s casy! Chyba: " << strerror(errno) << endl;
+    if(f_casy.fail()){
+        cout << endl << "Chyba pri nacitani souboru s casy! " << "Nazev chyby: " << strerror(errno) << endl;
         return 0;
     }
-
-
 
 
     int pocet_jezdcu = pocetZaznamu(f_jezdci);
     int pocet_casu = pocetZaznamu(f_casy);
 
-
+    /// VYTVORENI VEKTORU STRUKTUR S CASY A JEZDCI
 
     vector<TCAS> casy(pocet_casu);
     naplnitCas(f_casy,casy);
@@ -49,7 +44,7 @@ int main(){
     vector<TJEZDEC> vsichni(pocet_jezdcu);
     naplnitJezdce(f_jezdci,vsichni,casy,pocet_casu);
 
-
+    int volba;
 
     while(true){
 
@@ -65,8 +60,6 @@ int main(){
             case 2:{
                 vypisCasu(casy,pocet_casu);
             }break;
-
-
             case 0:{
                 return 0;
             }break;
@@ -78,7 +71,5 @@ int main(){
         }
 
     }
-
-
     return 0;
 }
