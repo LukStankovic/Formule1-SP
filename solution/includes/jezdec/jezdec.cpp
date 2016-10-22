@@ -91,16 +91,16 @@ void vypisJezdcu(const vector<TJEZDEC> &jezdci){
                  << "------------------" << endl << "/Pro spravne zobrazeni je nutne si zvetsit okno konzole!/" << endl << endl;
 
 
-    cout << " ID " << " | " << setw(10) << " JMENO " << " | " <<  setw(10) << " PRIJMENI " << " | " << "KOL |" << setw(13) << " NEJLEPSI |"<< setw(13) << " NEJHORSI |"<< setw(13) << " PRUMERNY"<<endl;
+    cout << setw(4) << "P " << " | "<< " ID " << " | " << setw(10) << " JMENO " << " | " <<  setw(10) << " PRIJMENI " << " | " << "KOL |" << setw(11) << " NEJLEPSI |"<< setw(11) << " NEJHORSI |"<< setw(9) << " PRUMERNY"<<endl;
     for(int i = 0; i < 78; i++)
-        cout << "-";
+        cout << "=";
     cout << endl;
 
 
     try{
         for(int i = 0; i < jezdci.size(); i++){
-            cout << setw(4) << jezdci.at(i).id_j << " | " << setw(10) << jezdci.at(i).jmeno << " | " <<  setw(10) <<  jezdci.at(i).prijmeni << " |" << setw(4) << jezdci.at(i).poc_kol << " |"
-            << setw(11) << msNaCas(jezdci.at(i).nejrychlejsi) << " |" << setw(11) << msNaCas(jezdci.at(i).nejpomalejsi) << " |" << setw(13) << msNaCas(jezdci.at(i).prumerny) << endl;
+            cout << setw(3) << i+1 <<". | " << setw(4) << jezdci.at(i).id_j << " | " << setw(10) << jezdci.at(i).jmeno << " | " <<  setw(10) <<  jezdci.at(i).prijmeni << " |" << setw(4) << jezdci.at(i).poc_kol << " |"
+            << setw(9) << msNaCas(jezdci.at(i).nejrychlejsi) << " |" << setw(9) << msNaCas(jezdci.at(i).nejpomalejsi) << " |" << setw(9) << msNaCas(jezdci.at(i).prumerny) << endl;
         }
 
         cout << endl;
@@ -109,5 +109,34 @@ void vypisJezdcu(const vector<TJEZDEC> &jezdci){
         cout << endl << "Zachycena vyjimka! "<< endl;
         cout << "Jeji popis: " << e.what() <<endl;
     }
+}
+
+/**
+ * @brief Vraci pro funkci sort() ktery zaznam je mensi
+ * @param a        Struktura TJEZDEC - prvni jezdec
+ * @param b        Struktura TJEZDEC - druhy jezdec
+ * @return Vraci true pokud je a rychlejsi, false pokud je a pomalejsi
+ */
+bool je_rychlejsi(const TJEZDEC &a, const TJEZDEC &b){
+    /**
+        OSETRENI ZDA NEMA CAS 0 MS
+            - 0ms znamena prazdna hodnota - jezdec nezajel ani jedno kolo
+            - proto ulozime do pomocne promenne velkou hodnotu
+    */
+
+    unsigned pom_a, pom_b;
+
+    if(a.nejrychlejsi == 0)
+        pom_a = 1000000000;
+    else
+        pom_a = a.nejrychlejsi;
+
+    if(b.nejrychlejsi == 0)
+        pom_b = 1000000000;
+    else
+        pom_b = b.nejrychlejsi;
+
+    /// POROVNANI
+    return pom_a < pom_b;
 
 }

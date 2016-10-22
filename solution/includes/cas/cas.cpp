@@ -61,7 +61,7 @@ void vypisCasu(const vector<TCAS> &casy){
 
     cout << setw(10) << " ID JEZDCE " << " | " << setw(15) << " CAS " << " | " <<  setw(15) << " CAS V MS " << endl;
     for(int i = 0; i < 57; i++)
-        cout << "-";
+        cout << "=";
     cout << endl;
 
     try{

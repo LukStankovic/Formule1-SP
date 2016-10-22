@@ -32,4 +32,5 @@ void naplnitJezdce(ifstream &f, vector<TJEZDEC> &jezdci, vector<TCAS> &casy, int
 /// VYPISE SEZNAM JEZDCU DO KONZOLE
 void vypisJezdcu(const vector<TJEZDEC> &jezdci);
 
+bool je_rychlejsi(const TJEZDEC &a, const TJEZDEC &b);
 #endif

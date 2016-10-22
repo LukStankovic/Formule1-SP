@@ -132,8 +132,6 @@ string msNaCas(unsigned ms){
     return retezec;
 }
 
-/// VYPISE DO KONZOLE MENU
-
 /**
  * @brief Vypise do konzole menu
  */

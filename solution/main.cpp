@@ -44,6 +44,10 @@ int main(){
     vector<TJEZDEC> vsichni(pocet_jezdcu);
     naplnitJezdce(f_jezdci,vsichni,casy,pocet_casu);
 
+    /// SETRIZENI JEZDCU
+
+    sort(vsichni.begin(),vsichni.end(),je_rychlejsi);
+
     int volba;
 
     while(true){
