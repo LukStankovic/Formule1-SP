@@ -88,7 +88,7 @@ void naplnitJezdce(ifstream &f, vector<TJEZDEC> &jezdci, vector<TCAS> &casy, int
 void vypisJezdcu(const vector<TJEZDEC> &jezdci){
 
     cout << endl << "VYPIS VSECH JEZDCU" << endl
-                 << "------------------" << endl << "/Pro spravne zobrazeni je nutne si zvetsit okno konzole!/" << endl << endl;
+                 << "------------------" << endl << " / Pro spravne zobrazeni je nutne si zvetsit okno konzole! / " << endl << endl;
 
 
     cout << setw(4) << "P " << " | "<< " ID " << " | " << setw(10) << " JMENO " << " | " <<  setw(10) << " PRIJMENI " << " | " << "KOL |" << setw(11) << " NEJLEPSI |"<< setw(11) << " NEJHORSI |"<< setw(9) << " PRUMERNY"<<endl;
@@ -102,14 +102,41 @@ void vypisJezdcu(const vector<TJEZDEC> &jezdci){
             cout << setw(3) << i+1 <<". | " << setw(4) << jezdci.at(i).id_j << " | " << setw(10) << jezdci.at(i).jmeno << " | " <<  setw(10) <<  jezdci.at(i).prijmeni << " |" << setw(4) << jezdci.at(i).poc_kol << " |"
             << setw(9) << msNaCas(jezdci.at(i).nejrychlejsi) << " |" << setw(9) << msNaCas(jezdci.at(i).nejpomalejsi) << " |" << setw(9) << msNaCas(jezdci.at(i).prumerny) << endl;
         }
-
-        cout << endl;
     }
     catch (out_of_range e){
         cout << endl << "Zachycena vyjimka! "<< endl;
         cout << "Jeji popis: " << e.what() <<endl;
     }
+
+    cout << endl;
 }
+
+/**
+ * @brief Vypisuje postupujici jezdce, pocet zadava uzivatel
+ * @param jezdci             Vektor strukutry TJEZDEC
+ * @param pocet_postupujich  Kolik jich postupuje (se vypise)
+ */
+void vypisPostupujicich(const vector<TJEZDEC> &jezdci, const int &pocet_postupujicich){
+
+    cout << setw(4) << "P " << " | "<< " ID " << " | " << setw(10) << " JMENO " << " | " <<  setw(10) << " PRIJMENI " << " | " << "KOL |" << setw(11) << " NEJLEPSI |"<< setw(11) << " NEJHORSI |"<< setw(9) << " PRUMERNY"<<endl;
+    for(int i = 0; i < 78; i++)
+        cout << "=";
+    cout << endl;
+
+    try{
+        for(int i = 0; i < pocet_postupujicich; i++)
+            if(jezdci.at(i).poc_kol != 0)
+                cout << setw(3) << i+1 <<". | " << setw(4) << jezdci.at(i).id_j << " | " << setw(10) << jezdci.at(i).jmeno << " | " <<  setw(10) <<  jezdci.at(i).prijmeni << " |" << setw(4) << jezdci.at(i).poc_kol << " |"
+                << setw(9) << msNaCas(jezdci.at(i).nejrychlejsi) << " |" << setw(9) << msNaCas(jezdci.at(i).nejpomalejsi) << " |" << setw(9) << msNaCas(jezdci.at(i).prumerny) << endl;
+    }
+    catch (out_of_range e){
+        cout << endl << "Zachycena vyjimka! "<< endl;
+        cout << "Jeji popis: " << e.what() <<endl;
+    }
+
+
+}
+
 
 /**
  * @brief Vraci pro funkci sort() ktery zaznam je mensi
@@ -117,7 +144,7 @@ void vypisJezdcu(const vector<TJEZDEC> &jezdci){
  * @param b        Struktura TJEZDEC - druhy jezdec
  * @return Vraci true pokud je a rychlejsi, false pokud je a pomalejsi
  */
-bool je_rychlejsi(const TJEZDEC &a, const TJEZDEC &b){
+bool jezdecJeRychlejsi(const TJEZDEC &a, const TJEZDEC &b){
     /**
         OSETRENI ZDA NEMA CAS 0 MS
             - 0ms znamena prazdna hodnota - jezdec nezajel ani jedno kolo

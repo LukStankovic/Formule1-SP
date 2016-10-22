@@ -140,9 +140,30 @@ void vypisMenu(){
     for (int i = 0; i < 30; i++)
         cout << "=";
     cout << endl;
+
+    /// NADPIS V MENU + ODDELOVAC
+    cout << "Zakladni vypisy do konzole" << endl;
+    for (int i = 0; i < 30; i++)
+        cout << "-";
+    cout << endl;
+
     cout << "1  -  Vypis vsech jezdcu " << endl
          << "2  -  Vypis vsech zajetych kol" << endl
-         << "0  -  Ukonceni programu" << endl;
+         << "3  -  Vypis postupujicich jezdcu" << endl;
+
+    /// NADPIS V MENU + ODDELOVAC
+    cout << endl << "Exporty do HTML" << endl;
+    for (int i = 0; i < 30; i++)
+        cout << "-";
+    cout << endl;
+
+    cout  << "4  -  Export vsech zajetych kol" << endl
+          << "5  -  Export vsech casu" << endl
+          << "6  -  Export postupujicich jezdcu " << endl
+          << "7  -  Export casu daneho jezdce" << endl
+          << "8  -  Export stupne vytezu" << endl;
+
+    cout << endl << "0  -  Ukonceni programu" << endl;
 
     for (int i = 0; i < 30; i++)
         cout << "=";

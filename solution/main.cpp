@@ -45,9 +45,10 @@ int main(){
     naplnitJezdce(f_jezdci,vsichni,casy,pocet_casu);
 
     /// SETRIZENI JEZDCU
+    sort(vsichni.begin(),vsichni.end(),jezdecJeRychlejsi);
 
-    sort(vsichni.begin(),vsichni.end(),je_rychlejsi);
-
+    /// SETRIZENI CASU
+    sort(casy.begin(),casy.end(),casJeRychlejsi);
     int volba;
 
     while(true){
@@ -60,16 +61,37 @@ int main(){
         switch(volba){
             case 1:{
                 vypisJezdcu(vsichni);
+                cout << endl << " / Pro zobrazeni menu stiskente jakoukoli klavesu. /";
+                cin.get();
+                cin.get();
             }break;
             case 2:{
                 vypisCasu(casy);
+                cout << endl << " / Pro zobrazeni menu stiskente jakoukoli klavesu. /";
+                cin.get();
+                cin.get();
+            }break;
+            case 3:{
+                int pocet_postupujicich;
+                do{
+                    cout << "Zadejte kolik jezdcu postupuje: ";
+                    cin >> pocet_postupujicich;
+                    if(pocet_postupujicich > pocet_jezdcu)
+                        cout << " * Nemuze postoupit vice jezdcu nez jich doopravdy existuje!" << endl;
+                }while(pocet_postupujicich > pocet_jezdcu);
+
+                vypisPostupujicich(vsichni, pocet_postupujicich);
+
+                cout << endl << " / Pro zobrazeni menu stiskente jakoukoli klavesu. /";
+                cin.get();
+                cin.get();
             }break;
             case 0:{
                 return 0;
             }break;
 
             default:{
-                cout << "Neexistujici polozka menu." << endl;
+                cout << endl << " / Neexistujici polozka menu. /" << endl;
             }
 
         }

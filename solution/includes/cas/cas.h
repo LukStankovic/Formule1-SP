@@ -24,4 +24,7 @@ void naplnitCas(ifstream &f, vector<TCAS> &casy);
 /// VYPISE TABULKU DO KONZOLE SE VSEMI CASY
 void vypisCasu(const vector<TCAS> &casy);
 
+/// POROVANI CASU
+bool casJeRychlejsi(const TCAS &a, const TCAS &b);
+
 #endif
