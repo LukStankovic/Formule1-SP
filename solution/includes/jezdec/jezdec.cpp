@@ -81,60 +81,106 @@ void naplnitJezdce(ifstream &f, vector<TJEZDEC> &jezdci, vector<TCAS> &casy, int
     f.seekg(0);
 }
 
-/**
- * @brief Vypise seznam jezdcu do konzole
- * @param jezdci         Vektor struktury TJEZDEC ze ktereho se cerpa
- */
-void vypisJezdcu(const vector<TJEZDEC> &jezdci){
-
-    cout << endl << "VYPIS VSECH JEZDCU" << endl
-                 << "------------------" << endl << " / Pro spravne zobrazeni je nutne si zvetsit okno konzole! / " << endl << endl;
-
-
-    cout << setw(4) << "P " << " | "<< " ID " << " | " << setw(10) << " JMENO " << " | " <<  setw(10) << " PRIJMENI " << " | " << "KOL |" << setw(11) << " NEJLEPSI |"<< setw(11) << " NEJHORSI |"<< setw(9) << " PRUMERNY"<<endl;
-    for(int i = 0; i < 78; i++)
-        cout << "=";
-    cout << endl;
-
-
+void vlozitPoradi(vector<TJEZDEC> &jezdci){
     try{
         for(int i = 0; i < jezdci.size(); i++){
-            cout << setw(3) << i+1 <<". | " << setw(4) << jezdci.at(i).id_j << " | " << setw(10) << jezdci.at(i).jmeno << " | " <<  setw(10) <<  jezdci.at(i).prijmeni << " |" << setw(4) << jezdci.at(i).poc_kol << " |"
-            << setw(9) << msNaCas(jezdci.at(i).nejrychlejsi) << " |" << setw(9) << msNaCas(jezdci.at(i).nejpomalejsi) << " |" << setw(9) << msNaCas(jezdci.at(i).prumerny) << endl;
+            jezdci.at(i).poradi = i+1;
         }
     }
     catch (out_of_range e){
         cout << endl << "Zachycena vyjimka! "<< endl;
         cout << "Jeji popis: " << e.what() <<endl;
     }
-
-    cout << endl;
 }
 
+
 /**
- * @brief Vypisuje postupujici jezdce, pocet zadava uzivatel
- * @param jezdci             Vektor strukutry TJEZDEC
+ * @brief Vypise seznam jezdcu do konzole - pouziti i pro postupujici
+ * @param jezdci         Vektor struktury TJEZDEC ze ktereho se cerpa
  * @param pocet_postupujich  Kolik jich postupuje (se vypise)
  */
-void vypisPostupujicich(const vector<TJEZDEC> &jezdci, const int &pocet_postupujicich){
+void vypisJezdcu(const vector<TJEZDEC> &jezdci, const int &pocet){
 
+    cout << endl << "VYPIS JEZDCU" << endl
+                 << "============" << endl
+                 << " / Pro spravne zobrazeni je nutne si zvetsit okno konzole! / " << endl << endl;
+    /// HLAVICKA TABULKY
     cout << setw(4) << "P " << " | "<< " ID " << " | " << setw(10) << " JMENO " << " | " <<  setw(10) << " PRIJMENI " << " | " << "KOL |" << setw(11) << " NEJLEPSI |"<< setw(11) << " NEJHORSI |"<< setw(9) << " PRUMERNY"<<endl;
     for(int i = 0; i < 78; i++)
         cout << "=";
     cout << endl;
 
+    /// TELO TABULKY
     try{
-        for(int i = 0; i < pocet_postupujicich; i++)
-            if(jezdci.at(i).poc_kol != 0)
-                cout << setw(3) << i+1 <<". | " << setw(4) << jezdci.at(i).id_j << " | " << setw(10) << jezdci.at(i).jmeno << " | " <<  setw(10) <<  jezdci.at(i).prijmeni << " |" << setw(4) << jezdci.at(i).poc_kol << " |"
-                << setw(9) << msNaCas(jezdci.at(i).nejrychlejsi) << " |" << setw(9) << msNaCas(jezdci.at(i).nejpomalejsi) << " |" << setw(9) << msNaCas(jezdci.at(i).prumerny) << endl;
+        for(int i = 0; i < pocet; i++){
+            cout << setw(3) << jezdci.at(i).poradi <<". | " << setw(4) << jezdci.at(i).id_j << " | " << setw(10) << jezdci.at(i).jmeno << " | " <<  setw(10) <<  jezdci.at(i).prijmeni << " |" << setw(4) << jezdci.at(i).poc_kol << " |"
+            << setw(9) << msNaCas(jezdci.at(i).nejrychlejsi) << " |" << setw(9) << msNaCas(jezdci.at(i).nejpomalejsi) << " |" << setw(9) << msNaCas(jezdci.at(i).prumerny) << endl;
+        }
     }
     catch (out_of_range e){
-        cout << endl << "Zachycena vyjimka! "<< endl;
-        cout << "Jeji popis: " << e.what() <<endl;
+        cout << endl << " * Chyba. "<< "Jeji popis: " << e.what() << " *" << endl;
+    }
+
+    cout << endl;
+}
+
+void vypisJezdce(const vector<TJEZDEC> &jezdci, string jmeno){
+
+    int poc_bunek = pocetBunekVRadku(' ',jmeno), nalezen = 0;
+    vector<string> rozdelene_jmeno(poc_bunek);
+    vector<TJEZDEC> nalezeni_jezdci;
+
+    /// ROZDELI RADEK DO BUNEK
+    rozdelitString(' ',jmeno,rozdelene_jmeno);
+
+    try{
+        for(int i = 0; i < jezdci.size(); i++){
+
+            if(rozdelene_jmeno.size() == 1){ /// POKUD JE ZADANO JEN JMENO NEBO JEN PRIJMENI
+
+                if(rozdelene_jmeno.at(0) == jezdci.at(i).jmeno || rozdelene_jmeno.at(0) == jezdci.at(i).prijmeni){
+                    nalezen = 1;
+                    nalezeni_jezdci.push_back(jezdci.at(i));
+                }
+            }
+            else if(rozdelene_jmeno.size() == 2){
+                if( (rozdelene_jmeno.at(0) == jezdci.at(i).jmeno || rozdelene_jmeno.at(0) == jezdci.at(i).prijmeni) && (rozdelene_jmeno.at(1) == jezdci.at(i).jmeno || rozdelene_jmeno.at(1) == jezdci.at(i).prijmeni)){
+                    nalezen = 1;
+                    nalezeni_jezdci.push_back(jezdci.at(i));
+                }
+            }
+            else{
+                cout << " * Pravdepodobne jste spatne zadal jmeno." << endl;
+                break;
+            }
+
+        }
+
+    }
+    catch (out_of_range e){
+        cout << endl << " * Chyba! "<< "Jeji popis: " << e.what() << " *" << endl;
     }
 
 
+    /// VYKRESLENI TABULKY AZ TED Z DUVODU ZE BY BYLO NALEZENO VICE JEZDCU
+    if(nalezen == 0)
+        cout << " * Zadny jezdec nebyl nalezen. *" << endl;
+    else{
+        cout << setw(4) << "P " << " | "<< " ID " << " | " << setw(10) << " JMENO " << " | " <<  setw(10) << " PRIJMENI " << " | " << "KOL |" << setw(11) << " NEJLEPSI |"<< setw(11) << " NEJHORSI |"<< setw(9) << " PRUMERNY"<<endl;
+        for(int i = 0; i < 78; i++)
+            cout << "=";
+        cout << endl;
+
+        try{
+            for(int i = 0; i < nalezeni_jezdci.size(); i++)
+                cout << setw(3) << nalezeni_jezdci.at(i).poradi <<". | " << setw(4) << nalezeni_jezdci.at(i).id_j << " | " << setw(10) << nalezeni_jezdci.at(i).jmeno << " | " <<  setw(10) <<  nalezeni_jezdci.at(i).prijmeni << " |" << setw(4) << nalezeni_jezdci.at(i).poc_kol << " |"
+                << setw(9) << msNaCas(nalezeni_jezdci.at(i).nejrychlejsi) << " |" << setw(9) << msNaCas(nalezeni_jezdci.at(i).nejpomalejsi) << " |" << setw(9) << msNaCas(nalezeni_jezdci.at(i).prumerny) << endl;
+        }
+        catch (out_of_range e){
+            cout << endl << " * Chyba! "<< "Jeji popis: " << e.what() << " *" << endl;
+        }
+
+    }
 }
 
 

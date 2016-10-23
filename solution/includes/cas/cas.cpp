@@ -57,7 +57,8 @@ void naplnitCas(ifstream &f, vector<TCAS> &casy){
 void vypisCasu(const vector<TCAS> &casy){
 
     cout << endl << "VYPIS VSECH CASU" << endl
-                 << "----------------" << endl << " / Pro spravne zobrazeni je nutne si zvetsit okno konzole! /" << endl << endl;
+                 << "================" << endl
+                 << " / Pro spravne zobrazeni je nutne si zvetsit okno konzole! /" << endl << endl;
 
     cout << setw(4) << " P " << " | "<< setw(10) << " ID JEZDCE " << " | " << setw(15) << " CAS " << " | " <<  setw(15) << " CAS V MS " << endl;
     for(int i = 0; i < 57; i++)

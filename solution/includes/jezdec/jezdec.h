@@ -24,17 +24,21 @@ typedef struct{
     unsigned nejrychlejsi;
     unsigned nejpomalejsi;
 
+    int poradi;
+
 }TJEZDEC;
 
 /// NAPLNI STRUKTURU TJEZDEC DATY Z CSV SOUBORU
 void naplnitJezdce(ifstream &f, vector<TJEZDEC> &jezdci, vector<TCAS> &casy, int pocet_casu);
 
-/// VYPISE SEZNAM JEZDCU DO KONZOLE
-void vypisJezdcu(const vector<TJEZDEC> &jezdci);
+void vlozitPoradi(vector<TJEZDEC> &jezdci);
 
-/// VYPISE SEZNAM POSTUPUJICICH JEZDCU
-void vypisPostupujicich(const vector<TJEZDEC> &jezdci, const int &pocet_postupujicich);
+/// VYPISE SEZNAM JEZDCU DO KONZOLE - POUZITI I PRO POSTUPUJICI
+void vypisJezdcu(const vector<TJEZDEC> &jezdci, const int &pocet);
+
+void vypisJezdce(const vector<TJEZDEC> &jezdci, string jmeno);
 
 /// POROVNAVANI CASU
 bool jezdecJeRychlejsi(const TJEZDEC &a, const TJEZDEC &b);
+
 #endif
