@@ -158,11 +158,11 @@ void vypisMenu(){
         cout << "-";
     cout << endl;
 
-    cout  << "5  -  Export vsech zajetych kol" << endl
-          << "6  -  Export vsech casu" << endl
+    cout  << "5  -  Export vsech jezdcu" << endl
+          << "6  -  Export vsech zajetych kol" << endl
           << "7  -  Export postupujicich jezdcu " << endl
           << "8  -  Export casu daneho jezdce" << endl
-          << "9  -  Export stupne vytezu" << endl;
+          << "9  -  Export stupne vitezu" << endl;
 
     cout << endl << "0  -  Ukonceni programu" << endl;
 

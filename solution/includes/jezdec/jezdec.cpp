@@ -129,22 +129,36 @@ void vypisJezdce(const vector<TJEZDEC> &jezdci, string jmeno){
     int poc_bunek = pocetBunekVRadku(' ',jmeno), nalezen = 0;
     vector<string> rozdelene_jmeno(poc_bunek);
     vector<TJEZDEC> nalezeni_jezdci;
+    vector<TJEZDEC> jezdci_malym(jezdci.size()); /// POMOCNY VEKTOR STRUKURY TJEZDEC PRO LOWERCASE JEZDCE
+    jezdci_malym = jezdci;  /// PREKOPIROVANI JEZDCU
 
     /// ROZDELI RADEK DO BUNEK
     rozdelitString(' ',jmeno,rozdelene_jmeno);
 
+    /// NUTNO PREDELENAT NA LOWERCASE Z DUVODOU ZE UZIVATL MUZE MIT ZAPNUTY NAPR CAPS LOCK
+    if(rozdelene_jmeno.size() == 1)
+        transform(rozdelene_jmeno.at(0).begin(), rozdelene_jmeno.at(0).end(), rozdelene_jmeno.at(0).begin(),::tolower);
+
+    if(rozdelene_jmeno.size() == 2){
+        transform(rozdelene_jmeno.at(0).begin(), rozdelene_jmeno.at(0).end(), rozdelene_jmeno.at(0).begin(),::tolower);
+        transform(rozdelene_jmeno.at(1).begin(), rozdelene_jmeno.at(1).end(), rozdelene_jmeno.at(1).begin(),::tolower);
+    }
+
     try{
         for(int i = 0; i < jezdci.size(); i++){
 
+            transform(jezdci_malym.at(i).jmeno.begin(), jezdci_malym.at(i).jmeno.end(), jezdci_malym.at(i).jmeno.begin(),::tolower);
+            transform(jezdci_malym.at(i).prijmeni.begin(), jezdci_malym.at(i).prijmeni.end(), jezdci_malym.at(i).prijmeni.begin(),::tolower);
+
             if(rozdelene_jmeno.size() == 1){ /// POKUD JE ZADANO JEN JMENO NEBO JEN PRIJMENI
 
-                if(rozdelene_jmeno.at(0) == jezdci.at(i).jmeno || rozdelene_jmeno.at(0) == jezdci.at(i).prijmeni){
+                if(rozdelene_jmeno.at(0) == jezdci_malym.at(i).jmeno || rozdelene_jmeno.at(0) == jezdci_malym.at(i).prijmeni){
                     nalezen = 1;
                     nalezeni_jezdci.push_back(jezdci.at(i));
                 }
             }
             else if(rozdelene_jmeno.size() == 2){
-                if( (rozdelene_jmeno.at(0) == jezdci.at(i).jmeno || rozdelene_jmeno.at(0) == jezdci.at(i).prijmeni) && (rozdelene_jmeno.at(1) == jezdci.at(i).jmeno || rozdelene_jmeno.at(1) == jezdci.at(i).prijmeni)){
+                if( (rozdelene_jmeno.at(0) == jezdci_malym.at(i).jmeno || rozdelene_jmeno.at(0) == jezdci_malym.at(i).prijmeni) && (rozdelene_jmeno.at(1) == jezdci_malym.at(i).jmeno || rozdelene_jmeno.at(1) == jezdci_malym.at(i).prijmeni)){
                     nalezen = 1;
                     nalezeni_jezdci.push_back(jezdci.at(i));
                 }
@@ -155,14 +169,13 @@ void vypisJezdce(const vector<TJEZDEC> &jezdci, string jmeno){
             }
 
         }
-
     }
     catch (out_of_range e){
         cout << endl << " * Chyba! "<< "Jeji popis: " << e.what() << " *" << endl;
     }
 
 
-    /// VYKRESLENI TABULKY AZ TED Z DUVODU ZE BY BYLO NALEZENO VICE JEZDCU
+    /// VYKRESLENI TABULKY AZ TED Z DUVODU KDYBY BYLO NALEZENO VICE JEZDCU
     if(nalezen == 0)
         cout << " * Zadny jezdec nebyl nalezen. *" << endl;
     else{
@@ -182,6 +195,57 @@ void vypisJezdce(const vector<TJEZDEC> &jezdci, string jmeno){
 
     }
 }
+
+/**
+ * @brief Exportuje seznam jezdcu do html
+ * @param jezdci   Vektor struktury TJEZDEC
+ * @param nazev    Nazev souboru
+ */
+void exportJezdcu(const vector<TJEZDEC> &jezdci, string nazev){
+
+    ofstream exp(nazev);
+
+    exp << "<!doctype html><html lang='cs'><head><meta charset='utf-8'>" << endl
+        << "<title>Vypis vsech jezdcu</title>" << endl
+        << "<style>"<< endl
+        << "body{font-family:sans; text-align: center;}" << endl
+        << "table{margin: 30px auto; text-align: center;}" << endl
+        << "th{border-bottom: 1px solid #000; background: #dcdcdc; padding: 10px 15px;}" << endl
+        << "td{padding: 5px 15px;}" << endl
+        << "tbody tr:nth-child(even){background: #f4f4f4;}" << endl
+        << "tbody tr:nth-child(odd){background: #fff;}" << endl
+        << "h1{font-size:23px}" << endl
+        << "</style>" << endl
+        << "<head>" << endl
+        << "<body>" << endl
+        << "<h1>Vypis vsech jezdcu</h1>" <<  endl
+        << "<table cellspacing='0'>"<< endl
+        << "<thead><tr>" << endl
+        << "<th>Poradi</th><th>ID</th><th>Jmeno</th><th>Prijmeni</th><th>Pocet kol</th><th>Nejrychlejsi kolo</th><th>Nejpomalejsi kolo</th><th>Prumerny cas kola</th>" << endl
+        << "<tr></thead><tbody>" << endl;
+
+    try{
+        for(int i = 0; i < jezdci.size(); i++){
+            exp << "<tr>" << endl;
+                exp << "<td>" << jezdci.at(i).poradi << ". </td>" << endl
+                    << "<td>" << jezdci.at(i).id_j << "</td>" << endl
+                    << "<td>" << jezdci.at(i).jmeno << "</td>" << endl
+                    << "<td>" << jezdci.at(i).prijmeni << "</td>" << endl
+                    << "<td>" << jezdci.at(i).poc_kol << "</td>" << endl
+                    << "<td>" << msNaCas(jezdci.at(i).nejrychlejsi) << "</td>" << endl
+                    << "<td>" << msNaCas(jezdci.at(i).nejpomalejsi) << "</td>" << endl
+                    << "<td>" << msNaCas(jezdci.at(i).prumerny) << "</td>" << endl;
+            exp << "</tr>" << endl;
+        }
+    }
+    catch(out_of_range e){
+        cout << endl << " * Chyba! "<< "Jeji popis: " << e.what() << " *" << endl;
+    }
+
+    exp << "</tbody></table></body></html>" << endl;
+
+}
+
 
 
 /**

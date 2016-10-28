@@ -36,7 +36,10 @@ void vlozitPoradi(vector<TJEZDEC> &jezdci);
 /// VYPISE SEZNAM JEZDCU DO KONZOLE - POUZITI I PRO POSTUPUJICI
 void vypisJezdcu(const vector<TJEZDEC> &jezdci, const int &pocet);
 
+/// VYPIS JEDNOHO JEZDCE
 void vypisJezdce(const vector<TJEZDEC> &jezdci, string jmeno);
+
+void exportJezdcu(const vector<TJEZDEC> &jezdci, string adresa);
 
 /// POROVNAVANI CASU
 bool jezdecJeRychlejsi(const TJEZDEC &a, const TJEZDEC &b);

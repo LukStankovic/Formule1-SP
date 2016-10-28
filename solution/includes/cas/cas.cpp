@@ -79,6 +79,54 @@ void vypisCasu(const vector<TCAS> &casy){
 
 
 /**
+ * @brief Exportuje seznam casu do html
+ * @param jezdci   Vektor struktury TJEZDEC
+ * @param nazev    Nazev souboru
+ */
+void exportCasu(const vector<TCAS> &casy, string nazev){
+
+    ofstream exp(nazev);
+
+    exp << "<!doctype html><html lang='cs'><head><meta charset='utf-8'>" << endl
+        << "<title>Vypis vsech casu</title>" << endl
+        << "<style>"<< endl
+        << "body{font-family:sans; text-align: center;}" << endl
+        << "table{margin: 30px auto; text-align: center;}" << endl
+        << "th{border-bottom: 1px solid #000; background: #dcdcdc; padding: 10px 15px;}" << endl
+        << "td{padding: 5px 15px;}" << endl
+        << "tbody tr:nth-child(even){background: #f4f4f4;}" << endl
+        << "tbody tr:nth-child(odd){background: #fff;}" << endl
+        << "h1{font-size:23px}" << endl
+        << "</style>" << endl
+        << "<head>" << endl
+        << "<body>" << endl
+        << "<h1>Vypis vsech jezdcu</h1>" <<  endl
+        << "<table cellspacing='0'>"<< endl
+        << "<thead><tr>" << endl
+        << "<th>Poradi</th><th>ID casu</th><th>ID jezdce</th><th>Cas</th><th>Cas v milisekundach</th>" << endl
+        << "<tr></thead><tbody>" << endl;
+
+    try{
+        for(int i = 0; i < casy.size(); i++){
+            exp << "<tr>" << endl;
+                exp << "<td>" << i+1 << ". </td>" << endl
+                    << "<td>" << casy.at(i).id_c << "</td>" << endl
+                    << "<td>" << casy.at(i).id_j << "</td>" << endl
+                    << "<td>" << casy.at(i).cas << "</td>" << endl
+                    << "<td>" << casy.at(i).cas_ms << "</td>" << endl;
+            exp << "</tr>" << endl;
+        }
+    }
+    catch(out_of_range e){
+        cout << endl << " * Chyba! "<< "Jeji popis: " << e.what() << " *" << endl;
+    }
+
+    exp << "</tbody></table></body></html>" << endl;
+
+}
+
+
+/**
  * @brief Vraci pro funkci sort() ktery zaznam je mensi
  * @param a        Struktura TCAS - prvni cas
  * @param b        Struktura TCAS - druhy cas

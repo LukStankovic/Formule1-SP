@@ -17,25 +17,22 @@
 
 using namespace std;
 
-int main(){
-    string adresa_f_jezdci, adresa_f_casy;
-/*
+int main(int argc,char** argv){
 
-    cout << "Zadejte adresu souboru pro nacteni jezdcu: " << endl;
-    cin >> adresa_f_jezdci;
-*/
-    ifstream f_jezdci("Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/vstupnidata/jezdci.csv");
+    ifstream f_jezdci(argv[1]);
+
     if(f_jezdci.fail()){
-        cout << endl << " * Chyba pri nacitani souboru s jezdci!" << endl << " * Nazev chyby: " << strerror(errno) << "." << endl;
+        cout << endl << " * Chyba pri nacitani souboru s jezdci!" << endl
+        << " * Nazev chyby: " << strerror(errno) << "." << endl
+        << " / POZNAMKA: Prvni argument je soubor s jezdci, druhy s casy! /" << endl;
         return 0;
     }
-/*
-    cout << "Zadejte adresu souboru pro nacteni casu: " << endl;
-    cin >> adresa_f_casy;
-*/
-    ifstream f_casy("Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/vstupnidata/casy.csv");
+    ifstream f_casy(argv[2]);
+
     if(f_casy.fail()){
-        cout << endl << " * Chyba pri nacitani souboru s casy! *" << endl << " * Nazev chyby: " << strerror(errno) << ". *" << endl;
+        cout << endl << " * Chyba pri nacitani souboru s casy! *" << endl
+        << " * Nazev chyby: " << strerror(errno) << ". *" << endl
+        << " / POZNAMKA: Prvni argument je soubor s jezdci, druhy s casy! /" << endl;
         return 0;
     }
 
@@ -114,10 +111,40 @@ int main(){
                      << "Zadejte jmeno: ";
 
                 cin.clear();
-                getline(cin, jmeno); /// NACTENI JMENA TIMTO ZPUSOBEM Z DUVODU BILYCH ZNAKU
+                getline(cin, jmeno,'\n'); /// NACTENI JMENA TIMTO ZPUSOBEM Z DUVODU BILYCH ZNAKU
 
                 vypisJezdce(vsichni,jmeno);
 
+                cout << endl << " / Pro zobrazeni menu stiskente ENTER. /";
+                cin.ignore(numeric_limits<streamsize>::max(), '\n' );
+            }break;
+
+            case 5:{    /// EXPORT VSECH JEZDCU
+                string adresa;
+                cout <<  endl
+                     << "EXPORT JZDCU" << endl
+                     << "============" << endl << endl
+                     << " / Mozny tvar: /Users/Jmeno/programs/formule/vypis_vsech_jezdcu.html /"<< endl
+                     << " / SOUBOR JE VE FORMATU HTML! /"<< endl << endl
+                     << "Zadejte adresu a nazev souboru: ";
+                getline(cin, adresa,'\n');
+                exportJezdcu(vsichni,adresa);
+                cout << endl << " * Soubor byl uspesne vytvoren. *" << endl;
+                cout << endl << " / Pro zobrazeni menu stiskente ENTER. /";
+                cin.ignore(numeric_limits<streamsize>::max(), '\n' );
+            }break;
+
+            case 6:{    /// EXPORT VSECH KOL
+                string adresa;
+                cout <<  endl
+                     << "EXPORT CASU" << endl
+                     << "===========" << endl << endl
+                     << " / Mozny tvar: /Users/Jmeno/programs/formule/vypis_vsech_jezdcu.html /"<< endl
+                     << " / SOUBOR JE VE FORMATU HTML! /"<< endl << endl
+                     << "Zadejte adresu a nazev souboru: ";
+                getline(cin, adresa,'\n');
+                exportCasu(casy,adresa);
+                cout << endl << " * Soubor byl uspesne vytvoren. *" << endl;
                 cout << endl << " / Pro zobrazeni menu stiskente ENTER. /";
                 cin.ignore(numeric_limits<streamsize>::max(), '\n' );
             }break;
