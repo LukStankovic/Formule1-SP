@@ -8,17 +8,16 @@
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/sta0445_cb" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="../../sta0445" />
 				<Option object_output="obj/Debug" />
 				<Option type="1" />
 				<Option compiler="gcc" />
+				<Option parameters="/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/vstupnidata/jezdci.csv /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/vstupnidata/casy.csv " />
 				<Compiler>
 					<Add option="-g" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/sta0445_cb" prefix_auto="1" extension_auto="1" />
-				<Option working_dir="../../sta0445" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />

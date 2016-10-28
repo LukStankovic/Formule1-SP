@@ -123,6 +123,20 @@ void exportCasu(const vector<TCAS> &casy, string nazev){
 
     exp << "</tbody></table></body></html>" << endl;
 
+    exp.close();
+
+    /// KONTROLA ZDA SE SOUBOR VYTVORIL
+
+    ifstream kontrola(nazev);
+
+    if(kontrola.fail()){
+        cout << endl << " * Neco se pokazilo... Soubor nebyl vytvoren.*" << endl
+             << " * Mozna chyba: Neexistujici adresar nebo edostatecna prava. *" << endl;
+    }
+    else{
+        cout << endl << " * Soubor byl uspesne vytvoren. *" << endl;
+        kontrola.close();
+    }
 }
 
 

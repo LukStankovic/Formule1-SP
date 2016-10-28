@@ -39,7 +39,7 @@ void vypisJezdcu(const vector<TJEZDEC> &jezdci, const int &pocet);
 /// VYPIS JEDNOHO JEZDCE
 void vypisJezdce(const vector<TJEZDEC> &jezdci, string jmeno);
 
-void exportJezdcu(const vector<TJEZDEC> &jezdci, string adresa);
+void exportJezdcu(const vector<TJEZDEC> &jezdci, string nazev, int pocet);
 
 /// POROVNAVANI CASU
 bool jezdecJeRychlejsi(const TJEZDEC &a, const TJEZDEC &b);

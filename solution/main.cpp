@@ -128,8 +128,8 @@ int main(int argc,char** argv){
                      << " / SOUBOR JE VE FORMATU HTML! /"<< endl << endl
                      << "Zadejte adresu a nazev souboru: ";
                 getline(cin, adresa,'\n');
-                exportJezdcu(vsichni,adresa);
-                cout << endl << " * Soubor byl uspesne vytvoren. *" << endl;
+                exportJezdcu(vsichni,adresa,pocet_jezdcu);
+
                 cout << endl << " / Pro zobrazeni menu stiskente ENTER. /";
                 cin.ignore(numeric_limits<streamsize>::max(), '\n' );
             }break;
@@ -144,9 +144,35 @@ int main(int argc,char** argv){
                      << "Zadejte adresu a nazev souboru: ";
                 getline(cin, adresa,'\n');
                 exportCasu(casy,adresa);
-                cout << endl << " * Soubor byl uspesne vytvoren. *" << endl;
+
                 cout << endl << " / Pro zobrazeni menu stiskente ENTER. /";
                 cin.ignore(numeric_limits<streamsize>::max(), '\n' );
+            }break;
+
+            case 7:{    /// EXPORT POSTUPUJICICH JEZDCU
+                string adresa;
+                int pocet_postupujicich;
+
+                cout <<  endl
+                     << "EXPORT POSTUPUJICICH JZDCU" << endl
+                     << "==========================" << endl << endl
+                     << " / Mozny tvar: /Users/Jmeno/programs/formule/vypis_vsech_jezdcu.html /"<< endl
+                     << " / SOUBOR JE VE FORMATU HTML! /"<< endl << endl
+                     << "Zadejte adresu a nazev souboru: ";
+                getline(cin, adresa,'\n');
+
+                do{
+                    cout << "Zadejte kolik jezdcu postupuje: ";
+                    cin >> pocet_postupujicich;
+                    if(pocet_postupujicich > pocet_jezdcu)
+                        cout << " * Nemuze postoupit vice jezdcu nez jich doopravdy existuje! *" << endl;
+                }while(pocet_postupujicich > pocet_jezdcu);
+
+                exportJezdcu(vsichni,adresa,pocet_postupujicich);
+                cin.ignore(numeric_limits<streamsize>::max(), '\n' );
+                cout << endl << " / Pro zobrazeni menu stiskente ENTER. /";
+                cin.ignore(numeric_limits<streamsize>::max(), '\n' );
+
             }break;
 
             case 0:{

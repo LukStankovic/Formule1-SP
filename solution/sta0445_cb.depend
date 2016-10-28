@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1477684622 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/main.cpp
+1477692047 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/main.cpp
 	<iostream>
 	<fstream>
 	<string>
@@ -18,7 +18,7 @@
 	<iostream>
 	<string>
 
-1477684287 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/jezdec/jezdec.cpp
+1477691839 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/jezdec/jezdec.cpp
 	<vector>
 	<fstream>
 	<iostream>
@@ -28,10 +28,10 @@
 
 1477085161 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/funkce/funkce.h
 
-1477684586 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/jezdec/jezdec.h
+1477691667 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/jezdec/jezdec.h
 	"../cas/cas.h"
 
-1477684739 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/cas/cas.cpp
+1477686055 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/cas/cas.cpp
 	<vector>
 	<fstream>
 	<iostream>

@@ -201,7 +201,7 @@ void vypisJezdce(const vector<TJEZDEC> &jezdci, string jmeno){
  * @param jezdci   Vektor struktury TJEZDEC
  * @param nazev    Nazev souboru
  */
-void exportJezdcu(const vector<TJEZDEC> &jezdci, string nazev){
+void exportJezdcu(const vector<TJEZDEC> &jezdci, string nazev, int pocet){
 
     ofstream exp(nazev);
 
@@ -225,7 +225,7 @@ void exportJezdcu(const vector<TJEZDEC> &jezdci, string nazev){
         << "<tr></thead><tbody>" << endl;
 
     try{
-        for(int i = 0; i < jezdci.size(); i++){
+        for(int i = 0; i < pocet; i++){
             exp << "<tr>" << endl;
                 exp << "<td>" << jezdci.at(i).poradi << ". </td>" << endl
                     << "<td>" << jezdci.at(i).id_j << "</td>" << endl
@@ -244,6 +244,20 @@ void exportJezdcu(const vector<TJEZDEC> &jezdci, string nazev){
 
     exp << "</tbody></table></body></html>" << endl;
 
+    exp.close();
+
+    /// KONTROLA ZDA SE SOUBOR VYTVORIL
+
+    ifstream kontrola(nazev);
+
+    if(kontrola.fail()){
+        cout << endl << " * Neco se pokazilo... Soubor nebyl vytvoren.*" << endl
+             << " * Mozna chyba: Neexistujici adresar nebo nedostatecna prava. *" << endl;
+    }
+    else{
+        cout << endl << " * Soubor byl uspesne vytvoren. *" << endl;
+        kontrola.close();
+    }
 }
 
 
