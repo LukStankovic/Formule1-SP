@@ -1,0 +1,5 @@
+Luk‡ä Stankovi‹ (STA0445), cvi‹en’: C/17 pondl’ 10:45 - Formule 1 
+
+1. Klasifikace Formule 1
+
+Kaìdù jezdec móìe pŞi kvalifikaci zajet libovolnù po‹et okruhó a u kaìdho okruhu se jezdci mŞ’ ‹as. ‰as se mŞ’ s pŞesnost’ na milisekundy. Vaä’m œkolem je na‹’st soubor, kterù obsahuje data o kvalifikaci a do souboru vypsat celkov poŞad’ jezdcó od nejlepä’ho po nejhorä’ho (poŞad’ se ur‹uje podle nejlepä’ho ‹asu kaìdho jezdce) a z‡kladn’ statistiku o kaìdm jezdci. Statistika bude obsahovat po‹et zajetùch kol danho jezdce, jeho prómrnù ‹as, nejlepä’ ‹as a nejhorä’ ‹as.

@@ -1,24 +1,24 @@
 # depslib dependency file v1.0
-1477692047 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/main.cpp
+1477996233 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/main.cpp
 	<iostream>
 	<fstream>
 	<string>
 	<vector>
-	<algorithm>
-	<limits>
-	"includes/funkce/funkce.h"
-	"includes/jezdec/jezdec.h"
-	"includes/cas/cas.h"
+	"includes/functions/functions.h"
+	"includes/pilot/pilot.h"
+	"includes/round/round.h"
 
 1476904999 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/jezdec/jezdec.h
 
-1477649751 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/funkce/funkce.cpp
+1477951388 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/funkce/funkce.cpp
 	<fstream>
 	<vector>
 	<iostream>
 	<string>
+	"../jezdec/jezdec.h"
+	"../cas/cas.h"
 
-1477691839 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/jezdec/jezdec.cpp
+1477951398 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/jezdec/jezdec.cpp
 	<vector>
 	<fstream>
 	<iostream>
@@ -26,12 +26,14 @@
 	"jezdec.h"
 	"../funkce/funkce.h"
 
-1477085161 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/funkce/funkce.h
-
-1477691667 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/jezdec/jezdec.h
+1477951339 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/funkce/funkce.h
+	"../jezdec/jezdec.h"
 	"../cas/cas.h"
 
-1477686055 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/cas/cas.cpp
+1477951243 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/jezdec/jezdec.h
+	"../cas/cas.h"
+
+1477951372 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/cas/cas.cpp
 	<vector>
 	<fstream>
 	<iostream>
@@ -40,5 +42,50 @@
 	"../jezdec/jezdec.h"
 	"../funkce/funkce.h"
 
-1477684355 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/cas/cas.h
+1477951274 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/cas/cas.h
+
+1477951686 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/driver/driver.cpp
+	<vector>
+	<fstream>
+	<iostream>
+	<iomanip>
+	"driver.h"
+	"../functions/functions.h"
+
+1477951724 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/driver/driver.h
+	"../round/round.h"
+
+1477996188 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/round/round.h
+
+1477996391 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/functions/functions.h
+	"../pilot/pilot.h"
+	"../round/round.h"
+
+1477996089 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/functions/functions.cpp
+	<fstream>
+	<vector>
+	<iostream>
+	<string>
+	"../pilot/pilot.h"
+	"../round/round.h"
+
+1477996205 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/round/round.cpp
+	<vector>
+	<fstream>
+	<iostream>
+	<iomanip>
+	"round.h"
+	"../pilot/pilot.h"
+	"../functions/functions.h"
+
+1477996182 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/pilot/pilot.h
+	"../round/round.h"
+
+1477996171 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/pilot/pilot.cpp
+	<vector>
+	<fstream>
+	<iostream>
+	<iomanip>
+	"pilot.h"
+	"../functions/functions.h"
 

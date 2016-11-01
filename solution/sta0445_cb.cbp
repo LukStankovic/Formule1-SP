@@ -35,17 +35,26 @@
 		</Compiler>
 		<Unit filename="../vstupnidata/casy.csv" />
 		<Unit filename="../vstupnidata/jezdci.csv" />
-		<Unit filename="includes/cas/cas.cpp" />
-		<Unit filename="includes/cas/cas.h" />
-		<Unit filename="includes/funkce/funkce.cpp" />
-		<Unit filename="includes/funkce/funkce.h" />
-		<Unit filename="includes/jezdec/jezdec.cpp" />
-		<Unit filename="includes/jezdec/jezdec.h" />
+		<Unit filename="includes/functions/functions.cpp" />
+		<Unit filename="includes/functions/functions.h" />
+		<Unit filename="includes/pilot/pilot.cpp" />
+		<Unit filename="includes/pilot/pilot.h" />
+		<Unit filename="includes/round/round.cpp" />
+		<Unit filename="includes/round/round.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
 			<debugger />
+			<DoxyBlocks>
+				<comment_style block="0" line="2" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>
