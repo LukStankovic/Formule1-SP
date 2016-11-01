@@ -1,7 +1,7 @@
 /**
  * @brief Vseobecne funkce
  * @author Lukas Stankovic
- * @file includes/funkce/funkce.cpp
+ * @file includes/functions/functions.cpp
  */
 
 #include <iostream>
@@ -16,9 +16,9 @@ using namespace std;
 
 /**
  * @brief Rozdeli string podle delice do vektoru stringu
- * @param delic          Znak, pomoci ktereho se rozdeluje string
- * @param retezec        String, ktery se bude delit
- * @param pole           Vektor s rozdelenym stringem, vraci se pomoci reference
+ * @param delimiter         Znak, pomoci ktereho se rozdeluje string
+ * @param str               String, ktery se bude delit
+ * @param explodedString    Vektor s rozdelenym stringem, vraci se pomoci reference
  */
 void ExplodeString(const char& delimiter, string str, vector<string>& explodedString){
 
@@ -50,9 +50,9 @@ void ExplodeString(const char& delimiter, string str, vector<string>& explodedSt
 }
 
 /**
- * @brief Vrati pocet bunek v stringu (radku), zjistuje pomoci delice
- * @param delic          Znak, pomoci ktereho se rozdeluje string
- * @param retezec        String, ktery se bude delit
+ * @brief  Vrati pocet bunek v stringu (radku), zjistuje pomoci delice
+ * @param  delimiter          Znak, pomoci ktereho se rozdeluje string
+ * @param  str                String, ktery se bude delit
  * @return Funkce vraci pocet bunek oddelenych delicem
  */
 int CountCells(const char& delimiter, const string& str){

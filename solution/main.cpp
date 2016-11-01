@@ -12,6 +12,7 @@
  *         - CSV soubory se oteviraji pomoci parametru funkce main.
  *               - Prvni parametr je adresa souboru s jezdci
  *               - Druhy parametr je adresa souboru s casy
+ *         - Dale se zde nachazi funkce pro vypsani menu, ktere je v nekonecnem cyklu
  *
  * \author Lukas Stankovic - STA0445
  * \mainpage Semestralni prace k 1. semestru, Lukas Stankovic (STA0445), Formule 1
@@ -25,8 +26,8 @@ int main(int argc, char** argv){
  OTEVRENI SOUBORU
  ----------------
     - adresy k souborum jsou v parametrech fce main (argv)
-        - prvni parametr je adresa csv souboru s jezdci
-        - druhy parametr je adresa csv souboru s casy
+        - prvni parametr je adresa CSV souboru s jezdci
+        - druhy parametr je adresa CSV souboru s casy
 */
     ifstream fPilots(argv[1]);
     if(fPilots.fail()){
@@ -50,10 +51,10 @@ int main(int argc, char** argv){
 /**
  VYTVORENI VEKTORU STRKUTUR S CASY A JEZDCI
  ------------------------------------------
-    - vector<TCAS> casy(pocet casu)
-        - obsahuje struktury TCAS - ma velikost podle poctu casu v souboru
-    - vector<TJEZDEC> vsichni(pocet jezdcu)
-        - obsahuje struktury TJEZDEC - ma velikost podle poctu jezdcu v soubru
+    - vector<Round> allRounds(numberOfRounds)
+        - obsahuje struktury Round - ma velikost podle poctu kol v souboru
+    - vector<Pilot> allPilots(numberOfPilots)
+        - obsahuje struktury Pilot - ma velikost podle poctu jezdcu v soubru
 */
 
     vector<Round> allRounds(numberOfRounds);
@@ -67,7 +68,7 @@ int main(int argc, char** argv){
 /**
  SETRIZENI JEZDCU A CASU
  -----------------------
-    - Tridi se podle nejrychlejsiho casu pomoci vlastni funkce Sort
+    - Tridi podle nejrychlejsiho casu pomoci vlastni pretizene funkce Sort (pro strukturu Pilot a Round)
 */
    Sort(allPilots);
    Sort(allRounds);
@@ -79,6 +80,11 @@ int main(int argc, char** argv){
 */
     AddPosition(allPilots);
 
+/**
+ VYKRESLENI MENU
+ ---------------
+    - - vykresli kompletni menu
+*/
     PrintMenu(allPilots,allRounds,numberOfPilots,numberOfRounds);
 
     return 0;
