@@ -26,7 +26,9 @@ void PrintRounds(const vector<Round>& allRounds);
 
 void ExportRounds(const vector<Round>& allRounds, const string& path);
 
+void Sort(vector<Round>& allRounds);
+
 /// POROVANI CASU
-bool IsRoundFaster(const Round& a, const Round& b);
+bool IsFaster(const Round& a, const Round& b);
 
 #endif

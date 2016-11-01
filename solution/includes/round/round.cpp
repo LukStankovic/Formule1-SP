@@ -137,33 +137,47 @@ void ExportRounds(const vector<Round>& allRounds, const string& path){
     }
 }
 
+void Sort(vector<Round>& allRounds){
+
+    for(int j = 0; j < allRounds.size()-1; j++){
+        for(int i = 0; i < allRounds.size()-1; i++){
+            if(IsFaster(allRounds.at(i),allRounds.at(i+1))){
+                Round tmp = allRounds.at(i);
+                allRounds.at(i) = allRounds.at(i+1);
+                allRounds.at(i+1) = tmp;
+            }
+
+        }
+    }
+
+}
 
 /**
  * @brief Vraci pro funkci sort() ktery zaznam je mensi
- * @param a        Struktura TCAS - prvni cas
- * @param b        Struktura TCAS - druhy cas
+ * @param a        Struktura TJEZDEC - prvni jezdec
+ * @param b        Struktura TJEZDEC - druhy jezdec
  * @return Vraci true pokud je a rychlejsi, false pokud je a pomalejsi
  */
-bool IsRoundFaster(const Round& a, const Round& b){
+bool IsFaster(const Round& a, const Round& b){
     /**
         OSETRENI ZDA NEMA CAS 0 MS
             - 0ms znamena prazdna hodnota - jezdec nezajel ani jedno kolo
             - proto ulozime do pomocne promenne velkou hodnotu
     */
 
-    unsigned aux_a, aux_b;
+    int tmp_a, tmp_b;
 
     if(a.time_ms == 0)
-        aux_a = 1000000000;
+        tmp_a = 1000000000;
     else
-        aux_a = a.time_ms;
+        tmp_a = a.time_ms;
 
     if(b.time_ms == 0)
-        aux_b = 1000000000;
+        tmp_b = 1000000000;
     else
-        aux_b = b.time_ms;
+        tmp_b = b.time_ms;
 
     /// POROVNANI
-    return aux_a < aux_b;
+    return tmp_a > tmp_b;
 
 }

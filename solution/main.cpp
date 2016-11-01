@@ -69,9 +69,9 @@ int main(int argc, char** argv){
  -----------------------
     - Tridi se podle nejrychlejsiho casu pomoci funkce sort s pomocnou funkci bool jezdecJeRychlejsi a bool casJeRychlejsi
 */
-   /* sort(allPilots.begin(),allPilots.end(),IsPilotFaster);
-    sort(allRounds.begin(),allRounds.end(),IsRoundFaster);
-*/
+   Sort(allPilots);
+   Sort(allRounds);
+
 /**
  VLOZENI PORADI
  --------------

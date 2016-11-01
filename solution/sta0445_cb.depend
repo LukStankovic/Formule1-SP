@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1477996851 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/main.cpp
+1478000325 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/main.cpp
 	<iostream>
 	<fstream>
 	<string>
@@ -55,13 +55,13 @@
 1477951724 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/driver/driver.h
 	"../round/round.h"
 
-1477996621 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/round/round.h
+1478000941 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/round/round.h
 
 1477996391 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/functions/functions.h
 	"../pilot/pilot.h"
 	"../round/round.h"
 
-1477997643 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/functions/functions.cpp
+1477998274 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/functions/functions.cpp
 	<iostream>
 	<fstream>
 	<string>
@@ -78,10 +78,10 @@
 	"../pilot/pilot.h"
 	"../functions/functions.h"
 
-1477996650 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/pilot/pilot.h
+1478001000 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/pilot/pilot.h
 	"../round/round.h"
 
-1477997232 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/pilot/pilot.cpp
+1478000838 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/pilot/pilot.cpp
 	<iostream>
 	<fstream>
 	<string>

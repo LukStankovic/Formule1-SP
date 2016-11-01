@@ -260,7 +260,20 @@ void ExportPilots(const vector<Pilot>& allPilots, const string& path, const int&
     }
 }
 
+void Sort(vector<Pilot>& allPilots){
 
+    for(int j = 0; j < allPilots.size()-1; j++){
+        for(int i = 0; i < allPilots.size()-1; i++){
+            if(IsFaster(allPilots.at(i),allPilots.at(i+1))){
+                Pilot tmp = allPilots.at(i);
+                allPilots.at(i) = allPilots.at(i+1);
+                allPilots.at(i+1) = tmp;
+            }
+
+        }
+    }
+
+}
 
 /**
  * @brief Vraci pro funkci sort() ktery zaznam je mensi
@@ -268,26 +281,27 @@ void ExportPilots(const vector<Pilot>& allPilots, const string& path, const int&
  * @param b        Struktura TJEZDEC - druhy jezdec
  * @return Vraci true pokud je a rychlejsi, false pokud je a pomalejsi
  */
-bool IsPilotFaster(const Pilot& a, const Pilot& b){
+bool IsFaster(const Pilot& a, const Pilot& b){
     /**
         OSETRENI ZDA NEMA CAS 0 MS
             - 0ms znamena prazdna hodnota - jezdec nezajel ani jedno kolo
             - proto ulozime do pomocne promenne velkou hodnotu
     */
 
-    unsigned aux_a, aux_b;
+    int tmp_a, tmp_b;
 
     if(a.best_time == 0)
-        aux_a = 1000000000;
+        tmp_a = 1000000000;
     else
-        aux_a = a.best_time;
+        tmp_a = a.best_time;
 
     if(b.best_time == 0)
-        aux_a = 1000000000;
+        tmp_b = 1000000000;
     else
-        aux_a = b.best_time;
+        tmp_b = b.best_time;
 
     /// POROVNANI
-    return aux_a < aux_b;
+    return tmp_a > tmp_b;
 
 }
+
