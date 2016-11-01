@@ -40,7 +40,7 @@ void PrintPilots(const vector<Pilot>& allPilots, const int& num);
 /// VYPIS JEDNOHO JEZDCE
 void PrintPilot(const vector<Pilot>& allPilots, string name);
 
-void ExportPilots(const vector<Pilot>& allPilots, string fileName, const int& num);
+void ExportPilots(const vector<Pilot>& allPilots, const string& path, const int& num);
 
 /// POROVNAVANI CASU
 bool IsPilotFaster(const Pilot& a, const Pilot& b);

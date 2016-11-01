@@ -3,9 +3,10 @@
  * @file includes/jezdec/jezdec.cpp
  */
 
-#include <vector>
-#include <fstream>
 #include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
 #include <iomanip>
 
 
@@ -200,9 +201,9 @@ void PrintPilot(const vector<Pilot>& allPilots, string name){
  * @param jezdci   Vektor struktury TJEZDEC
  * @param nazev    Nazev souboru
  */
-void ExportPilots(const vector<Pilot>& allPilots, string fileName, const int& num){
+void ExportPilots(const vector<Pilot>& allPilots, const string& path, const int& num){
 
-    ofstream exp(fileName);
+    ofstream exp(path);
 
     exp << "<!doctype html><html lang='cs'><head><meta charset='utf-8'>" << endl
         << "<title>Vypis vsech jezdcu</title>" << endl
@@ -247,7 +248,7 @@ void ExportPilots(const vector<Pilot>& allPilots, string fileName, const int& nu
 
     /// KONTROLA ZDA SE SOUBOR VYTVORIL
 
-    ifstream check(fileName);
+    ifstream check(path);
 
     if(check.fail()){
         cout << endl << " * Neco se pokazilo... Soubor nebyl vytvoren.*" << endl

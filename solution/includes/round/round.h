@@ -24,7 +24,7 @@ void FillRounds(ifstream& f, vector<Round>& casy);
 /// VYPISE TABULKU DO KONZOLE SE VSEMI CASY
 void PrintRounds(const vector<Round>& allRounds);
 
-void ExportRounds(const vector<Round>& allRounds, const string& fileName);
+void ExportRounds(const vector<Round>& allRounds, const string& path);
 
 /// POROVANI CASU
 bool IsRoundFaster(const Round& a, const Round& b);

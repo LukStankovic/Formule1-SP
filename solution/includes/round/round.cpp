@@ -2,10 +2,9 @@
  * @brief Funkce pro praci s casem
  * @author Lukas Stankovic
  */
-
-#include <vector>
-#include <fstream>
 #include <iostream>
+#include <fstream>
+#include <vector>
 #include <iomanip>
 
 #include "round.h"
@@ -82,9 +81,9 @@ void PrintRounds(const vector<Round>& allRounds){
  * @param jezdci   Vektor struktury TJEZDEC
  * @param nazev    Nazev souboru
  */
-void ExportRounds(const vector<Round>& allRounds, const string& fileName){
+void ExportRounds(const vector<Round>& allRounds, const string& path){
 
-    ofstream exp(fileName);
+    ofstream exp(path);
 
     exp << "<!doctype html><html lang='cs'><head><meta charset='utf-8'>" << endl
         << "<title>Vypis vsech casu</title>" << endl
@@ -126,7 +125,7 @@ void ExportRounds(const vector<Round>& allRounds, const string& fileName){
 
     /// KONTROLA ZDA SE SOUBOR VYTVORIL
 
-    ifstream check(fileName);
+    ifstream check(path);
 
     if(check.fail()){
         cout << endl << " * Neco se pokazilo... Soubor nebyl vytvoren.*" << endl

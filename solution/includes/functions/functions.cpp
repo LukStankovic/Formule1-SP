@@ -4,10 +4,10 @@
  * @file includes/funkce/funkce.cpp
  */
 
-#include <fstream>
-#include <vector>
 #include <iostream>
+#include <fstream>
 #include <string>
+#include <vector>
 
 #include "../pilot/pilot.h"
 #include "../round/round.h"
@@ -176,24 +176,28 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
         cout << endl;
 
 
-        cout << endl << "Zadejte volbu: ";
-        cin >> option;
 
         /**
          ZADAVANI DOKUD NEZADA INT
          -------------------------
             - Cyklus while, ktery se opakuje tak dlouho dokud uzivatel nezada cele cislo
-            - Funkce cin.ignore() je pouzita z duvodu vycisteni enteru z cin
+            - Funkce cin.ignore() je pouzita z duvodu vycisteni enteru z cin - zde pouzito i s velkym cislem pro ignoraci znaku
         */
 
-        while(cin.fail()){
-           cin.clear();
-           cout << " * Spatne zadana volba. Jsou povoleny pouze cela cisla z menu. *" << endl;
-           cin.ignore(numeric_limits<streamsize>::max(), '\n' );
-           cout << "Zadejte volbu: ";
-           cin >> option;
+        while(true){
+            cout << "Zadejte volbu: ";
+            cin >> option;
+
+            if(!cin.fail())
+                break;
+
+            cin.clear();
+            cin.ignore(9999999, '\n');
+
+            cout << " * Spatne zadana volba. Jsou povoleny pouze cela cisla z menu. *" << endl;
+
         }
-        cin.ignore(numeric_limits<streamsize>::max(), '\n' );
+        cin.ignore();
 
         /**
             MENU S VOLBAMI
@@ -209,7 +213,7 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                 PrintPilots(allPilots,numberOfPilots);
 
                 cout << endl << " / Pro zobrazeni menu stiskente ENTER. /";
-                cin.ignore(numeric_limits<streamsize>::max(), '\n' );
+                cin.ignore();
             }break;
 
             /**
@@ -220,7 +224,7 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                 PrintRounds(allRounds);
 
                 cout << endl << " / Pro zobrazeni menu stiskente ENTER. /";
-                cin.ignore(numeric_limits<streamsize>::max(), '\n' );
+                cin.ignore();
             }break;
 
             /**
@@ -243,7 +247,7 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                     if(cin.fail()){
                         cout << " * Nemuzete zadat znak. Zadejte pouze kladne cele cislo! *" << endl;
                         cin.clear();
-                        cin.ignore(numeric_limits<streamsize>::max(), '\n' );
+                        cin.ignore();
                     }
                     else if(numberOfQualified > numberOfPilots)
                         cout << " * Nemuze postoupit vice jezdcu nez jich doopravdy existuje! *" << endl;
@@ -252,12 +256,12 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
 
                 }while( (numberOfQualified > numberOfPilots) || (numberOfQualified < 1) || cin.fail());
 
-                cin.ignore(numeric_limits<streamsize>::max(), '\n' );
+                cin.ignore();
 
                 PrintPilots(allPilots, numberOfQualified);
 
                 cout << endl << " / Pro zobrazeni menu stiskente ENTER. /";
-                cin.ignore(numeric_limits<streamsize>::max(), '\n' );
+                cin.ignore();
             }break;
 
             /**
@@ -285,7 +289,7 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                 PrintPilot(allPilots,name);
 
                 cout << endl << " / Pro zobrazeni menu stiskente ENTER. /";
-                cin.ignore(numeric_limits<streamsize>::max(), '\n' );
+                cin.ignore();
             }break;
 
             /**
@@ -306,7 +310,7 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                 ExportPilots(allPilots,fileName,numberOfPilots);
 
                 cout << endl << " / Pro zobrazeni menu stiskente ENTER. /";
-                cin.ignore(numeric_limits<streamsize>::max(), '\n' );
+                cin.ignore();
             }break;
 
             /**
@@ -327,7 +331,7 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                 ExportRounds(allRounds,fileName);
 
                 cout << endl << " / Pro zobrazeni menu stiskente ENTER. /";
-                cin.ignore(numeric_limits<streamsize>::max(), '\n' );
+                cin.ignore();
             }break;
 
             /**
@@ -363,7 +367,7 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                     if(cin.fail()){
                         cout << " * Nemuzete zadat znak. Zadejte pouze kladne cele cislo! *" << endl;
                         cin.clear();
-                        cin.ignore(numeric_limits<streamsize>::max(), '\n' );
+                        cin.ignore();
                     }
                     else if(numberOfQualified > numberOfPilots)
                         cout << " * Nemuze postoupit vice jezdcu nez jich doopravdy existuje! *" << endl;
@@ -373,9 +377,9 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                 }while( (numberOfQualified > numberOfPilots) || (numberOfQualified < 1) || cin.fail());
 
                 ExportPilots(allPilots,fileName,numberOfQualified);
-                cin.ignore(numeric_limits<streamsize>::max(), '\n' );
+                cin.ignore();
                 cout << endl << " / Pro zobrazeni menu stiskente ENTER. /";
-                cin.ignore(numeric_limits<streamsize>::max(), '\n' );
+                cin.ignore();
 
             }break;
 
