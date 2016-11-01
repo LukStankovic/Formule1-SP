@@ -67,7 +67,7 @@ int main(int argc, char** argv){
 /**
  SETRIZENI JEZDCU A CASU
  -----------------------
-    - Tridi se podle nejrychlejsiho casu pomoci funkce sort s pomocnou funkci bool jezdecJeRychlejsi a bool casJeRychlejsi
+    - Tridi se podle nejrychlejsiho casu pomoci vlastni funkce Sort
 */
    Sort(allPilots);
    Sort(allRounds);
