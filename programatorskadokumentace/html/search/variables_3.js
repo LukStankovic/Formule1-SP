@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['nejpomalejsi',['nejpomalejsi',['../struct_t_j_e_z_d_e_c.html#aa4c6c4f5aa928da38b5407bc1dbaedea',1,'TJEZDEC']]],
-  ['nejrychlejsi',['nejrychlejsi',['../struct_t_j_e_z_d_e_c.html#a95e75f24da21b223b515fbbd4910d44b',1,'TJEZDEC']]]
+  ['name',['name',['../struct_pilot.html#a234d544cb5a5afca44621dd792d2c56b',1,'Pilot']]],
+  ['number_5fof_5frounds',['number_of_rounds',['../struct_pilot.html#abca38a664722663cd401cce879011c40',1,'Pilot']]]
 ];

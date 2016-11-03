@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Semestralni prace - Formule 1
-   &#160;<span id="projectnumber">0.8</span>
+   &#160;<span id="projectnumber">0.8.5</span>
    </div>
   </td>
  </tr>
@@ -73,11 +73,9 @@ $(function() {
 <code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;algorithm&gt;</code><br />
-<code>#include &lt;limits&gt;</code><br />
-<code>#include &quot;<a class="el" href="funkce_8h_source.html">includes/funkce/funkce.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="jezdec_8h_source.html">includes/jezdec/jezdec.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="cas_8h_source.html">includes/cas/cas.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="functions_8h_source.html">includes/functions/functions.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="pilot_8h_source.html">includes/pilot/pilot.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="round_8h_source.html">includes/round/round.h</a>&quot;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -113,93 +111,34 @@ Functions</h2></td></tr>
 <h2>OTEVRENI SOUBORU </h2>
 <ul>
 <li>adresy k souborum jsou v parametrech fce main (argv)<ul>
-<li>prvni parametr je adresa csv souboru s jezdci</li>
-<li>druhy parametr je adresa csv souboru s casy</li>
+<li>prvni parametr je adresa CSV souboru s jezdci</li>
+<li>druhy parametr je adresa CSV souboru s casy</li>
 </ul>
 </li>
 </ul>
 <h2>VYTVORENI VEKTORU STRKUTUR S CASY A JEZDCI </h2>
 <ul>
-<li>vector&lt;TCAS&gt; casy(pocet casu)<ul>
-<li>obsahuje struktury <a class="el" href="struct_t_c_a_s.html" title="Struktura pro uchovavani dat jezdcu. ">TCAS</a> - ma velikost podle poctu casu v souboru</li>
+<li>vector&lt;Round&gt; allRounds(numberOfRounds)<ul>
+<li>obsahuje struktury <a class="el" href="struct_round.html">Round</a> - ma velikost podle poctu kol v souboru</li>
 </ul>
 </li>
-<li>vector&lt;TJEZDEC&gt; vsichni(pocet jezdcu)<ul>
-<li>obsahuje struktury <a class="el" href="struct_t_j_e_z_d_e_c.html" title="Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce. ">TJEZDEC</a> - ma velikost podle poctu jezdcu v soubru</li>
+<li>vector&lt;Pilot&gt; allPilots(numberOfPilots)<ul>
+<li>obsahuje struktury <a class="el" href="struct_pilot.html">Pilot</a> - ma velikost podle poctu jezdcu v soubru</li>
 </ul>
 </li>
 </ul>
 <h2>SETRIZENI JEZDCU A CASU </h2>
 <ul>
-<li>Tridi se podle nejrychlejsiho casu pomoci funkce sort s pomocnou funkci bool jezdecJeRychlejsi a bool casJeRychlejsi</li>
+<li>Tridi podle nejrychlejsiho casu pomoci vlastni pretizene funkce Sort (pro strukturu <a class="el" href="struct_pilot.html">Pilot</a> a <a class="el" href="struct_round.html">Round</a>)</li>
 </ul>
 <h2>VLOZENI PORADI </h2>
 <ul>
 <li>Poradi k jezdcum se vklada zde az po setrizeni zaznamu</li>
 </ul>
-<h2>ZADAVANI DOKUD NEZADA INT </h2>
+<h2>VYKRESLENI MENU </h2>
 <ul>
-<li>Cyklus while, ktery se opakuje tak dlouho dokud uzivatel nezada cele cislo</li>
-<li>Funkce cin.ignore() je pouzita z duvodu vycisteni enteru z cin</li>
-</ul>
-<h2>MENU S VOLBAMI </h2>
-<h3>1. VYPIS VSECH JEZDCU</h3>
-<ul>
-<li>Vypise do konzole tabulku vsech jezdcu a ceka dokud uzivatel nezmackne ENTER</li>
-</ul>
-<h3>2. VYPIS VSECH CASU</h3>
-<ul>
-<li>Vypise do konzole tabulku vsech zajetych casu a ceka dokud uzivatel nezmackne ENTER</li>
-</ul>
-<h3>3. VYPIS POSTUPUJICH</h3>
-<ul>
-<li>Uzivatel zada kolik jezdcu ma postupovat a tolik se vykresli do konzole do tabulky</li>
-<li>Case obsahuje cyklus, ktery se opakuje dokud uzivatel spravne nezeada pocet postupujicich</li>
-<li>Osetrene komplikace:<ul>
-<li>Zada cislo mensi nez 1</li>
-<li>Zada cislo vetsi nez doopravdy existuje jezdcu</li>
-<li>Zada znak</li>
-</ul>
-</li>
-</ul>
-<h3>4. ZOBRAZENI JEDNOHO (VICE) JEZDCU</h3>
-<ul>
-<li>Uzivatel zada jmeno jezdce a ten se vypise (pokud existuje)</li>
-<li>Mozne tvary zadani jmena:<ul>
-<li>Jmeno</li>
-<li>Jmeno Prijmeni</li>
-<li>Prijmeni</li>
-</ul>
-</li>
-<li>Je mozne ze se vypise i vice jezdcu pokud existuji jmenovci!</li>
-<li>Nacita se pomoci getline() z duvodu cteni bilych znaku</li>
-<li>Pote se opet ceka na zmacknuti ENTER pomoci funkce cin.ignore()</li>
-</ul>
-<h3>5. EXPORT VSECH JEZDCU DO HTML</h3>
-<ul>
-<li>Exportuje a vygeneruje tabulku vsech jezdcu do HTML</li>
-<li>Uzivatel musi zadat cestu a jmeno souboru</li>
-<li>Program kontroluje zda se soubor vytvoril</li>
-</ul>
-<h3>6. EXPORT VSECH ZAJETYCH KOL DO HTML</h3>
-<ul>
-<li>Exportuje a vygeneruje tabulku vsech zajetych kol do HTML</li>
-<li>Uzivatel musi zadat cestu a jmeno souboru</li>
-<li>Program kontroluje zda se soubor vytvoril</li>
-</ul>
-<h3>6. EXPORT POSTUPUJICICH JEZDCU DO HTML</h3>
-<ul>
-<li>Exportuje a vygeneruje tabulku vsech zajetych kol do HTML</li>
-<li>Uzivatel musi zadat cestu a jmeno souboru</li>
-<li>Program kontroluje zda se soubor vytvoril</li>
-<li>Uzivatel zada kolik jezdcu ma postupovat</li>
-<li>Case obsahuje cyklus, ktery se opakuje dokud uzivatel spravne nezeada pocet postupujicich</li>
-<li>Osetrene komplikace:<ul>
-<li>Zada cislo mensi nez 1</li>
-<li>Zada cislo vetsi nez doopravdy existuje jezdcu</li>
-<li>Zada znak</li>
-</ul>
-</li>
+<li>Vykresli kompletni menu</li>
+<li>Obsahuje i zadavani volby</li>
 </ul>
 
 </div>

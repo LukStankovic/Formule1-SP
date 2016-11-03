@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jmeno',['jmeno',['../struct_t_j_e_z_d_e_c.html#af21c20279b9accf3f940a42ac407c6ca',1,'TJEZDEC']]]
+  ['mean_5ftime',['mean_time',['../struct_pilot.html#aa9d3a55588f59ddd538191106ed40bf6',1,'Pilot']]]
 ];

@@ -83,7 +83,8 @@ int main(int argc, char** argv){
 /**
  VYKRESLENI MENU
  ---------------
-    - - vykresli kompletni menu
+    - Vykresli kompletni menu
+    - Obsahuje i zadavani volby
 */
     PrintMenu(allPilots,allRounds,numberOfPilots,numberOfRounds);
 

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['id_5fc',['id_c',['../struct_t_c_a_s.html#a0d85b76d3b80c830ceb44ca99b149a43',1,'TCAS']]],
-  ['id_5fj',['id_j',['../struct_t_c_a_s.html#af8e9f58414b2f0e6709d49c2b52c24a5',1,'TCAS::id_j()'],['../struct_t_j_e_z_d_e_c.html#a87abfdc5fee358127beb3a012d887fe4',1,'TJEZDEC::id_j()']]]
+  ['explodestring',['ExplodeString',['../functions_8cpp.html#afacd09b33c5f91bd0d1cf5022d52e8e6',1,'ExplodeString(const char &amp;delimiter, string str, vector&lt; string &gt; &amp;explodedString):&#160;functions.cpp'],['../functions_8h.html#afacd09b33c5f91bd0d1cf5022d52e8e6',1,'ExplodeString(const char &amp;delimiter, string str, vector&lt; string &gt; &amp;explodedString):&#160;functions.cpp']]],
+  ['exportpilots',['ExportPilots',['../pilot_8cpp.html#affd8f4f6fac1bdf447e8a010c22de6c8',1,'ExportPilots(const vector&lt; Pilot &gt; &amp;allPilots, const string &amp;path, const int &amp;num):&#160;pilot.cpp'],['../pilot_8h.html#affd8f4f6fac1bdf447e8a010c22de6c8',1,'ExportPilots(const vector&lt; Pilot &gt; &amp;allPilots, const string &amp;path, const int &amp;num):&#160;pilot.cpp']]],
+  ['exportrounds',['ExportRounds',['../round_8cpp.html#a2575dc377f299e1c4d287dc838724259',1,'ExportRounds(const vector&lt; Round &gt; &amp;allRounds, const string &amp;path):&#160;round.cpp'],['../round_8h.html#a2575dc377f299e1c4d287dc838724259',1,'ExportRounds(const vector&lt; Round &gt; &amp;allRounds, const string &amp;path):&#160;round.cpp']]]
 ];

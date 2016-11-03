@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['semestralni_20prace_20k_201_2e_20semestru_2c_20lukas_20stankovic_20_28sta0445_29_2c_20formule_201',['Semestralni prace k 1. semestru, Lukas Stankovic (STA0445), Formule 1',['../index.html',1,'']]]
+  ['round',['Round',['../struct_round.html',1,'']]],
+  ['round_2ecpp',['round.cpp',['../round_8cpp.html',1,'']]],
+  ['round_2eh',['round.h',['../round_8h.html',1,'']]]
 ];

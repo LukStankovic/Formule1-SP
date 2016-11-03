@@ -26,19 +26,45 @@ void FillRounds(ifstream &f, vector<Round> &allRounds){
     while(getline(f,line)){
         /// ZJISTENI POCET BUNEK V CSV SOUBORU A NASLEDNE VYTVORENI VEKTORU
         int numberOfCells = CountCells(';',line);
-        vector<string> lineInCSV(numberOfCells);
 
-        /// ROZDELI RADEK DO BUNEK
-        ExplodeString(';',line,lineInCSV);
+        try{
 
-        allRounds.at(i).time = lineInCSV.at(0);
-        allRounds.at(i).id_pilot = stoi(lineInCSV.at(1));
-        allRounds.at(i).id_round = stoi(lineInCSV.at(2));
+            vector<string> lineInCSV(numberOfCells);
 
-        /// PREPOCET ZE STRINGU NA MS
-        vector<string> onlyTime(3);
-        ExplodeString(':',lineInCSV.at(0),onlyTime);
-        allRounds.at(i).time_ms = TimeToMs(onlyTime);
+            /// ROZDELI RADEK DO BUNEK
+            ExplodeString(';',line,lineInCSV);
+
+            allRounds.at(i).time = lineInCSV.at(0);
+                        allRounds.at(i).id_pilot = stoi(lineInCSV.at(1));
+            allRounds.at(i).id_round = stoi(lineInCSV.at(2));
+
+            /// ROZBITI STRINGU NA CASti
+
+            vector<string> onlyTime(3);
+            ExplodeString(':',lineInCSV.at(0),onlyTime);    /// Rozbiti casu 1:36,569 --> {1, 36,569}
+
+            /**
+                JE NUTNO ROZDELIT SEKUNDY A SETINY
+                    - Opet se rozdeluje pomoci funkce ExplodeString s delicem ','
+                    - 36,569 --> {36,569}
+            */
+
+            vector<string> explodedSecs(2);
+
+            ExplodeString(',',onlyTime.at(1),explodedSecs);
+
+            /// PREKOPIROVANI ZPET DO HLAVNIHO VEKTORU S CASEM - Vypada nasledovne: {1,36,569}
+
+            onlyTime.at(1) = explodedSecs.at(0);
+            onlyTime.at(2) = explodedSecs.at(1);
+
+            /// PREVOD NA MS
+            allRounds.at(i).time_ms = TimeToMs(onlyTime);
+        }
+        catch (out_of_range e){
+            cout << endl << " * Chyba. "<< "Jeji popis: " << e.what() << " *" << endl;
+            exit(0);
+        }
 
         i++;
     }

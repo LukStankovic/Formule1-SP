@@ -1,9 +1,3 @@
-/**
- * @brief Vseobecne funkce
- * @author Lukas Stankovic
- * @file includes/functions/functions.cpp
- */
-
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -12,14 +6,24 @@
 #include "../pilot/pilot.h"
 #include "../round/round.h"
 
+
+ /** \brief Vseobecne funkce pro praci se stringem, prepocitani casu, pro vypsani menu aj.
+  *            - Obsahuje funkce pro praci s rozdelenim stringu, pocitani bunek atp.
+  *  \author Lukas Stankovic
+  *  \file includes/functions/functions.cpp
+  */
+
+
 using namespace std;
 
-/**
- * @brief Rozdeli string podle delice do vektoru stringu
- * @param delimiter         Znak, pomoci ktereho se rozdeluje string
- * @param str               String, ktery se bude delit
- * @param explodedString    Vektor s rozdelenym stringem, vraci se pomoci reference
+/** \brief Rozdeli string podle delice do vektoru stringu
+ *            -  Priklad: "1 Lukas Stankovic" --> s delicem ' ' --> {1,Lukas,Stankoivc}
+ * \param[in]  delimiter        Znak, pomoci ktereho se rozdeluje string
+ * \param[in]  str              String, ktery se bude delit
+ * \param[out] explodedString   Vektor s rozdelenym stringem, vraci se pomoci reference
+ *
  */
+
 void ExplodeString(const char& delimiter, string str, vector<string>& explodedString){
 
     int indexOfLastDelimeter = 0;
@@ -49,11 +53,13 @@ void ExplodeString(const char& delimiter, string str, vector<string>& explodedSt
 
 }
 
-/**
- * @brief  Vrati pocet bunek v stringu (radku), zjistuje pomoci delice
- * @param  delimiter          Znak, pomoci ktereho se rozdeluje string
- * @param  str                String, ktery se bude delit
- * @return Funkce vraci pocet bunek oddelenych delicem
+
+/** \brief Vrati pocet bunek v stringu (radku), zjistuje pomoci delice
+ *            -  Priklad: "1 Lukas Stankovic" --> s delicem ' ' --> 3
+ * \param[in]  delimiter        Znak, pomoci ktereho se rozdeluje string
+ * \param[in]  str              String, ktery bude pocitan
+ * \return Vrati cele cislo s poctem bunek
+ *
  */
 int CountCells(const char& delimiter, const string& str){
 
@@ -85,8 +91,6 @@ int CountLines(ifstream &f){
 
     return pocet;
 }
-
-/// VRATI CAS V MS ZE STRINGU
 
 /**
  * @brief Prevadi cas na ms ze stringu

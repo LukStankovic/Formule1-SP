@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1478033038 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/main.cpp
+1478205303 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/main.cpp
 	<iostream>
 	<fstream>
 	<string>
@@ -61,7 +61,7 @@
 	"../pilot/pilot.h"
 	"../round/round.h"
 
-1477998274 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/functions/functions.cpp
+1478207459 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/functions/functions.cpp
 	<iostream>
 	<fstream>
 	<string>

@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['main',['main',['../main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main.cpp']]],
-  ['main_2ecpp',['main.cpp',['../main_8cpp.html',1,'']]],
-  ['msnacas',['msNaCas',['../funkce_8cpp.html#a69206b95e1d3c2ea5636b22905705e54',1,'msNaCas(unsigned ms):&#160;funkce.cpp'],['../funkce_8h.html#ab025a3a07e5664b7eeaefcffd5d3832b',1,'msNaCas(unsigned ms, vector&lt; int &gt; &amp;cas):&#160;funkce.h'],['../funkce_8h.html#a69206b95e1d3c2ea5636b22905705e54',1,'msNaCas(unsigned ms):&#160;funkce.cpp']]],
-  ['msnacasrozdelene',['msNaCasRozdelene',['../funkce_8cpp.html#a60105b760e96de6c81f07b169f898dfe',1,'funkce.cpp']]]
+  ['id_5fpilot',['id_pilot',['../struct_pilot.html#a5f1d5cf661fc9716641d2675077f45d7',1,'Pilot::id_pilot()'],['../struct_round.html#a7b0751461e333750ff46229b437e0090',1,'Round::id_pilot()']]],
+  ['id_5fround',['id_round',['../struct_round.html#a3859b044ec323ab7ec1daec3961785c7',1,'Round']]],
+  ['isfaster',['IsFaster',['../pilot_8cpp.html#a734350a64e893a962173b85cea902fc9',1,'IsFaster(const Pilot &amp;a, const Pilot &amp;b):&#160;pilot.cpp'],['../pilot_8h.html#a734350a64e893a962173b85cea902fc9',1,'IsFaster(const Pilot &amp;a, const Pilot &amp;b):&#160;pilot.cpp'],['../round_8cpp.html#a29d2005fd957f068dd77e8e2d938f600',1,'IsFaster(const Round &amp;a, const Round &amp;b):&#160;round.cpp'],['../round_8h.html#a29d2005fd957f068dd77e8e2d938f600',1,'IsFaster(const Round &amp;a, const Round &amp;b):&#160;round.cpp']]]
 ];
