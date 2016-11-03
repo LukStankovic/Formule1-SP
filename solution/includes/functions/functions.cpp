@@ -181,7 +181,7 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
          ZADAVANI DOKUD NEZADA INT
          -------------------------
             - Cyklus while, ktery se opakuje tak dlouho dokud uzivatel nezada cele cislo
-            - Funkce cin.ignore() je pouzita z duvodu vycisteni enteru z cin - zde pouzito i s velkym cislem pro ignoraci znaku
+            - Funkce cin.ignore() je pouzita z duvodu vycisteni enteru z cin
         */
 
         while(true){
@@ -192,7 +192,7 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                 break;
 
             cin.clear();
-            cin.ignore(9999999, '\n');
+            cin.ignore(INT_MAX, '\n');
 
             cout << " * Spatne zadana volba. Jsou povoleny pouze cela cisla z menu. *" << endl;
 
