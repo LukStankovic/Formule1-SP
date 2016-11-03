@@ -14,9 +14,9 @@
 
 /// NAPLNI STRUKTURU DATY ZE SOUBORU
 /**
- * @brief Naplni strukturu TCAS datdy z csv souboru
+ * @brief Naplni strukturu Round datdy z csv souboru
  * @param f              Soubor ze ktereho se nacitaji jezdci
- * @param casy           Vektor struktury TCAS do ktereho se vkladaji casy okruhu
+ * @param casy           Vektor struktury Round do ktereho se vkladaji casy okruhu
  */
 void FillRounds(ifstream &f, vector<Round> &allRounds){
 

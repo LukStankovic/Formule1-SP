@@ -9,7 +9,6 @@
 
  /** \brief Vseobecne funkce pro praci se stringem, prepocitani casu, pro vypsani menu aj.
   *            - Obsahuje funkce pro praci s rozdelenim stringu, pocitani bunek atp.
-  *  \author Lukas Stankovic
   *  \file includes/functions/functions.cpp
   */
 
@@ -73,40 +72,44 @@ int CountCells(const char& delimiter, const string& str){
 
 }
 
-/**
- * @brief Vrati pocet zaznamu (radku) v souboru
- * @param f          Soubor ve kterem se pocitaji radky
- * @return Vraci pocet zaznamu v danem souboru
+
+/** \brief Vrati pocet radku (zaznamu) v souboru
+ * \param[in]  f        Soubor ve kterem chceme spocitat radky
+ * \return Vrati cele cislo s poctem radku (zaznamu) v souboru
+ *
  */
 int CountLines(ifstream &f){
-    int pocet = 0;
-    string radek;
+    int num = 0;
+    string line;
 
-    while(getline(f,radek)){
-        pocet++;
+    while(getline(f,line)){
+        num++;
     }
+
     /// PRESUNTUI "KURZORU" NA ZACATEK SOUBORU
     f.clear();
     f.seekg(0);
 
-    return pocet;
+    return num;
 }
 
-/**
- * @brief Prevadi cas na ms ze stringu
- * @param cas          Vector stringu ze ktereho se bere cas
- * @return Vraci milisekundy
+
+/** \brief Prevadi cas na ms ze stringu
+ * \param[in]  time       Vector stringu ze ktereho se bere cas (cas je jiz rozdelen na 3 casti - min, sek, ms)
+ * \return Vraci milisekundy
+ *
  */
 int TimeToMs(const vector<string>& time){
     return ( ( stoi(time.at(0)) *60 + stoi(time.at(1)) ) * 1000 + stoi(time.at(2)) );
 }
 
 
-/**
- * @brief Posila referenci vektoru s casem rozdelenym na minuty, vteriny, setiny
- * @param ms           Cas v milisekundach
- * @param cas          Vektor intu do ktereho se posila
+/** \brief Posila referenci vektoru s casem rozdelenym na minuty, vteriny, setiny
+ * \param[in]  ms          Cas v milisekundach
+ * \param[out]  time       Vektor intu do ktereho se posila
+ *
  */
+
 void MsToTime(int ms, vector<int>& time){
     int tmp;
 
@@ -117,10 +120,10 @@ void MsToTime(int ms, vector<int>& time){
     time.at(2) = ms%1000;
 }
 
-/**
- * @brief Vrati string s casem
- * @param ms           Cas v milisekundach
- * @return Vrati string s casem ve formatu min:sek:set
+/** \brief Vrati string s casem ve tvaru min:s,ms
+ * \param[in]  ms         Cas v milisekundach
+ * \return String ve tvaru min:s,ms
+ *
  */
 string MsToTime(int ms){
     int tmp, mins = 0, secs = 0, milisecs = 0;
@@ -131,13 +134,19 @@ string MsToTime(int ms){
     secs = (tmp%1000) - mins*60;
     milisecs = ms%1000;
 
-    string str = to_string(mins) + ":" + to_string(secs) + ":" + to_string(milisecs);
+    string str = to_string(mins) + ":" + to_string(secs) + "," + to_string(milisecs);
 
     return str;
 }
 
 /**
- * @brief Vypise do konzole menu
+ * \brief Vypise do konzole menu vcetne zadavani volby
+ *          - Kontroluje zda uzivatel zada opravdu spravnou vlobu
+ * \param[in]  allPilots        Vektor vsech jezdcu
+ * \param[in]  allRounds        Vektor vsech casu
+ * \param[in]  numberOfPilots   Pocet jezdcu
+ * \param[in]  numberOfRounds   Pocet casu
+ *
  */
 void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numberOfPilots, const int& numberOfRounds){
 

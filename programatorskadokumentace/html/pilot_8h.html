@@ -70,6 +70,9 @@ $(function() {
 <div class="title">pilot.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Hlavickovy soubor pro strukturu <a class="el" href="struct_pilot.html" title="Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce. ">Pilot</a>.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="round_8h_source.html">../round/round.h</a>&quot;</code><br />
 </div>
 <p><a href="pilot_8h_source.html">Go to the source code of this file.</a></p>
@@ -77,12 +80,13 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_pilot.html">Pilot</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce.  <a href="struct_pilot.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ac156ea79069a59b5a0d682b775c08e0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pilot_8h.html#ac156ea79069a59b5a0d682b775c08e0e">FillPilots</a> (ifstream &amp;f, vector&lt; <a class="el" href="struct_pilot.html">Pilot</a> &gt; &amp;allPilots, vector&lt; <a class="el" href="struct_round.html">Round</a> &gt; &amp;allRounds, const int &amp;numberOfRounds)</td></tr>
-<tr class="memdesc:ac156ea79069a59b5a0d682b775c08e0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">NAPLNI STRUKTURU <a class="el" href="struct_t_j_e_z_d_e_c.html" title="Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce. ">TJEZDEC</a> DATY Z CSV SOUBORU.  <a href="#ac156ea79069a59b5a0d682b775c08e0e">More...</a><br /></td></tr>
+<tr class="memdesc:ac156ea79069a59b5a0d682b775c08e0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">NAPLNI STRUKTURU TJEZDEC DATY Z CSV SOUBORU.  <a href="#ac156ea79069a59b5a0d682b775c08e0e">More...</a><br /></td></tr>
 <tr class="separator:ac156ea79069a59b5a0d682b775c08e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a241a9521b23decd4a950f76dcd36608d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pilot_8h.html#a241a9521b23decd4a950f76dcd36608d">AddPosition</a> (vector&lt; <a class="el" href="struct_pilot.html">Pilot</a> &gt; &amp;allPilots)</td></tr>
 <tr class="memdesc:a241a9521b23decd4a950f76dcd36608d"><td class="mdescLeft">&#160;</td><td class="mdescRight">PRIDA POZICI.  <a href="#a241a9521b23decd4a950f76dcd36608d">More...</a><br /></td></tr>
@@ -102,7 +106,9 @@ Functions</h2></td></tr>
 <tr class="memdesc:a734350a64e893a962173b85cea902fc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vraci pro funkci sort() ktery zaznam je mensi.  <a href="#a734350a64e893a962173b85cea902fc9">More...</a><br /></td></tr>
 <tr class="separator:a734350a64e893a962173b85cea902fc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Hlavickovy soubor pro strukturu <a class="el" href="struct_pilot.html" title="Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce. ">Pilot</a>. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a241a9521b23decd4a950f76dcd36608d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a241a9521b23decd4a950f76dcd36608d">&sect;&nbsp;</a></span>AddPosition()</h2>
 
@@ -158,7 +164,7 @@ Functions</h2></td></tr>
 <p>Exportuje seznam jezdcu do html. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">jezdci</td><td>Vektor struktury <a class="el" href="struct_t_j_e_z_d_e_c.html" title="Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce. ">TJEZDEC</a> </td></tr>
+    <tr><td class="paramname">jezdci</td><td>Vektor struktury TJEZDEC </td></tr>
     <tr><td class="paramname">nazev</td><td>Nazev souboru </td></tr>
   </table>
   </dd>
@@ -205,20 +211,20 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>NAPLNI STRUKTURU <a class="el" href="struct_t_j_e_z_d_e_c.html" title="Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce. ">TJEZDEC</a> DATY Z CSV SOUBORU. </p>
-<p>NAPLNI STRUKTURU <a class="el" href="struct_t_j_e_z_d_e_c.html" title="Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce. ">TJEZDEC</a> DATY Z CSV SOUBORU.</p>
+<p>NAPLNI STRUKTURU TJEZDEC DATY Z CSV SOUBORU. </p>
+<p>NAPLNI STRUKTURU TJEZDEC DATY Z CSV SOUBORU.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">f</td><td>Soubor ze ktereho se nacitaji jezdci </td></tr>
-    <tr><td class="paramname">jezdci</td><td>Vektor struktury <a class="el" href="struct_t_j_e_z_d_e_c.html" title="Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce. ">TJEZDEC</a> do ktereho se bude ukladat </td></tr>
-    <tr><td class="paramname">casy</td><td>Vektor struktury <a class="el" href="struct_t_c_a_s.html" title="Struktura pro uchovavani dat jezdcu. ">TCAS</a> ze ktereho se nacitaji casy okruhu </td></tr>
+    <tr><td class="paramname">jezdci</td><td>Vektor struktury TJEZDEC do ktereho se bude ukladat </td></tr>
+    <tr><td class="paramname">casy</td><td>Vektor struktury TCAS ze ktereho se nacitaji casy okruhu </td></tr>
     <tr><td class="paramname">jezdci</td><td>Pocet zajetych okruhu </td></tr>
   </table>
   </dd>
 </dl>
 <p>ZJISTENI POCET BUNEK V CSV SOUBORU A NASLEDNE VYTVORENI VEKTORU</p>
 <p>ROZDELI RADEK DO BUNEK</p>
-<p>VKLADANI ZAJETYCH KOL ZE STRUKTURY <a class="el" href="struct_t_c_a_s.html" title="Struktura pro uchovavani dat jezdcu. ">TCAS</a> A ZJISTOVANI NEJLEPSIHO, NEJHORSIHO A PRUMERNEHO CASU</p>
+<p>VKLADANI ZAJETYCH KOL ZE STRUKTURY TCAS A ZJISTOVANI NEJLEPSIHO, NEJHORSIHO A PRUMERNEHO CASU</p>
 <p>PRESUNE "KURZOR" ZPET NA ZACETEK SOUBORU </p>
 
 </div>
@@ -252,8 +258,8 @@ Functions</h2></td></tr>
 <p>Vraci pro funkci sort() ktery zaznam je mensi. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td>Struktura <a class="el" href="struct_t_j_e_z_d_e_c.html" title="Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce. ">TJEZDEC</a> - prvni jezdec </td></tr>
-    <tr><td class="paramname">b</td><td>Struktura <a class="el" href="struct_t_j_e_z_d_e_c.html" title="Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce. ">TJEZDEC</a> - druhy jezdec </td></tr>
+    <tr><td class="paramname">a</td><td>Struktura TJEZDEC - prvni jezdec </td></tr>
+    <tr><td class="paramname">b</td><td>Struktura TJEZDEC - druhy jezdec </td></tr>
   </table>
   </dd>
 </dl>
@@ -293,7 +299,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>VYPIS JEDNOHO JEZDCE. </p>
-<p>POMOCNY VEKTOR STRUKURY <a class="el" href="struct_t_j_e_z_d_e_c.html" title="Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce. ">TJEZDEC</a> PRO LOWERCASE JEZDCE</p>
+<p>POMOCNY VEKTOR STRUKURY TJEZDEC PRO LOWERCASE JEZDCE</p>
 <p>PREKOPIROVANI JEZDCU</p>
 <p>ROZDELI RADEK DO BUNEK</p>
 <p>NUTNO PREDELENAT NA LOWERCASE Z DUVODOU ZE UZIVATL MUZE MIT ZAPNUTY NAPR CAPS LOCK</p>
@@ -332,7 +338,7 @@ Functions</h2></td></tr>
 <p>VYPISE SEZNAM JEZDCU DO KONZOLE - POUZITI I PRO POSTUPUJICI.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">jezdci</td><td>Vektor struktury <a class="el" href="struct_t_j_e_z_d_e_c.html" title="Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce. ">TJEZDEC</a> ze ktereho se cerpa </td></tr>
+    <tr><td class="paramname">jezdci</td><td>Vektor struktury TJEZDEC ze ktereho se cerpa </td></tr>
     <tr><td class="paramname">pocet_postupujich</td><td>Kolik jich postupuje (se vypise) </td></tr>
   </table>
   </dd>

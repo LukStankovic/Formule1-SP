@@ -67,6 +67,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce.  
+ <a href="struct_pilot.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="pilot_8h_source.html">pilot.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -88,7 +91,22 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a82e8ff0cef97ca3dd6da0b0cc39010ea"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_pilot.html#a82e8ff0cef97ca3dd6da0b0cc39010ea">worst_time</a></td></tr>
 <tr class="separator:a82e8ff0cef97ca3dd6da0b0cc39010ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Data Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id_pilot</td><td>Specificke ID urcene pro identifikaci jezdce </td></tr>
+    <tr><td class="paramname">position</td><td>Poradi jezdce, ktere se vklada az po setrizeni jezdcu </td></tr>
+    <tr><td class="paramname">surname</td><td>Krestni jmeno jezdce </td></tr>
+    <tr><td class="paramname">prijmeni</td><td>Prijmeni jezdce </td></tr>
+    <tr><td class="paramname">number_of_rounds</td><td>Pocet okruhu, ktere jezdec zajel - dopocitava se automaticky podle zaznamu v souboru casy.csv </td></tr>
+    <tr><td class="paramname">mean_time</td><td>Celkovy prumerny cas </td></tr>
+    <tr><td class="paramname">best_time</td><td>Nejlepe zajety cas </td></tr>
+    <tr><td class="paramname">worst_time</td><td>Nejhure zajety cas </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a4b744019c5a26decab222d0433751f04"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4b744019c5a26decab222d0433751f04">&sect;&nbsp;</a></span>best_time</h2>
 

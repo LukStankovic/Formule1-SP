@@ -76,6 +76,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_round.html">Round</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struktura pro uchovavani dat jezdcu.  <a href="struct_round.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -125,7 +126,7 @@ Functions</h2></td></tr>
 <p>Exportuje seznam casu do html. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">jezdci</td><td>Vektor struktury <a class="el" href="struct_t_j_e_z_d_e_c.html" title="Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce. ">TJEZDEC</a> </td></tr>
+    <tr><td class="paramname">jezdci</td><td>Vektor struktury TJEZDEC </td></tr>
     <tr><td class="paramname">nazev</td><td>Nazev souboru </td></tr>
   </table>
   </dd>
@@ -162,17 +163,24 @@ Functions</h2></td></tr>
 
 <p>NAPLNI STRUKTURU DATY ZE SOUBORU. </p>
 <p>NAPLNI STRUKTURU DATY ZE SOUBORU.</p>
-<dl class="section author"><dt>Author</dt><dd>Lukas StankovicNAPLNI STRUKTURU DATY ZE SOUBORU Naplni strukturu <a class="el" href="struct_t_c_a_s.html" title="Struktura pro uchovavani dat jezdcu. ">TCAS</a> datdy z csv souboru </dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Lukas StankovicNAPLNI STRUKTURU DATY ZE SOUBORU Naplni strukturu <a class="el" href="struct_round.html" title="Struktura pro uchovavani dat jezdcu. ">Round</a> datdy z csv souboru </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">f</td><td>Soubor ze ktereho se nacitaji jezdci </td></tr>
-    <tr><td class="paramname">casy</td><td>Vektor struktury <a class="el" href="struct_t_c_a_s.html" title="Struktura pro uchovavani dat jezdcu. ">TCAS</a> do ktereho se vkladaji casy okruhu </td></tr>
+    <tr><td class="paramname">casy</td><td>Vektor struktury <a class="el" href="struct_round.html" title="Struktura pro uchovavani dat jezdcu. ">Round</a> do ktereho se vkladaji casy okruhu </td></tr>
   </table>
   </dd>
 </dl>
 <p>ZJISTENI POCET BUNEK V CSV SOUBORU A NASLEDNE VYTVORENI VEKTORU</p>
 <p>ROZDELI RADEK DO BUNEK</p>
-<p>PREPOCET ZE STRINGU NA MS</p>
+<p>ROZBITI STRINGU NA CASti</p>
+<p>Rozbiti casu 1:36,569 &ndash;&gt; {1, 36,569}</p>
+<p>JE NUTNO ROZDELIT SEKUNDY A SETINY</p><ul>
+<li>Opet se rozdeluje pomoci funkce ExplodeString s delicem ','</li>
+<li>36,569 &ndash;&gt; {36,569}</li>
+</ul>
+<p>PREKOPIROVANI ZPET DO HLAVNIHO VEKTORU S CASEM - Vypada nasledovne: {1,36,569}</p>
+<p>PREVOD NA MS</p>
 <p>PRESUNUTI "KURZORU" NA ZACATEK SOUBORU </p>
 
 </div>
@@ -207,8 +215,8 @@ Functions</h2></td></tr>
 <p>POROVANI CASU.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td>Struktura <a class="el" href="struct_t_j_e_z_d_e_c.html" title="Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce. ">TJEZDEC</a> - prvni jezdec </td></tr>
-    <tr><td class="paramname">b</td><td>Struktura <a class="el" href="struct_t_j_e_z_d_e_c.html" title="Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce. ">TJEZDEC</a> - druhy jezdec </td></tr>
+    <tr><td class="paramname">a</td><td>Struktura TJEZDEC - prvni jezdec </td></tr>
+    <tr><td class="paramname">b</td><td>Struktura TJEZDEC - druhy jezdec </td></tr>
   </table>
   </dd>
 </dl>
@@ -241,7 +249,7 @@ Functions</h2></td></tr>
 <p>VYPISE TABULKU DO KONZOLE SE VSEMI CASY.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">casy</td><td>Vektor struktury <a class="el" href="struct_t_c_a_s.html" title="Struktura pro uchovavani dat jezdcu. ">TCAS</a> ze ktereho se cerpa </td></tr>
+    <tr><td class="paramname">casy</td><td>Vektor struktury TCAS ze ktereho se cerpa </td></tr>
   </table>
   </dd>
 </dl>

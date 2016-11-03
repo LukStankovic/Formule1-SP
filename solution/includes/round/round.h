@@ -3,12 +3,13 @@
 
 using namespace std;
 
-/** @struct TCAS
- *  @brief Struktura pro uchovavani dat jezdcu
- *  @param TJEZDEC.id_c          Specificke ID urcene pro identifikaci casu - PK
- *  @param TJEZDEC.id_j          Specificke ID urcene pro identifikaci jezdce - FK
- *  @param TJEZDEC.cas           Cas kola v retezci
- *  @param TJEZDEC.cas_ms        Cas kola prevedeny na ms
+/** \struct Round
+ *  \brief Struktura pro uchovavani dat jezdcu
+ *  \param id_round          Specificke ID urcene pro identifikaci casu - PK
+ *  \param id_pilot          Specificke ID urcene pro identifikaci jezdce - FK
+ *  \param time              Cas kola v retezci
+ *  \param time_ms           Cas kola prevedeny na ms
+ *
  */
 
 typedef struct{

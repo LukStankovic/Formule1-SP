@@ -67,6 +67,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Struktura pro uchovavani dat jezdcu.  
+ <a href="struct_round.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="round_8h_source.html">round.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -80,7 +83,18 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a1a5506b156283853fd23980dfd3521db"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_round.html#a1a5506b156283853fd23980dfd3521db">time_ms</a></td></tr>
 <tr class="separator:a1a5506b156283853fd23980dfd3521db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Data Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Struktura pro uchovavani dat jezdcu. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">id_round</td><td>Specificke ID urcene pro identifikaci casu - PK </td></tr>
+    <tr><td class="paramname">id_pilot</td><td>Specificke ID urcene pro identifikaci jezdce - FK </td></tr>
+    <tr><td class="paramname">time</td><td>Cas kola v retezci </td></tr>
+    <tr><td class="paramname">time_ms</td><td>Cas kola prevedeny na ms </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a7b0751461e333750ff46229b437e0090"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7b0751461e333750ff46229b437e0090">&sect;&nbsp;</a></span>id_pilot</h2>
 

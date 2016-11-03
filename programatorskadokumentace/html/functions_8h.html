@@ -162,11 +162,11 @@ Functions</h2></td></tr>
 <p>VRATI POCET ZAZNAMU (RADKU) V SOUBORU.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">f</td><td>Soubor ve kterem se pocitaji radky </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">f</td><td>Soubor ve kterem chceme spocitat radky </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Vraci pocet zaznamu v danem souboru </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Vrati cele cislo s poctem radku (zaznamu) v souboru </dd></dl>
 <p>PRESUNTUI "KURZORU" NA ZACATEK SOUBORU </p>
 
 </div>
@@ -250,8 +250,8 @@ Functions</h2></td></tr>
 <p>POSILA REFERENCI VEKTORU S CASEM ROZDELENYM NA MINUTY, VTERINY, SETINY.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ms</td><td>Cas v milisekundach </td></tr>
-    <tr><td class="paramname">cas</td><td>Vektor intu do ktereho se posila </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ms</td><td>Cas v milisekundach </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">time</td><td>Vektor intu do ktereho se posila </td></tr>
   </table>
   </dd>
 </dl>
@@ -278,11 +278,11 @@ Functions</h2></td></tr>
 <p>VRATI STRING S CASEM VE FORMATU MIN:SEK:SET.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ms</td><td>Cas v milisekundach </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ms</td><td>Cas v milisekundach </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Vrati string s casem ve formatu min:sek:set </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>String ve tvaru min:s,ms </dd></dl>
 
 </div>
 </div>
@@ -325,7 +325,19 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>VYPISE DO KONZOLE MENU. </p>
-<p>VYPISE DO KONZOLE MENU. </p>
+<p>VYPISE DO KONZOLE MENU.</p>
+<ul>
+<li>Kontroluje zda uzivatel zada opravdu spravnou vlobu <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">allPilots</td><td>Vektor vsech jezdcu </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">allRounds</td><td>Vektor vsech casu </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">numberOfPilots</td><td>Pocet jezdcu </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">numberOfRounds</td><td>Pocet casu </td></tr>
+  </table>
+  </dd>
+</dl>
+</li>
+</ul>
 <p>NADPIS V MENU + ODDELOVAC</p>
 <p>NADPIS V MENU + ODDELOVAC</p>
 <h2>ZADAVANI DOKUD NEZADA INT </h2>
@@ -435,9 +447,10 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>VRATI CAS V MS ZE STRINGU. </p>
-<p>Prevadi cas na ms ze stringu </p><dl class="params"><dt>Parameters</dt><dd>
+<p>VRATI CAS V MS ZE STRINGU.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cas</td><td>Vector stringu ze ktereho se bere cas </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">time</td><td>Vector stringu ze ktereho se bere cas (cas je jiz rozdelen na 3 casti - min, sek, ms) </td></tr>
   </table>
   </dd>
 </dl>
