@@ -24,6 +24,8 @@ void MsToTime(int ms, vector<int>& time);
 /// VRATI STRING S CASEM VE FORMATU MIN:SEK:SET
 string MsToTime(int ms);
 
+void ToLower(string& str);
+
 /// VYPISE DO KONZOLE MENU
 void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numberOfPilots, const int& numberOfRounds);
 

@@ -140,6 +140,13 @@ string MsToTime(int ms){
     return str;
 }
 
+void ToLower(string& str){
+    for(int i = 0; i < str.size(); i++)
+        if(str[i] >= 'A' && str[i] <= 'Z')
+            str[i] = str[i]+32;
+}
+
+
 /**
  * \brief Vypise do konzole menu vcetne zadavani volby
  *          - Kontroluje zda uzivatel zada opravdu spravnou vlobu

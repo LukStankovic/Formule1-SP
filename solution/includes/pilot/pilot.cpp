@@ -152,7 +152,7 @@ void PrintPilot(const vector<Pilot>& allPilots, string name){
     int numberOfCells = CountCells(' ',name), found = 0;
     vector<string> explodedName(numberOfCells);
     vector<Pilot> foundPilots;
-    vector<Pilot> pilotsLowerCase(allPilots.size()); /// POMOCNY VEKTOR STRUKURY TJEZDEC PRO LOWERCASE JEZDCE
+    vector<Pilot> pilotsLowerCase(allPilots.size()); /// POMOCNY VEKTOR STRUKURY Pilot PRO LOWERCASE JEZDCE
     pilotsLowerCase = allPilots;  /// PREKOPIROVANI JEZDCU
 
     /// ROZDELI RADEK DO BUNEK
@@ -161,18 +161,19 @@ void PrintPilot(const vector<Pilot>& allPilots, string name){
     try{
 
         /// NUTNO PREDELENAT NA LOWERCASE Z DUVODOU ZE UZIVATL MUZE MIT ZAPNUTY NAPR CAPS LOCK
-        if(explodedName.size() == 1)
-            transform(explodedName.at(0).begin(), explodedName.at(0).end(), explodedName.at(0).begin(),::tolower);
+        if(explodedName.size() == 1){
+            ToLower(explodedName.at(0));
+        }
 
         if(explodedName.size() == 2){
-            transform(explodedName.at(0).begin(), explodedName.at(0).end(), explodedName.at(0).begin(),::tolower);
-            transform(explodedName.at(1).begin(), explodedName.at(1).end(), explodedName.at(1).begin(),::tolower);
+            ToLower(explodedName.at(0));
+            ToLower(explodedName.at(1));
         }
 
         for(int i = 0; i < allPilots.size(); i++){
 
-            transform(pilotsLowerCase.at(i).name.begin(), pilotsLowerCase.at(i).name.end(), pilotsLowerCase.at(i).name.begin(),::tolower);
-            transform(pilotsLowerCase.at(i).surname.begin(), pilotsLowerCase.at(i).surname.end(), pilotsLowerCase.at(i).surname.begin(),::tolower);
+            ToLower(pilotsLowerCase.at(i).name);
+            ToLower(pilotsLowerCase.at(i).surname);
 
             if(explodedName.size() == 1){ /// POKUD JE ZADANO JEN JMENO NEBO JEN PRIJMENI
 
