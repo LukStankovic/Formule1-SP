@@ -47,7 +47,8 @@ void ExplodeString(const char& delimiter, string str, vector<string>& explodedSt
         }
     }
     catch (out_of_range e){
-        cout << endl << " * Chyba. "<< "Jeji popis: " << e.what() << " *" << endl;
+        cout << endl << " * Chyba! "<< "Jeji popis: " << e.what() << " *" << endl << " * Program bude ukoncen. *" << endl;
+        exit(0);
     }
 
 }
@@ -74,8 +75,8 @@ int CountCells(const char& delimiter, const string& str){
 
 
 /** \brief Vrati pocet radku (zaznamu) v souboru
- * \param[in]  f        Soubor ve kterem chceme spocitat radky
- * \return Vrati cele cislo s poctem radku (zaznamu) v souboru
+ *  \param[in]  f        Soubor ve kterem chceme spocitat radky
+ *  \return Vrati cele cislo s poctem radku (zaznamu) v souboru
  *
  */
 int CountLines(ifstream &f){
@@ -95,8 +96,8 @@ int CountLines(ifstream &f){
 
 
 /** \brief Prevadi cas na ms ze stringu
- * \param[in]  time       Vector stringu ze ktereho se bere cas (cas je jiz rozdelen na 3 casti - min, sek, ms)
- * \return Vraci milisekundy
+ *  \param[in]  time       Vector stringu ze ktereho se bere cas (cas je jiz rozdelen na 3 casti - min, sek, ms)
+ *  \return Vraci milisekundy
  *
  */
 int TimeToMs(const vector<string>& time){
@@ -105,8 +106,8 @@ int TimeToMs(const vector<string>& time){
 
 
 /** \brief Posila referenci vektoru s casem rozdelenym na minuty, vteriny, setiny
- * \param[in]  ms          Cas v milisekundach
- * \param[out]  time       Vektor intu do ktereho se posila
+ *  \param[in]  ms          Cas v milisekundach
+ *  \param[out]  time       Vektor intu do ktereho se posila
  *
  */
 
@@ -121,8 +122,8 @@ void MsToTime(int ms, vector<int>& time){
 }
 
 /** \brief Vrati string s casem ve tvaru min:s,ms
- * \param[in]  ms         Cas v milisekundach
- * \return String ve tvaru min:s,ms
+ *  \param[in]  ms         Cas v milisekundach
+ *  \return String ve tvaru min:s,ms
  *
  */
 string MsToTime(int ms){
@@ -279,11 +280,12 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
 
             /**
              ### 4. ZOBRAZENI JEDNOHO (VICE) JEZDCU ###
-                - Uzivatel zada jmeno jezdce a ten se vypise (pokud existuje)
-                - Mozne tvary zadani jmena:
+                - Uzivatel zada jmeno (popr. pouze ID) jezdce a ten se vypise (pokud existuje)
+                - Mozne tvary zadani:
                     - Jmeno
                     - Jmeno Prijmeni
                     - Prijmeni
+                    - ID
                 - Je mozne ze se vypise i vice jezdcu pokud existuji jmenovci!
                 - Nacita se pomoci getline() z duvodu cteni bilych znaku
                 - Pote se opet ceka na zmacknuti ENTER pomoci funkce cin.ignore()
@@ -293,11 +295,13 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                 cout <<  endl
                      << "HLEDANI JEZDCE" << endl
                      << "==============" << endl << endl
-                     << " / Mozne tvary: \"Jmeno Prijmeni\", nebo \"Jmeno\", nebo \"Prijmeni\" /"<< endl << endl
-                     << "Zadejte jmeno: ";
+                     << " / Mozne tvary: \"1\", \"Jmeno Prijmeni\", nebo \"Jmeno\", nebo \"Prijmeni\" /"<< endl << endl
+                     << "Zadejte jmeno (nebo pouze ID jezdce): ";
 
                 cin.clear();
                 getline(cin, name,'\n');
+
+                cout << endl;
 
                 PrintPilot(allPilots,name);
 

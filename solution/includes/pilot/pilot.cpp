@@ -1,28 +1,32 @@
-/**
- * @brief Funkce pro praci s jezdcem
- * @file includes/jezdec/jezdec.cpp
- */
-
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
 #include <iomanip>
 
+#include <ctype.h>
 
 #include "pilot.h"
 #include "../functions/functions.h"
 
+/**
+ * \@brief Funkce pro praci se strukturou Pilot
+ * \file includes/jezdec/jezdec.cpp
+ *
+ */
 
 using namespace std;
 
-/**
- * @brief Naplni strukturu TJEZDEC daty z csv souboru
- * @param f              Soubor ze ktereho se nacitaji jezdci
- * @param jezdci         Vektor struktury TJEZDEC do ktereho se bude ukladat
- * @param casy           Vektor struktury TCAS ze ktereho se nacitaji casy okruhu
- * @param jezdci         Pocet zajetych okruhu
+
+/** \brief Naplni strukturu Pilot daty z csv souboru
+ *
+ *  \param[in]  f               Soubor ze ktereho se nacitaji jezdci
+ *  \param[out] allPilots       Vektor struktury Pilot do ktereho se bude ukladat
+ *  \param[in]  allRounds       Vektor struktury Round ze ktereho se nacitaji casy okruhu
+ *  \param[in]  numberOfRounds  Pocet zajetych okruhu
+ *
  */
+
 void FillPilots(ifstream& f, vector<Pilot>& allPilots, vector<Round>& allRounds,const int& numberOfRounds){
 
     int i = 0;
@@ -45,43 +49,55 @@ void FillPilots(ifstream& f, vector<Pilot>& allPilots, vector<Round>& allRounds,
         int bestTime = 100000000, worstTime = 0;
         unsigned long overallTime = 0;
 
-        for(int j = 0; j < numberOfRounds; j++){
-            if(allRounds.at(j).id_pilot == allPilots.at(i).id_pilot){
+        try{
+            for(int j = 0; j < numberOfRounds; j++){
+                if(allRounds.at(j).id_pilot == allPilots.at(i).id_pilot){
 
-                allPilots.at(i).number_of_rounds++;
-                overallTime += allRounds.at(j).time_ms;
+                    allPilots.at(i).number_of_rounds++;
+                    overallTime += allRounds.at(j).time_ms;
 
-                if(allRounds.at(j).time_ms < bestTime)
-                    bestTime = allRounds.at(j).time_ms;
+                    if(allRounds.at(j).time_ms < bestTime)
+                        bestTime = allRounds.at(j).time_ms;
 
-                if(allRounds.at(j).time_ms > worstTime)
-                    worstTime = allRounds.at(j).time_ms;
+                    if(allRounds.at(j).time_ms > worstTime)
+                        worstTime = allRounds.at(j).time_ms;
+                }
+
             }
 
+            if(worstTime != 0)
+                allPilots.at(i).worst_time = worstTime;
+            else
+                allPilots.at(i).worst_time = 0;
+
+            if(bestTime != 100000000)
+                allPilots.at(i).best_time = bestTime;
+            else
+                allPilots.at(i).best_time = 0;
+
+            if(allPilots.at(i).number_of_rounds != 0)
+                allPilots.at(i).mean_time = overallTime/allPilots.at(i).number_of_rounds;
+            else
+                allPilots.at(i).mean_time = 0;
+
         }
-
-        if(worstTime != 0)
-            allPilots.at(i).worst_time = worstTime;
-        else
-            allPilots.at(i).worst_time = 0;
-
-        if(bestTime != 100000000)
-            allPilots.at(i).best_time = bestTime;
-        else
-            allPilots.at(i).best_time = 0;
-
-        if(allPilots.at(i).number_of_rounds != 0)
-            allPilots.at(i).mean_time = overallTime/allPilots.at(i).number_of_rounds;
-        else
-            allPilots.at(i).mean_time = 0;
+        catch (out_of_range e){
+            cout << endl << " * Chyba! "<< "Jeji popis: " << e.what() << " *" << endl << " * Program bude ukoncen. *" << endl;
+            exit(0);
+        }
 
         i++;
     }
-    /// PRESUNE "KURZOR" ZPET NA ZACETEK SOUBORU
+    /// PRESUNE "KURZOR" V SOUBORU ZPET NA ZACETEK SOUBORU
     f.clear();
     f.seekg(0);
 }
 
+
+/** \brief Prida pozici k jezdci
+ * \param[out] allPilots    Vektor jezdcu, kterym bude zapisovano poradi
+ *
+ */
 void AddPosition(vector<Pilot> &allPilots){
     try{
         for(int i = 0; i < allPilots.size(); i++){
@@ -89,15 +105,16 @@ void AddPosition(vector<Pilot> &allPilots){
         }
     }
     catch (out_of_range e){
-        cout << endl << " * Chyba. "<< "Jeji popis: " << e.what() << " *" << endl;
+        cout << endl << " * Chyba! "<< "Jeji popis: " << e.what() << " *" << endl << " * Program bude ukoncen. *" << endl;
+        exit(0);
     }
 }
 
 
-/**
- * @brief Vypise seznam jezdcu do konzole - pouziti i pro postupujici
- * @param jezdci         Vektor struktury TJEZDEC ze ktereho se cerpa
- * @param pocet_postupujich  Kolik jich postupuje (se vypise)
+/** \brief Vypise seznam jezdcu do konzole - pouziti i pro postupujici
+ * \param[in] allPilots    Vektor struktury Pilot ze ktereho se cerpa
+ * \param[in] num          Pocet vypsanych jezdcu
+ *
  */
 void PrintPilots(const vector<Pilot>& allPilots, const int& num){
 
@@ -118,12 +135,18 @@ void PrintPilots(const vector<Pilot>& allPilots, const int& num){
         }
     }
     catch (out_of_range e){
-        cout << endl << " * Chyba. "<< "Jeji popis: " << e.what() << " *" << endl;
+        cout << endl << " * Chyba! "<< "Jeji popis: " << e.what() << " *" << endl << " * Program bude ukoncen. *" << endl;
+        exit(0);
     }
 
     cout << endl;
 }
 
+/** \brief Vypise jednoho jezdce (popr. vice jezdcu pokud maji stejne jmeno) do konzole
+ * \param[in] allPilots    Vektor struktury Pilot ze ktereho se cerpa
+ * \param[in] name         Jmeno hledaneho jezdce. Muze byt zadano: Jmeno Prijmeni, Prijmeni, Jmeno
+ *
+ */
 void PrintPilot(const vector<Pilot>& allPilots, string name){
 
     int numberOfCells = CountCells(' ',name), found = 0;
@@ -135,22 +158,30 @@ void PrintPilot(const vector<Pilot>& allPilots, string name){
     /// ROZDELI RADEK DO BUNEK
     ExplodeString(' ',name,explodedName);
 
-    /// NUTNO PREDELENAT NA LOWERCASE Z DUVODOU ZE UZIVATL MUZE MIT ZAPNUTY NAPR CAPS LOCK
-    if(explodedName.size() == 1)
-        transform(explodedName.at(0).begin(), explodedName.at(0).end(), explodedName.at(0).begin(),::tolower);
-
-    if(explodedName.size() == 2){
-        transform(explodedName.at(0).begin(), explodedName.at(0).end(), explodedName.at(0).begin(),::tolower);
-        transform(explodedName.at(1).begin(), explodedName.at(1).end(), explodedName.at(1).begin(),::tolower);
-    }
-
     try{
+
+        /// NUTNO PREDELENAT NA LOWERCASE Z DUVODOU ZE UZIVATL MUZE MIT ZAPNUTY NAPR CAPS LOCK
+        if(explodedName.size() == 1)
+            transform(explodedName.at(0).begin(), explodedName.at(0).end(), explodedName.at(0).begin(),::tolower);
+
+        if(explodedName.size() == 2){
+            transform(explodedName.at(0).begin(), explodedName.at(0).end(), explodedName.at(0).begin(),::tolower);
+            transform(explodedName.at(1).begin(), explodedName.at(1).end(), explodedName.at(1).begin(),::tolower);
+        }
+
         for(int i = 0; i < allPilots.size(); i++){
 
             transform(pilotsLowerCase.at(i).name.begin(), pilotsLowerCase.at(i).name.end(), pilotsLowerCase.at(i).name.begin(),::tolower);
             transform(pilotsLowerCase.at(i).surname.begin(), pilotsLowerCase.at(i).surname.end(), pilotsLowerCase.at(i).surname.begin(),::tolower);
 
             if(explodedName.size() == 1){ /// POKUD JE ZADANO JEN JMENO NEBO JEN PRIJMENI
+
+                /// POKUD JE ZADANO POUZE ID
+                if(isdigit(explodedName.at(0).at(0)) && stoi(explodedName.at(0)) == allPilots.at(i).id_pilot){
+                    found = 1;
+                    foundPilots.push_back(allPilots.at(i));
+                }
+
 
                 if(explodedName.at(0) == pilotsLowerCase.at(i).name || explodedName.at(0) == pilotsLowerCase.at(i).surname){
                     found = 1;
@@ -164,20 +195,23 @@ void PrintPilot(const vector<Pilot>& allPilots, string name){
                 }
             }
             else{
-                cout << " * Pravdepodobne jste spatne zadal jmeno." << endl;
+                cout << " * Pravdepodobne jste spatne zadal jmeno. *" << endl;
                 break;
             }
 
         }
+
     }
     catch (out_of_range e){
-        cout << endl << " * Chyba! "<< "Jeji popis: " << e.what() << " *" << endl;
+        cout << endl << " * Chyba! "<< "Jeji popis: " << e.what() << " *" << endl << " * Program bude ukoncen. *" << endl;
+        exit(0);
     }
 
 
     /// VYKRESLENI TABULKY AZ TED Z DUVODU KDYBY BYLO NALEZENO VICE JEZDCU
     if(found == 0)
         cout << " * Zadny jezdec nebyl nalezen. *" << endl;
+
     else{
         cout << setw(4) << "P " << " | "<< " ID " << " | " << setw(10) << " JMENO " << " | " <<  setw(10) << " PRIJMENI " << " | " << "KOL |" << setw(11) << " NEJLEPSI |"<< setw(11) << " NEJHORSI |"<< setw(9) << " PRUMERNY"<<endl;
         for(int i = 0; i < 78; i++)
@@ -185,12 +219,18 @@ void PrintPilot(const vector<Pilot>& allPilots, string name){
         cout << endl;
 
         try{
-            for(int i = 0; i < foundPilots.size(); i++)
+
+            for(int i = 0; i < foundPilots.size(); i++){
+
                 cout << setw(3) << foundPilots.at(i).position <<". | " << setw(4) << foundPilots.at(i).id_pilot << " | " << setw(10) << foundPilots.at(i).name << " | " <<  setw(10) <<  foundPilots.at(i).surname << " |" << setw(4) << foundPilots.at(i).number_of_rounds << " |"
                 << setw(9) << MsToTime(foundPilots.at(i).best_time) << " |" << setw(9) << MsToTime(foundPilots.at(i).worst_time) << " |" << setw(9) << MsToTime(foundPilots.at(i).mean_time) << endl;
+
+            }
+
         }
         catch (out_of_range e){
-            cout << endl << " * Chyba! "<< "Jeji popis: " << e.what() << " *" << endl;
+            cout << endl << " * Chyba! "<< "Jeji popis: " << e.what() << " *" << endl << " * Program bude ukoncen. *" << endl;
+            exit(0);
         }
 
     }
