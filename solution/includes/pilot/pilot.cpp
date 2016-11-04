@@ -10,15 +10,15 @@
 #include "../functions/functions.h"
 
 /**
- * \@brief Funkce pro praci se strukturou Pilot
- * \file includes/jezdec/jezdec.cpp
+ * \brief Funkce pro praci se strukturou Pilot
+ * \file includes/pilot/pilot.cpp
  *
  */
 
 using namespace std;
 
 
-/** \brief Naplni strukturu Pilot daty z csv souboru
+/** \brief Naplni strukturu Pilot daty z CSV souboru
  *
  *  \param[in]  f               Soubor ze ktereho se nacitaji jezdci
  *  \param[out] allPilots       Vektor struktury Pilot do ktereho se bude ukladat

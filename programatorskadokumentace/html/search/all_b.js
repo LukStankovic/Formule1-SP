@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['time',['time',['../struct_round.html#a7810bf00938f32bb8d5394bab8963715',1,'Round']]],
-  ['time_5fms',['time_ms',['../struct_round.html#a1a5506b156283853fd23980dfd3521db',1,'Round']]],
-  ['timetoms',['TimeToMs',['../functions_8cpp.html#af8555f07b85a4aa534bbc650ddc3a9b1',1,'TimeToMs(const vector&lt; string &gt; &amp;time):&#160;functions.cpp'],['../functions_8h.html#af8555f07b85a4aa534bbc650ddc3a9b1',1,'TimeToMs(const vector&lt; string &gt; &amp;time):&#160;functions.cpp']]]
+  ['semestralni_20prace_20k_201_2e_20semestru_2c_20lukas_20stankovic_20_28sta0445_29_2c_20formule_201',['Semestralni prace k 1. semestru, Lukas Stankovic (STA0445), Formule 1',['../index.html',1,'']]],
+  ['sort',['Sort',['../pilot_8cpp.html#a9bc84f2d3df9ad82fc103989c05ce93d',1,'Sort(vector&lt; Pilot &gt; &amp;allPilots):&#160;pilot.cpp'],['../pilot_8h.html#a9bc84f2d3df9ad82fc103989c05ce93d',1,'Sort(vector&lt; Pilot &gt; &amp;allPilots):&#160;pilot.cpp'],['../round_8cpp.html#a5f99fbc9a3f9505b16c594a9b678d1b9',1,'Sort(vector&lt; Round &gt; &amp;allRounds):&#160;round.cpp'],['../round_8h.html#a5f99fbc9a3f9505b16c594a9b678d1b9',1,'Sort(vector&lt; Round &gt; &amp;allRounds):&#160;round.cpp']]],
+  ['surname',['surname',['../struct_pilot.html#ad2812261959ef6a68ca239234a5a2eb9',1,'Pilot']]]
 ];

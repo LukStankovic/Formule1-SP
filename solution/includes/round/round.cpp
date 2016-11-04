@@ -1,7 +1,3 @@
-/**
- * @brief Funkce pro praci s casem
- * @author Lukas Stankovic
- */
 #include <iostream>
 #include <fstream>
 #include <vector>
@@ -12,7 +8,13 @@
 #include "../functions/functions.h"
 
 
-/// NAPLNI STRUKTURU DATY ZE SOUBORU
+/**
+ * \brief Funkce pro praci se strukturou Round
+ * \file includes/round/round.cpp
+ *
+ */
+
+
 /**
  * @brief Naplni strukturu Round datdy z csv souboru
  * @param f              Soubor ze ktereho se nacitaji jezdci

@@ -99,6 +99,12 @@ Functions</h2></td></tr>
 <tr class="memitem:abb780c95a04b434d4de72cb322cb7cd6"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8cpp.html#abb780c95a04b434d4de72cb322cb7cd6">MsToTime</a> (int ms)</td></tr>
 <tr class="memdesc:abb780c95a04b434d4de72cb322cb7cd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vrati string s casem ve tvaru min:s,ms.  <a href="#abb780c95a04b434d4de72cb322cb7cd6">More...</a><br /></td></tr>
 <tr class="separator:abb780c95a04b434d4de72cb322cb7cd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea56b8546ed72ce660f49a7ed96883a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8cpp.html#aea56b8546ed72ce660f49a7ed96883a5">ToLower</a> (string &amp;str)</td></tr>
+<tr class="memdesc:aea56b8546ed72ce660f49a7ed96883a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepise string na mala pismena.  <a href="#aea56b8546ed72ce660f49a7ed96883a5">More...</a><br /></td></tr>
+<tr class="separator:aea56b8546ed72ce660f49a7ed96883a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a018d9bb328274c7bb52a575f06377b08"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8cpp.html#a018d9bb328274c7bb52a575f06377b08">HTMLHead</a> (const string &amp;title)</td></tr>
+<tr class="memdesc:a018d9bb328274c7bb52a575f06377b08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepise string na mala pismena.  <a href="#a018d9bb328274c7bb52a575f06377b08">More...</a><br /></td></tr>
+<tr class="separator:a018d9bb328274c7bb52a575f06377b08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c0c63bf12d7df7501c15dce3e5b046f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8cpp.html#a7c0c63bf12d7df7501c15dce3e5b046f">PrintMenu</a> (vector&lt; <a class="el" href="struct_pilot.html">Pilot</a> &gt; allPilots, vector&lt; <a class="el" href="struct_round.html">Round</a> &gt; allRounds, const int &amp;numberOfPilots, const int &amp;numberOfRounds)</td></tr>
 <tr class="memdesc:a7c0c63bf12d7df7501c15dce3e5b046f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vypise do konzole menu vcetne zadavani volby.  <a href="#a7c0c63bf12d7df7501c15dce3e5b046f">More...</a><br /></td></tr>
 <tr class="separator:a7c0c63bf12d7df7501c15dce3e5b046f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -227,6 +233,32 @@ Functions</h2></td></tr>
 </li>
 </ul>
 <p>PRIDA DELIC NA KONEC STRINGU PRO SNADNEJSI PRACI SE STRINGEM </p>
+
+</div>
+</div>
+<a id="a018d9bb328274c7bb52a575f06377b08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a018d9bb328274c7bb52a575f06377b08">&sect;&nbsp;</a></span>HTMLHead()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string HTMLHead </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>title</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prepise string na mala pismena. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">str</td><td>String ktery chceme prepsat na mala pismena </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -377,17 +409,19 @@ Functions</h2></td></tr>
 </ul>
 <h3>4. ZOBRAZENI JEDNOHO (VICE) JEZDCU</h3>
 <ul>
-<li>Uzivatel zada jmeno jezdce a ten se vypise (pokud existuje)</li>
-<li>Mozne tvary zadani jmena:<ul>
+<li>Uzivatel zada jmeno (popr. pouze ID) jezdce a ten se vypise (pokud existuje)</li>
+<li>Mozne tvary zadani:<ul>
 <li>Jmeno</li>
 <li>Jmeno Prijmeni</li>
 <li>Prijmeni</li>
+<li>ID</li>
 </ul>
 </li>
 <li>Je mozne ze se vypise i vice jezdcu pokud existuji jmenovci!</li>
 <li>Nacita se pomoci getline() z duvodu cteni bilych znaku</li>
 <li>Pote se opet ceka na zmacknuti ENTER pomoci funkce cin.ignore()</li>
 </ul>
+<p>IGNORACE ENTERU A VYCISTENI CIN</p>
 <h3>5. EXPORT VSECH JEZDCU DO HTML</h3>
 <ul>
 <li>Exportuje a vygeneruje tabulku vsech jezdcu do HTML</li>
@@ -421,12 +455,14 @@ Functions</h2></td></tr>
 <li>Jmeno</li>
 <li>Jmeno Prijmeni</li>
 <li>Prijmeni</li>
+<li>ID</li>
 </ul>
 </li>
 <li>Je mozne ze se vypise i vice jezdcu pokud existuji jmenovci!</li>
 <li>Nacita se pomoci getline() z duvodu cteni bilych znaku</li>
 <li>Program kontroluje zda se soubor vytvoril</li>
 </ul>
+<p>IGNORACE ENTERU A VYCISTENI CIN</p>
 <h3>9. Export stupne vitezu</h3>
 <ul>
 <li>Exportuje prvni 3 nejrychlejsi jezdce</li>
@@ -465,6 +501,32 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Vraci milisekundy </dd></dl>
+
+</div>
+</div>
+<a id="aea56b8546ed72ce660f49a7ed96883a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea56b8546ed72ce660f49a7ed96883a5">&sect;&nbsp;</a></span>ToLower()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ToLower </td>
+          <td>(</td>
+          <td class="paramtype">string &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prepise string na mala pismena. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">str</td><td>String ktery chceme prepsat na mala pismena </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

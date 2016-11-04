@@ -61,7 +61,7 @@
 	"../pilot/pilot.h"
 	"../round/round.h"
 
-1478270707 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/functions/functions.cpp
+1478271214 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/functions/functions.cpp
 	<iostream>
 	<fstream>
 	<string>
@@ -78,7 +78,7 @@
 	"../pilot/pilot.h"
 	"../functions/functions.h"
 
-1478269525 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/pilot/pilot.h
+1478271617 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/pilot/pilot.h
 	"../round/round.h"
 
 1478271009 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/pilot/pilot.cpp

@@ -37,24 +37,28 @@ typedef struct{
 
 }Pilot;
 
-/// NAPLNI STRUKTURU TJEZDEC DATY Z CSV SOUBORU
+/// Naplni strukturu Pilot daty z CSV souboru
 void FillPilots(ifstream& f, vector<Pilot>& allPilots, vector<Round>& allRounds,const int& numberOfRounds);
 
-/// PRIDA POZICI
+/// Prida pozici k jezdci
 void AddPosition(vector<Pilot>& allPilots);
 
-/// VYPISE SEZNAM JEZDCU DO KONZOLE - POUZITI I PRO POSTUPUJICI
+/// Vypise seznam jezdcu do konzole - pouziti i pro postupujici
 void PrintPilots(const vector<Pilot>& allPilots, const int& num);
 
-/// VYPIS JEDNOHO JEZDCE
+/// Vypise jednoho jezdce (popr. vice jezdcu pokud maji stejne jmeno) do konzole
 void PrintPilot(const vector<Pilot>& allPilots, string name);
 
+/// Exportuje seznam jezdcu do html
 void ExportPilots(const vector<Pilot>& allPilots, const string& path, const int& num);
 
+/// Exportuje jednoho jezdce (popr. vice jezdcu pokud maji stejne jmeno) do konzole + vypise vsechny jeho kola
 void ExportPilot(const vector<Pilot>& allPilots, string name, const string& path);
 
+/// Setridi vsechny jezdce podle nejrychlejsiho casu (od nejrychlejsiho po nejpomalejsi)
 void Sort(vector<Pilot>& allPilots);
 
+/// Vraci pro ktery jezdec je rychlejsi
 bool IsFaster(const Pilot& a, const Pilot& b);
 
 #endif

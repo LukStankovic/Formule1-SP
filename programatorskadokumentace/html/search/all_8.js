@@ -1,11 +1,5 @@
 var searchData=
 [
-  ['pilot',['Pilot',['../struct_pilot.html',1,'']]],
-  ['pilot_2ecpp',['pilot.cpp',['../pilot_8cpp.html',1,'']]],
-  ['pilot_2eh',['pilot.h',['../pilot_8h.html',1,'']]],
-  ['position',['position',['../struct_pilot.html#a581b8b9ac2cbb0c0572a0cfb5ddb1cdc',1,'Pilot']]],
-  ['printmenu',['PrintMenu',['../functions_8cpp.html#a7c0c63bf12d7df7501c15dce3e5b046f',1,'PrintMenu(vector&lt; Pilot &gt; allPilots, vector&lt; Round &gt; allRounds, const int &amp;numberOfPilots, const int &amp;numberOfRounds):&#160;functions.cpp'],['../functions_8h.html#a7c0c63bf12d7df7501c15dce3e5b046f',1,'PrintMenu(vector&lt; Pilot &gt; allPilots, vector&lt; Round &gt; allRounds, const int &amp;numberOfPilots, const int &amp;numberOfRounds):&#160;functions.cpp']]],
-  ['printpilot',['PrintPilot',['../pilot_8cpp.html#aea15325eb020ef51902c92b2705dda18',1,'PrintPilot(const vector&lt; Pilot &gt; &amp;allPilots, string name):&#160;pilot.cpp'],['../pilot_8h.html#aea15325eb020ef51902c92b2705dda18',1,'PrintPilot(const vector&lt; Pilot &gt; &amp;allPilots, string name):&#160;pilot.cpp']]],
-  ['printpilots',['PrintPilots',['../pilot_8cpp.html#a3f3beaf7195158b331f8affbce32c89e',1,'PrintPilots(const vector&lt; Pilot &gt; &amp;allPilots, const int &amp;num):&#160;pilot.cpp'],['../pilot_8h.html#a3f3beaf7195158b331f8affbce32c89e',1,'PrintPilots(const vector&lt; Pilot &gt; &amp;allPilots, const int &amp;num):&#160;pilot.cpp']]],
-  ['printrounds',['PrintRounds',['../round_8cpp.html#acfe2dad6279c0550549732b85f5534ac',1,'PrintRounds(const vector&lt; Round &gt; &amp;allRounds):&#160;round.cpp'],['../round_8h.html#acfe2dad6279c0550549732b85f5534ac',1,'PrintRounds(const vector&lt; Round &gt; &amp;allRounds):&#160;round.cpp']]]
+  ['name',['name',['../struct_pilot.html#a234d544cb5a5afca44621dd792d2c56b',1,'Pilot']]],
+  ['number_5fof_5frounds',['number_of_rounds',['../struct_pilot.html#abca38a664722663cd401cce879011c40',1,'Pilot']]]
 ];

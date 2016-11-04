@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['id_5fpilot',['id_pilot',['../struct_pilot.html#a5f1d5cf661fc9716641d2675077f45d7',1,'Pilot::id_pilot()'],['../struct_round.html#a7b0751461e333750ff46229b437e0090',1,'Round::id_pilot()']]],
-  ['id_5fround',['id_round',['../struct_round.html#a3859b044ec323ab7ec1daec3961785c7',1,'Round']]],
-  ['isfaster',['IsFaster',['../pilot_8cpp.html#a734350a64e893a962173b85cea902fc9',1,'IsFaster(const Pilot &amp;a, const Pilot &amp;b):&#160;pilot.cpp'],['../pilot_8h.html#a734350a64e893a962173b85cea902fc9',1,'IsFaster(const Pilot &amp;a, const Pilot &amp;b):&#160;pilot.cpp'],['../round_8cpp.html#a29d2005fd957f068dd77e8e2d938f600',1,'IsFaster(const Round &amp;a, const Round &amp;b):&#160;round.cpp'],['../round_8h.html#a29d2005fd957f068dd77e8e2d938f600',1,'IsFaster(const Round &amp;a, const Round &amp;b):&#160;round.cpp']]]
+  ['htmlhead',['HTMLHead',['../functions_8cpp.html#a018d9bb328274c7bb52a575f06377b08',1,'HTMLHead(const string &amp;title):&#160;functions.cpp'],['../functions_8h.html#a018d9bb328274c7bb52a575f06377b08',1,'HTMLHead(const string &amp;title):&#160;functions.cpp']]]
 ];
