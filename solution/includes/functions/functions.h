@@ -26,6 +26,8 @@ string MsToTime(int ms);
 
 void ToLower(string& str);
 
+string HTMLHead(const string& title);
+
 /// VYPISE DO KONZOLE MENU
 void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numberOfPilots, const int& numberOfRounds);
 

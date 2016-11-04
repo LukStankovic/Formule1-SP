@@ -51,6 +51,8 @@ void PrintPilot(const vector<Pilot>& allPilots, string name);
 
 void ExportPilots(const vector<Pilot>& allPilots, const string& path, const int& num);
 
+void ExportPilot(const vector<Pilot>& allPilots, string name, const string& path);
+
 void Sort(vector<Pilot>& allPilots);
 
 bool IsFaster(const Pilot& a, const Pilot& b);

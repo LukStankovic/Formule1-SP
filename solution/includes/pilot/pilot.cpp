@@ -149,11 +149,12 @@ void PrintPilots(const vector<Pilot>& allPilots, const int& num){
  */
 void PrintPilot(const vector<Pilot>& allPilots, string name){
 
-    int numberOfCells = CountCells(' ',name), found = 0;
+    int numberOfCells = CountCells(' ',name);
+    int found = 0;
     vector<string> explodedName(numberOfCells);
     vector<Pilot> foundPilots;
     vector<Pilot> pilotsLowerCase(allPilots.size()); /// POMOCNY VEKTOR STRUKURY Pilot PRO LOWERCASE JEZDCE
-    pilotsLowerCase = allPilots;  /// PREKOPIROVANI JEZDCU
+    pilotsLowerCase = allPilots;  /// PREKOPIROVANI JEZDCU DO POMOCNEHO VEKTORU
 
     /// ROZDELI RADEK DO BUNEK
     ExplodeString(' ',name,explodedName);
@@ -182,7 +183,6 @@ void PrintPilot(const vector<Pilot>& allPilots, string name){
                     found = 1;
                     foundPilots.push_back(allPilots.at(i));
                 }
-
 
                 if(explodedName.at(0) == pilotsLowerCase.at(i).name || explodedName.at(0) == pilotsLowerCase.at(i).surname){
                     found = 1;
@@ -237,29 +237,21 @@ void PrintPilot(const vector<Pilot>& allPilots, string name){
     }
 }
 
+
 /**
- * @brief Exportuje seznam jezdcu do html
- * @param jezdci   Vektor struktury TJEZDEC
- * @param nazev    Nazev souboru
+ * \brief Exportuje seznam jezdcu do html
+ * \param[in] allPilots     Vektor struktury Pilot
+ * \param[in] path          Nazev souboru + cesta
+ * \param[in] num           Pocet jezdcu na vypsani
+ *
  */
 void ExportPilots(const vector<Pilot>& allPilots, const string& path, const int& num){
 
     ofstream exp(path);
 
-    exp << "<!doctype html><html lang='cs'><head><meta charset='utf-8'>" << endl
-        << "<title>Vypis vsech jezdcu</title>" << endl
-        << "<style>"<< endl
-        << "body{font-family:sans; text-align: center;}" << endl
-        << "table{margin: 30px auto; text-align: center;}" << endl
-        << "th{border-bottom: 1px solid #000; background: #dcdcdc; padding: 10px 15px;}" << endl
-        << "td{padding: 5px 15px;}" << endl
-        << "tbody tr:nth-child(even){background: #f4f4f4;}" << endl
-        << "tbody tr:nth-child(odd){background: #fff;}" << endl
-        << "h1{font-size:23px}" << endl
-        << "</style>" << endl
-        << "<head>" << endl
-        << "<body>" << endl
-        << "<h1>Vypis vsech jezdcu</h1>" <<  endl
+    exp << HTMLHead("Piloti F1");
+    exp << "<body>" << endl
+        << "<h1>Jezdci F1</h1>" <<  endl
         << "<table cellspacing='0'>"<< endl
         << "<thead><tr>" << endl
         << "<th>Poradi</th><th>ID</th><th>Jmeno</th><th>Prijmeni</th><th>Pocet kol</th><th>Nejrychlejsi kolo</th><th>Nejpomalejsi kolo</th><th>Prumerny cas kola</th>" << endl
@@ -301,6 +293,90 @@ void ExportPilots(const vector<Pilot>& allPilots, const string& path, const int&
     }
 }
 
+
+/** \brief Exportuje jednoho jezdce (popr. vice jezdcu pokud maji stejne jmeno) do konzole + vypise vsechny jeho kola
+ * \param[in] allPilots    Vektor struktury Pilot ze ktereho se cerpa
+ * \param[in] name         Jmeno hledaneho jezdce. Muze byt zadano: Jmeno Prijmeni, Prijmeni, Jmeno, ID
+ * \param[in] path         Nazev souboru + cesta
+ *
+ */
+void ExportPilot(const vector<Pilot>& allPilots, string name, const string& path){
+
+    int numberOfCells = CountCells(' ',name);
+    int found = 0;
+    vector<string> explodedName(numberOfCells);
+    vector<Pilot> foundPilots;
+    vector<Pilot> pilotsLowerCase(allPilots.size()); /// POMOCNY VEKTOR STRUKURY Pilot PRO LOWERCASE JEZDCE
+    pilotsLowerCase = allPilots;  /// PREKOPIROVANI JEZDCU DO POMOCNEHO VEKTORU
+
+    /// ROZDELI RADEK DO BUNEK
+    ExplodeString(' ',name,explodedName);
+
+    try{
+
+        /// NUTNO PREDELENAT NA LOWERCASE Z DUVODOU ZE UZIVATL MUZE MIT ZAPNUTY NAPR CAPS LOCK
+        if(explodedName.size() == 1){
+            ToLower(explodedName.at(0));
+        }
+
+        if(explodedName.size() == 2){
+            ToLower(explodedName.at(0));
+            ToLower(explodedName.at(1));
+        }
+
+        for(int i = 0; i < allPilots.size(); i++){
+
+            ToLower(pilotsLowerCase.at(i).name);
+            ToLower(pilotsLowerCase.at(i).surname);
+
+            if(explodedName.size() == 1){ /// POKUD JE ZADANO JEN JMENO NEBO JEN PRIJMENI
+
+                /// POKUD JE ZADANO POUZE ID
+                if(isdigit(explodedName.at(0).at(0)) && stoi(explodedName.at(0)) == allPilots.at(i).id_pilot){
+                    found = 1;
+                    foundPilots.push_back(allPilots.at(i));
+                }
+
+                if(explodedName.at(0) == pilotsLowerCase.at(i).name || explodedName.at(0) == pilotsLowerCase.at(i).surname){
+                    found = 1;
+                    foundPilots.push_back(allPilots.at(i));
+                }
+            }
+            else if(explodedName.size() == 2){
+                if( (explodedName.at(0) == pilotsLowerCase.at(i).name || explodedName.at(0) == pilotsLowerCase.at(i).surname) && (explodedName.at(1) == pilotsLowerCase.at(i).name || explodedName.at(1) == pilotsLowerCase.at(i).surname)){
+                    found = 1;
+                    foundPilots.push_back(allPilots.at(i));
+                }
+            }
+            else{
+                cout << " * Pravdepodobne jste spatne zadal jmeno. *" << endl;
+                break;
+            }
+
+        }
+
+    }
+    catch (out_of_range e){
+        cout << endl << " * Chyba! "<< "Jeji popis: " << e.what() << " *" << endl << " * Program bude ukoncen. *" << endl;
+        exit(0);
+    }
+
+
+    /// VYKRESLENI TABULKY AZ TED Z DUVODU KDYBY BYLO NALEZENO VICE JEZDCU
+    if(found == 0)
+        cout << " * Zadny jezdec nebyl nalezen. *" << endl;
+
+    else{
+
+    }
+
+}
+
+/** \brief Setridi vsechny jezdce podle nejrychlejsiho casu (od nejrychlejsiho po nejpomalejsi)
+ *          - Kontroluje pokud cas = 0 --> jezdce da na konec seznamu
+ *  \param[out] allPilots    Vektor struktury Pilot ktery se tridi
+ *
+ */
 void Sort(vector<Pilot>& allPilots){
 
     for(int j = 0; j < allPilots.size()-1; j++){
@@ -317,15 +393,15 @@ void Sort(vector<Pilot>& allPilots){
 }
 
 /**
- * @brief Vraci pro funkci sort() ktery zaznam je mensi
- * @param a        Struktura TJEZDEC - prvni jezdec
- * @param b        Struktura TJEZDEC - druhy jezdec
- * @return Vraci true pokud je a rychlejsi, false pokud je a pomalejsi
+ * \brief Vraci pro ktery jezdec je rychlejsi
+ * \param a        Struktura Pilot - prvni jezdec
+ * \param b        Struktura Pilot - druhy jezdec
+ * \return Vraci false pokud je a rychlejsi, true pokud je a pomalejsi
  */
 bool IsFaster(const Pilot& a, const Pilot& b){
     /**
         OSETRENI ZDA NEMA CAS 0 MS
-            - 0ms znamena prazdna hodnota - jezdec nezajel ani jedno kolo
+            - 0 ms znamena prazdna hodnota - jezdec nezajel ani jedno kolo
             - proto ulozime do pomocne promenne velkou hodnotu
     */
 

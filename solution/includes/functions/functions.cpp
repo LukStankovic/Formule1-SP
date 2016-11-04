@@ -140,12 +140,43 @@ string MsToTime(int ms){
     return str;
 }
 
+
+/**
+ * \brief Prepise string na mala pismena
+ * \param[out]  str        String ktery chceme prepsat na mala pismena
+ *
+ */
 void ToLower(string& str){
     for(int i = 0; i < str.size(); i++)
         if(str[i] >= 'A' && str[i] <= 'Z')
             str[i] = str[i]+32;
+
 }
 
+
+/**
+ * \brief Prepise string na mala pismena
+ * \param[out]  str        String ktery chceme prepsat na mala pismena
+ *
+ */
+string HTMLHead(const string& title){
+    string html;
+
+    html += "<!doctype html>\n <html lang='cs'><head><meta charset='utf-8'>\n";
+    html += "<title>" + title + "</title>\n";
+    html += "<style>\n";
+    html += "body{font-family:sans-serif; text-align: center;}\n";
+    html += "table{margin: 30px auto; text-align: center;}\n";
+    html += "th{border-bottom: 1px solid #000; background: #dcdcdc; padding: 15px 20px;}\n";
+    html += "td{padding: 10px 20px;}\n";
+    html += "tbody tr:nth-child(even){background: #f4f4f4;}\n";
+    html += "tbody tr:nth-child(odd){background: #fff;}\n";
+    html += "h1{font-size:23px}\n";
+    html += "</style>\n";
+    html += "<head>\n";
+
+    return html;
+}
 
 /**
  * \brief Vypise do konzole menu vcetne zadavani volby
@@ -218,7 +249,7 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
             cout << " * Spatne zadana volba. Jsou povoleny pouze cela cisla z menu. *" << endl;
 
         }
-        cin.ignore();
+        cin.ignore(INT_MAX, '\n');
 
         /**
             MENU S VOLBAMI
@@ -305,15 +336,16 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                      << " / Mozne tvary: \"1\", \"Jmeno Prijmeni\", nebo \"Jmeno\", nebo \"Prijmeni\" /"<< endl << endl
                      << "Zadejte jmeno (nebo pouze ID jezdce): ";
 
-                cin.clear();
-                getline(cin, name,'\n');
-
-                cout << endl;
+                getline(cin,name);
 
                 PrintPilot(allPilots,name);
 
                 cout << endl << " / Pro zobrazeni menu stiskente ENTER. /";
-                cin.ignore();
+
+                /// IGNORACE ENTERU A VYCISTENI CIN
+                cin.clear();
+                cin.ignore(INT_MAX,'\n');
+
             }break;
 
             /**
@@ -330,11 +362,14 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                      << " / Mozny tvar: /Users/Jmeno/programs/formule/vypis_vsech_jezdcu.html /"<< endl
                      << " / SOUBOR JE VE FORMATU HTML! /"<< endl << endl
                      << "Zadejte adresu a nazev souboru: ";
-                getline(cin, fileName,'\n');
+
+                cin >> fileName;
+
                 ExportPilots(allPilots,fileName,numberOfPilots);
 
                 cout << endl << " / Pro zobrazeni menu stiskente ENTER. /";
-                cin.ignore();
+                cin.get();
+                cin.get();
             }break;
 
             /**
@@ -351,11 +386,14 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                      << " / Mozny tvar: /Users/Jmeno/programs/formule/vypis_vsech_jezdcu.html /"<< endl
                      << " / SOUBOR JE VE FORMATU HTML! /"<< endl << endl
                      << "Zadejte adresu a nazev souboru: ";
-                getline(cin, fileName,'\n');
+
+                cin >> fileName;
+
                 ExportRounds(allRounds,fileName);
 
                 cout << endl << " / Pro zobrazeni menu stiskente ENTER. /";
-                cin.ignore();
+                cin.get();
+                cin.get();
             }break;
 
             /**
@@ -381,8 +419,7 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                      << " / Mozny tvar: /Users/Jmeno/programs/formule/vypis_vsech_jezdcu.html /"<< endl
                      << " / SOUBOR JE VE FORMATU HTML! /"<< endl << endl
                      << "Zadejte adresu a nazev souboru: ";
-                getline(cin, fileName,'\n');
-
+                cin >> fileName;
                 do{
 
                     cout << "Zadejte kolik jezdcu postupuje: ";
@@ -414,11 +451,39 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                     - Jmeno
                     - Jmeno Prijmeni
                     - Prijmeni
+                    - ID
                 - Je mozne ze se vypise i vice jezdcu pokud existuji jmenovci!
                 - Nacita se pomoci getline() z duvodu cteni bilych znaku
                 - Program kontroluje zda se soubor vytvoril
             */
             case 8:{
+                string name, fileName;
+                cout <<  endl
+                     << "HLEDANI JEZDCE" << endl
+                     << "==============" << endl << endl
+                     << " / Mozny tvar: /Users/Jmeno/programs/formule/vypis_vsech_jezdcu.html /"<< endl
+                     << " / SOUBOR JE VE FORMATU HTML! /"<< endl << endl
+                     << "Zadejte adresu a nazev souboru: ";
+
+                cin >> fileName;
+
+                cin.clear();
+                cin.ignore(INT_MAX,'\n');
+
+
+                cout << endl << " / Mozne tvary : \"1\", \"Jmeno Prijmeni\", nebo \"Jmeno\", nebo \"Prijmeni\" /"<< endl << endl
+                     << "Zadejte jmeno hledaneho jezdce (nebo pouze ID jezdce): ";
+                getline(cin,name);
+
+
+
+                ExportPilot(allPilots,name,fileName);
+
+                cout << endl << " / Pro zobrazeni menu stiskente ENTER. /";
+
+                /// IGNORACE ENTERU A VYCISTENI CIN
+                cin.clear();
+                cin.ignore(INT_MAX,'\n');
 
             }break;
 

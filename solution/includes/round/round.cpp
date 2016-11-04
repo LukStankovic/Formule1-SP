@@ -111,20 +111,9 @@ void ExportRounds(const vector<Round>& allRounds, const string& path){
 
     ofstream exp(path);
 
-    exp << "<!doctype html><html lang='cs'><head><meta charset='utf-8'>" << endl
-        << "<title>Vypis vsech casu</title>" << endl
-        << "<style>"<< endl
-        << "body{font-family:sans; text-align: center;}" << endl
-        << "table{margin: 30px auto; text-align: center;}" << endl
-        << "th{border-bottom: 1px solid #000; background: #dcdcdc; padding: 10px 15px;}" << endl
-        << "td{padding: 5px 15px;}" << endl
-        << "tbody tr:nth-child(even){background: #f4f4f4;}" << endl
-        << "tbody tr:nth-child(odd){background: #fff;}" << endl
-        << "h1{font-size:23px}" << endl
-        << "</style>" << endl
-        << "<head>" << endl
-        << "<body>" << endl
-        << "<h1>Vypis vsech jezdcu</h1>" <<  endl
+    exp << HTMLHead("Vsechny zajete casy");
+    exp << "<body>" << endl
+        << "<h1>Vsechny zajete casy</h1>" <<  endl
         << "<table cellspacing='0'>"<< endl
         << "<thead><tr>" << endl
         << "<th>Poradi</th><th>ID casu</th><th>ID jezdce</th><th>Cas</th><th>Cas v milisekundach</th>" << endl
