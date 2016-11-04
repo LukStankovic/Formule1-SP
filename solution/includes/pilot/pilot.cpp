@@ -19,7 +19,6 @@ using namespace std;
 
 
 /** \brief Naplni strukturu Pilot daty z CSV souboru
- *
  *  \param[in]  f               Soubor ze ktereho se nacitaji jezdci
  *  \param[out] allPilots       Vektor struktury Pilot do ktereho se bude ukladat
  *  \param[in]  allRounds       Vektor struktury Round ze ktereho se nacitaji casy okruhu
@@ -27,7 +26,7 @@ using namespace std;
  *
  */
 
-void FillPilots(ifstream& f, vector<Pilot>& allPilots, vector<Round>& allRounds,const int& numberOfRounds){
+void FillPilots(ifstream& f, vector<Pilot>& allPilots, const vector<Round>& allRounds,const int& numberOfRounds){
 
     int i = 0;
     string line;
@@ -95,7 +94,7 @@ void FillPilots(ifstream& f, vector<Pilot>& allPilots, vector<Round>& allRounds,
 
 
 /** \brief Prida pozici k jezdci
- * \param[out] allPilots    Vektor jezdcu, kterym bude zapisovano poradi
+ *  \param[out] allPilots    Vektor jezdcu, kterym bude zapisovano poradi
  *
  */
 void AddPosition(vector<Pilot> &allPilots){
@@ -112,8 +111,8 @@ void AddPosition(vector<Pilot> &allPilots){
 
 
 /** \brief Vypise seznam jezdcu do konzole - pouziti i pro postupujici
- * \param[in] allPilots    Vektor struktury Pilot ze ktereho se cerpa
- * \param[in] num          Pocet vypsanych jezdcu
+ *  \param[in] allPilots    Vektor struktury Pilot ze ktereho se cerpa
+ *  \param[in] num          Pocet vypsanych jezdcu
  *
  */
 void PrintPilots(const vector<Pilot>& allPilots, const int& num){
@@ -143,8 +142,8 @@ void PrintPilots(const vector<Pilot>& allPilots, const int& num){
 }
 
 /** \brief Vypise jednoho jezdce (popr. vice jezdcu pokud maji stejne jmeno) do konzole
- * \param[in] allPilots    Vektor struktury Pilot ze ktereho se cerpa
- * \param[in] name         Jmeno hledaneho jezdce. Muze byt zadano: Jmeno Prijmeni, Prijmeni, Jmeno
+ *  \param[in] allPilots    Vektor struktury Pilot ze ktereho se cerpa
+ *  \param[in] name         Jmeno hledaneho jezdce. Muze byt zadano: Jmeno Prijmeni, Prijmeni, Jmeno
  *
  */
 void PrintPilot(const vector<Pilot>& allPilots, string name){
@@ -238,11 +237,10 @@ void PrintPilot(const vector<Pilot>& allPilots, string name){
 }
 
 
-/**
- * \brief Exportuje seznam jezdcu do html
- * \param[in] allPilots     Vektor struktury Pilot
- * \param[in] path          Nazev souboru + cesta
- * \param[in] num           Pocet jezdcu na vypsani
+/** \brief Exportuje seznam jezdcu do html
+ *  \param[in] allPilots     Vektor struktury Pilot
+ *  \param[in] path          Nazev souboru + cesta
+ *  \param[in] num           Pocet jezdcu na vypsani
  *
  */
 void ExportPilots(const vector<Pilot>& allPilots, const string& path, const int& num){
@@ -295,9 +293,9 @@ void ExportPilots(const vector<Pilot>& allPilots, const string& path, const int&
 
 
 /** \brief Exportuje jednoho jezdce (popr. vice jezdcu pokud maji stejne jmeno) do konzole + vypise vsechny jeho kola
- * \param[in] allPilots    Vektor struktury Pilot ze ktereho se cerpa
- * \param[in] name         Jmeno hledaneho jezdce. Muze byt zadano: Jmeno Prijmeni, Prijmeni, Jmeno, ID
- * \param[in] path         Nazev souboru + cesta
+ *  \param[in] allPilots    Vektor struktury Pilot ze ktereho se cerpa
+ *  \param[in] name         Jmeno hledaneho jezdce. Muze byt zadano: Jmeno Prijmeni, Prijmeni, Jmeno, ID
+ *  \param[in] path         Nazev souboru + cesta
  *
  */
 void ExportPilot(const vector<Pilot>& allPilots, string name, const string& path){
@@ -372,6 +370,7 @@ void ExportPilot(const vector<Pilot>& allPilots, string name, const string& path
 
 }
 
+
 /** \brief Setridi vsechny jezdce podle nejrychlejsiho casu (od nejrychlejsiho po nejpomalejsi)
  *          - Kontroluje pokud cas = 0 --> jezdce da na konec seznamu
  *  \param[out] allPilots    Vektor struktury Pilot ktery se tridi
@@ -393,7 +392,7 @@ void Sort(vector<Pilot>& allPilots){
 }
 
 /**
- * \brief Vraci pro ktery jezdec je rychlejsi
+ * \brief Vraci, ktery jezdec je rychlejsi
  * \param a        Struktura Pilot - prvni jezdec
  * \param b        Struktura Pilot - druhy jezdec
  * \return Vraci false pokud je a rychlejsi, true pokud je a pomalejsi

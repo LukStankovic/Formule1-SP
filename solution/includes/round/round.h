@@ -1,5 +1,10 @@
-#ifndef CASY_H
-#define CASY_H
+#ifndef ROUND_H
+#define ROUND_H
+
+
+/** \brief Hlavickovy soubor pro strukturu Round
+ *  \file includes/round/round.h
+ */
 
 using namespace std;
 
@@ -19,17 +24,19 @@ typedef struct{
     int time_ms;
 }Round;
 
-/// NAPLNI STRUKTURU DATY ZE SOUBORU
+/// Naplni strukturu Round datdy z csv souboru
 void FillRounds(ifstream& f, vector<Round>& casy);
 
-/// VYPISE TABULKU DO KONZOLE SE VSEMI CASY
+/// Vypise seznam casu okruhu do konzole
 void PrintRounds(const vector<Round>& allRounds);
 
+/// Exportuje seznam casu do html
 void ExportRounds(const vector<Round>& allRounds, const string& path);
 
+/// Setridi vsechny casy podle nejrychlejsiho casu (od nejrychlejsiho po nejpomalejsi)
 void Sort(vector<Round>& allRounds);
 
-/// POROVANI CASU
+/// Vraci, ktery cas je rychlejsi
 bool IsFaster(const Round& a, const Round& b);
 
 #endif

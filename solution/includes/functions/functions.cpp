@@ -95,7 +95,7 @@ int CountLines(ifstream &f){
 }
 
 
-/** \brief Prevadi cas na ms ze stringu
+/** \brief Prevadi a vrati cas na ms ze stringu
  *  \param[in]  time       Vector stringu ze ktereho se bere cas (cas je jiz rozdelen na 3 casti - min, sek, ms)
  *  \return Vraci milisekundy
  *
@@ -105,7 +105,7 @@ int TimeToMs(const vector<string>& time){
 }
 
 
-/** \brief Posila referenci vektoru s casem rozdelenym na minuty, vteriny, setiny
+/** \brief Vraci pomoci reference vektoru cass rozdeleny na minuty, vteriny, setiny
  *  \param[in]  ms          Cas v milisekundach
  *  \param[out]  time       Vektor intu do ktereho se posila
  *
@@ -155,8 +155,8 @@ void ToLower(string& str){
 
 
 /**
- * \brief Prepise string na mala pismena
- * \param[out]  str        String ktery chceme prepsat na mala pismena
+ * \brief Vrati ve stringu HTML hlavicku se styly
+ * \param[in]  title        Title zalozky HTML souboru
  *
  */
 string HTMLHead(const string& title){

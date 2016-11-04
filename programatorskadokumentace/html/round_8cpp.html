@@ -86,15 +86,16 @@ Functions</h2></td></tr>
 <tr class="memdesc:aeb2a05748b6edfae9b544261d96c340c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Naplni strukturu <a class="el" href="struct_round.html" title="Struktura pro uchovavani dat jezdcu. ">Round</a> datdy z csv souboru.  <a href="#aeb2a05748b6edfae9b544261d96c340c">More...</a><br /></td></tr>
 <tr class="separator:aeb2a05748b6edfae9b544261d96c340c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfe2dad6279c0550549732b85f5534ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="round_8cpp.html#acfe2dad6279c0550549732b85f5534ac">PrintRounds</a> (const vector&lt; <a class="el" href="struct_round.html">Round</a> &gt; &amp;allRounds)</td></tr>
-<tr class="memdesc:acfe2dad6279c0550549732b85f5534ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vypise seznam okruhu do konzole.  <a href="#acfe2dad6279c0550549732b85f5534ac">More...</a><br /></td></tr>
+<tr class="memdesc:acfe2dad6279c0550549732b85f5534ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vypise seznam casu okruhu do konzole.  <a href="#acfe2dad6279c0550549732b85f5534ac">More...</a><br /></td></tr>
 <tr class="separator:acfe2dad6279c0550549732b85f5534ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2575dc377f299e1c4d287dc838724259"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="round_8cpp.html#a2575dc377f299e1c4d287dc838724259">ExportRounds</a> (const vector&lt; <a class="el" href="struct_round.html">Round</a> &gt; &amp;allRounds, const string &amp;path)</td></tr>
 <tr class="memdesc:a2575dc377f299e1c4d287dc838724259"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exportuje seznam casu do html.  <a href="#a2575dc377f299e1c4d287dc838724259">More...</a><br /></td></tr>
 <tr class="separator:a2575dc377f299e1c4d287dc838724259"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f99fbc9a3f9505b16c594a9b678d1b9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="round_8cpp.html#a5f99fbc9a3f9505b16c594a9b678d1b9">Sort</a> (vector&lt; <a class="el" href="struct_round.html">Round</a> &gt; &amp;allRounds)</td></tr>
+<tr class="memdesc:a5f99fbc9a3f9505b16c594a9b678d1b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setridi vsechny casy podle nejrychlejsiho casu (od nejrychlejsiho po nejpomalejsi)  <a href="#a5f99fbc9a3f9505b16c594a9b678d1b9">More...</a><br /></td></tr>
 <tr class="separator:a5f99fbc9a3f9505b16c594a9b678d1b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29d2005fd957f068dd77e8e2d938f600"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="round_8cpp.html#a29d2005fd957f068dd77e8e2d938f600">IsFaster</a> (const <a class="el" href="struct_round.html">Round</a> &amp;a, const <a class="el" href="struct_round.html">Round</a> &amp;b)</td></tr>
-<tr class="memdesc:a29d2005fd957f068dd77e8e2d938f600"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vraci pro funkci sort() ktery zaznam je mensi.  <a href="#a29d2005fd957f068dd77e8e2d938f600">More...</a><br /></td></tr>
+<tr class="memdesc:a29d2005fd957f068dd77e8e2d938f600"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vraci, ktery cas je rychlejsi.  <a href="#a29d2005fd957f068dd77e8e2d938f600">More...</a><br /></td></tr>
 <tr class="separator:a29d2005fd957f068dd77e8e2d938f600"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -129,8 +130,8 @@ Functions</h2></td></tr>
 <p>Exportuje seznam casu do html. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">jezdci</td><td>Vektor struktury TJEZDEC </td></tr>
-    <tr><td class="paramname">nazev</td><td>Nazev souboru </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">allRounds</td><td>Vektor struktury <a class="el" href="struct_round.html" title="Struktura pro uchovavani dat jezdcu. ">Round</a>, ktery bude exportovan </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>Nazev a cesta souboru </td></tr>
   </table>
   </dd>
 </dl>
@@ -165,11 +166,10 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Naplni strukturu <a class="el" href="struct_round.html" title="Struktura pro uchovavani dat jezdcu. ">Round</a> datdy z csv souboru. </p>
-<p>NAPLNI STRUKTURU DATY ZE SOUBORU.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">f</td><td>Soubor ze ktereho se nacitaji jezdci </td></tr>
-    <tr><td class="paramname">casy</td><td>Vektor struktury <a class="el" href="struct_round.html" title="Struktura pro uchovavani dat jezdcu. ">Round</a> do ktereho se vkladaji casy okruhu </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">f</td><td>Soubor ze ktereho se nacitaji jezdci </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">allRounds</td><td>Vektor struktury <a class="el" href="struct_round.html" title="Struktura pro uchovavani dat jezdcu. ">Round</a> do ktereho se vkladaji casy okruhu </td></tr>
   </table>
   </dd>
 </dl>
@@ -213,16 +213,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Vraci pro funkci sort() ktery zaznam je mensi. </p>
-<p>POROVANI CASU.</p>
+<p>Vraci, ktery cas je rychlejsi. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td>Struktura TJEZDEC - prvni jezdec </td></tr>
-    <tr><td class="paramname">b</td><td>Struktura TJEZDEC - druhy jezdec </td></tr>
+    <tr><td class="paramname">a</td><td>Struktura <a class="el" href="struct_round.html" title="Struktura pro uchovavani dat jezdcu. ">Round</a> - prvni jezdec </td></tr>
+    <tr><td class="paramname">b</td><td>Struktura <a class="el" href="struct_round.html" title="Struktura pro uchovavani dat jezdcu. ">Round</a> - druhy jezdec </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Vraci true pokud je a rychlejsi, false pokud je a pomalejsi </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Vraci false pokud je a rychlejsi, true pokud je a pomalejsi </dd></dl>
 <p>OSETRENI ZDA NEMA CAS 0 MS</p><ul>
 <li>0ms znamena prazdna hodnota - jezdec nezajel ani jedno kolo</li>
 <li>proto ulozime do pomocne promenne velkou hodnotu</li>
@@ -247,11 +246,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Vypise seznam okruhu do konzole. </p>
-<p>VYPISE TABULKU DO KONZOLE SE VSEMI CASY.</p>
+<p>Vypise seznam casu okruhu do konzole. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">casy</td><td>Vektor struktury TCAS ze ktereho se cerpa </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">allRounds</td><td>Vektor struktury <a class="el" href="struct_round.html" title="Struktura pro uchovavani dat jezdcu. ">Round</a> ze ktereho se cerpa </td></tr>
   </table>
   </dd>
 </dl>
@@ -273,6 +271,17 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Setridi vsechny casy podle nejrychlejsiho casu (od nejrychlejsiho po nejpomalejsi) </p>
+<ul>
+<li>Kontroluje pokud cas = 0 &ndash;&gt; cas da na konec seznamu <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">allRounds</td><td>Vektor struktury <a class="el" href="struct_round.html" title="Struktura pro uchovavani dat jezdcu. ">Round</a> ktery se tridi </td></tr>
+  </table>
+  </dd>
+</dl>
+</li>
+</ul>
 
 </div>
 </div>

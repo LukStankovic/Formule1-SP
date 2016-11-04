@@ -8,17 +8,14 @@
 #include "../functions/functions.h"
 
 
-/**
- * \brief Funkce pro praci se strukturou Round
- * \file includes/round/round.cpp
+/** \brief Funkce pro praci se strukturou Round
+ *  \file includes/round/round.cpp
  *
  */
 
-
-/**
- * @brief Naplni strukturu Round datdy z csv souboru
- * @param f              Soubor ze ktereho se nacitaji jezdci
- * @param casy           Vektor struktury Round do ktereho se vkladaji casy okruhu
+/** \brief Naplni strukturu Round datdy z csv souboru
+ *  \param[in]  f          Soubor ze ktereho se nacitaji jezdci
+ *  \param[out] allRounds  Vektor struktury Round do ktereho se vkladaji casy okruhu
  */
 void FillRounds(ifstream &f, vector<Round> &allRounds){
 
@@ -76,9 +73,8 @@ void FillRounds(ifstream &f, vector<Round> &allRounds){
 }
 
 
-/**
- * @brief Vypise seznam okruhu do konzole
- * @param casy         Vektor struktury TCAS ze ktereho se cerpa
+/** \brief Vypise seznam casu okruhu do konzole
+ *  \param[in] allRounds         Vektor struktury Round ze ktereho se cerpa
  */
 void PrintRounds(const vector<Round>& allRounds){
 
@@ -104,10 +100,9 @@ void PrintRounds(const vector<Round>& allRounds){
 }
 
 
-/**
- * @brief Exportuje seznam casu do html
- * @param jezdci   Vektor struktury TJEZDEC
- * @param nazev    Nazev souboru
+/** \brief Exportuje seznam casu do html
+ *  \param[in] allRounds    Vektor struktury Round, ktery bude exportovan
+ *  \param[in] path         Nazev a cesta souboru
  */
 void ExportRounds(const vector<Round>& allRounds, const string& path){
 
@@ -154,6 +149,12 @@ void ExportRounds(const vector<Round>& allRounds, const string& path){
     }
 }
 
+
+/** \brief Setridi vsechny casy podle nejrychlejsiho casu (od nejrychlejsiho po nejpomalejsi)
+ *          - Kontroluje pokud cas = 0 --> cas da na konec seznamu
+ *  \param[out] allRounds    Vektor struktury Round ktery se tridi
+ *
+ */
 void Sort(vector<Round>& allRounds){
 
     for(int j = 0; j < allRounds.size()-1; j++){
@@ -170,10 +171,10 @@ void Sort(vector<Round>& allRounds){
 }
 
 /**
- * @brief Vraci pro funkci sort() ktery zaznam je mensi
- * @param a        Struktura TJEZDEC - prvni jezdec
- * @param b        Struktura TJEZDEC - druhy jezdec
- * @return Vraci true pokud je a rychlejsi, false pokud je a pomalejsi
+ * \brief Vraci, ktery cas je rychlejsi
+ * \param a        Struktura Round - prvni jezdec
+ * \param b        Struktura Round - druhy jezdec
+ * \return Vraci false pokud je a rychlejsi, true pokud je a pomalejsi
  */
 bool IsFaster(const Round& a, const Round& b){
     /**

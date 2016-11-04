@@ -1,11 +1,11 @@
-#ifndef JEZDEC_H
-#define JEZDEC_H
+#ifndef PILOT_H
+#define PILOT_H
 
 #include "../round/round.h"
 
- /** \brief Hlavickovy soubor pro strukturu Pilot
-  *  \file includes/pilot/pilot.h
-  */
+/** \brief Hlavickovy soubor pro strukturu Pilot
+ *  \file includes/pilot/pilot.h
+ */
 
 
 /** \struct Pilot
@@ -38,7 +38,7 @@ typedef struct{
 }Pilot;
 
 /// Naplni strukturu Pilot daty z CSV souboru
-void FillPilots(ifstream& f, vector<Pilot>& allPilots, vector<Round>& allRounds,const int& numberOfRounds);
+void FillPilots(ifstream& f, vector<Pilot>& allPilots, const vector<Round>& allRounds,const int& numberOfRounds);
 
 /// Prida pozici k jezdci
 void AddPosition(vector<Pilot>& allPilots);
@@ -58,7 +58,7 @@ void ExportPilot(const vector<Pilot>& allPilots, string name, const string& path
 /// Setridi vsechny jezdce podle nejrychlejsiho casu (od nejrychlejsiho po nejpomalejsi)
 void Sort(vector<Pilot>& allPilots);
 
-/// Vraci pro ktery jezdec je rychlejsi
+/// Vraci, ktery jezdec je rychlejsi
 bool IsFaster(const Pilot& a, const Pilot& b);
 
 #endif

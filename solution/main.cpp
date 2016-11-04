@@ -13,7 +13,6 @@
  *               - Prvni parametr je adresa souboru s jezdci
  *               - Druhy parametr je adresa souboru s casy
  *         - Dale se zde nachazi funkce pro vypsani menu, ktere je v nekonecnem cyklu
- *  \file main.cpp
  *  \mainpage Semestralni prace k 1. semestru, Lukas Stankovic (STA0445), Formule 1
  */
 

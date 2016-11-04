@@ -69,6 +69,9 @@ $(function() {
 <div class="title">functions.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Hlavickovy soubor pro vseobecne funkce pouzivane v programu.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="pilot_8h_source.html">../pilot/pilot.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="round_8h_source.html">../round/round.h</a>&quot;</code><br />
 </div>
@@ -77,34 +80,36 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:afacd09b33c5f91bd0d1cf5022d52e8e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#afacd09b33c5f91bd0d1cf5022d52e8e6">ExplodeString</a> (const char &amp;delimiter, string str, vector&lt; string &gt; &amp;explodedString)</td></tr>
-<tr class="memdesc:afacd09b33c5f91bd0d1cf5022d52e8e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">ROZDELI STRING PODLE DELICE DO VEKTORU.  <a href="#afacd09b33c5f91bd0d1cf5022d52e8e6">More...</a><br /></td></tr>
+<tr class="memdesc:afacd09b33c5f91bd0d1cf5022d52e8e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rozdeli string podle delice do vektoru stringu.  <a href="#afacd09b33c5f91bd0d1cf5022d52e8e6">More...</a><br /></td></tr>
 <tr class="separator:afacd09b33c5f91bd0d1cf5022d52e8e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0704f5bcfcd9400a159ec0361a8d285"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#ae0704f5bcfcd9400a159ec0361a8d285">CountLines</a> (ifstream &amp;f)</td></tr>
-<tr class="memdesc:ae0704f5bcfcd9400a159ec0361a8d285"><td class="mdescLeft">&#160;</td><td class="mdescRight">VRATI POCET ZAZNAMU (RADKU) V SOUBORU.  <a href="#ae0704f5bcfcd9400a159ec0361a8d285">More...</a><br /></td></tr>
+<tr class="memdesc:ae0704f5bcfcd9400a159ec0361a8d285"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vrati pocet bunek v stringu (radku), zjistuje pomoci delice.  <a href="#ae0704f5bcfcd9400a159ec0361a8d285">More...</a><br /></td></tr>
 <tr class="separator:ae0704f5bcfcd9400a159ec0361a8d285"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04356b7eacfd51413874352b9e43316a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a04356b7eacfd51413874352b9e43316a">CountCells</a> (const char &amp;delimiter, const string &amp;str)</td></tr>
-<tr class="memdesc:a04356b7eacfd51413874352b9e43316a"><td class="mdescLeft">&#160;</td><td class="mdescRight">VRATI POCET BUNEK V STRINGU (RADKU), ZJISTUJE POMOCI DELICE.  <a href="#a04356b7eacfd51413874352b9e43316a">More...</a><br /></td></tr>
+<tr class="memdesc:a04356b7eacfd51413874352b9e43316a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vrati pocet radku (zaznamu) v souboru.  <a href="#a04356b7eacfd51413874352b9e43316a">More...</a><br /></td></tr>
 <tr class="separator:a04356b7eacfd51413874352b9e43316a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8555f07b85a4aa534bbc650ddc3a9b1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#af8555f07b85a4aa534bbc650ddc3a9b1">TimeToMs</a> (const vector&lt; string &gt; &amp;time)</td></tr>
-<tr class="memdesc:af8555f07b85a4aa534bbc650ddc3a9b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">VRATI CAS V MS ZE STRINGU.  <a href="#af8555f07b85a4aa534bbc650ddc3a9b1">More...</a><br /></td></tr>
+<tr class="memdesc:af8555f07b85a4aa534bbc650ddc3a9b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prevadi a vrati cas na ms ze stringu.  <a href="#af8555f07b85a4aa534bbc650ddc3a9b1">More...</a><br /></td></tr>
 <tr class="separator:af8555f07b85a4aa534bbc650ddc3a9b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2aecfeedf8835eb5237d4e1784245e0b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a2aecfeedf8835eb5237d4e1784245e0b">MsToTime</a> (int ms, vector&lt; int &gt; &amp;time)</td></tr>
-<tr class="memdesc:a2aecfeedf8835eb5237d4e1784245e0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">POSILA REFERENCI VEKTORU S CASEM ROZDELENYM NA MINUTY, VTERINY, SETINY.  <a href="#a2aecfeedf8835eb5237d4e1784245e0b">More...</a><br /></td></tr>
+<tr class="memdesc:a2aecfeedf8835eb5237d4e1784245e0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vraci pomoci reference vektoru cass rozdeleny na minuty, vteriny, setiny.  <a href="#a2aecfeedf8835eb5237d4e1784245e0b">More...</a><br /></td></tr>
 <tr class="separator:a2aecfeedf8835eb5237d4e1784245e0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb780c95a04b434d4de72cb322cb7cd6"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#abb780c95a04b434d4de72cb322cb7cd6">MsToTime</a> (int ms)</td></tr>
-<tr class="memdesc:abb780c95a04b434d4de72cb322cb7cd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">VRATI STRING S CASEM VE FORMATU MIN:SEK:SET.  <a href="#abb780c95a04b434d4de72cb322cb7cd6">More...</a><br /></td></tr>
+<tr class="memdesc:abb780c95a04b434d4de72cb322cb7cd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vrati string s casem ve tvaru min:s,ms.  <a href="#abb780c95a04b434d4de72cb322cb7cd6">More...</a><br /></td></tr>
 <tr class="separator:abb780c95a04b434d4de72cb322cb7cd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea56b8546ed72ce660f49a7ed96883a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#aea56b8546ed72ce660f49a7ed96883a5">ToLower</a> (string &amp;str)</td></tr>
 <tr class="memdesc:aea56b8546ed72ce660f49a7ed96883a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepise string na mala pismena.  <a href="#aea56b8546ed72ce660f49a7ed96883a5">More...</a><br /></td></tr>
 <tr class="separator:aea56b8546ed72ce660f49a7ed96883a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a018d9bb328274c7bb52a575f06377b08"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a018d9bb328274c7bb52a575f06377b08">HTMLHead</a> (const string &amp;title)</td></tr>
-<tr class="memdesc:a018d9bb328274c7bb52a575f06377b08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepise string na mala pismena.  <a href="#a018d9bb328274c7bb52a575f06377b08">More...</a><br /></td></tr>
+<tr class="memdesc:a018d9bb328274c7bb52a575f06377b08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vrati ve stringu HTML hlavicku se styly.  <a href="#a018d9bb328274c7bb52a575f06377b08">More...</a><br /></td></tr>
 <tr class="separator:a018d9bb328274c7bb52a575f06377b08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c0c63bf12d7df7501c15dce3e5b046f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a7c0c63bf12d7df7501c15dce3e5b046f">PrintMenu</a> (vector&lt; <a class="el" href="struct_pilot.html">Pilot</a> &gt; allPilots, vector&lt; <a class="el" href="struct_round.html">Round</a> &gt; allRounds, const int &amp;numberOfPilots, const int &amp;numberOfRounds)</td></tr>
-<tr class="memdesc:a7c0c63bf12d7df7501c15dce3e5b046f"><td class="mdescLeft">&#160;</td><td class="mdescRight">VYPISE DO KONZOLE MENU.  <a href="#a7c0c63bf12d7df7501c15dce3e5b046f">More...</a><br /></td></tr>
+<tr class="memdesc:a7c0c63bf12d7df7501c15dce3e5b046f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vypise do konzole menu vcetne zadavani volby.  <a href="#a7c0c63bf12d7df7501c15dce3e5b046f">More...</a><br /></td></tr>
 <tr class="separator:a7c0c63bf12d7df7501c15dce3e5b046f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Hlavickovy soubor pro vseobecne funkce pouzivane v programu. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a04356b7eacfd51413874352b9e43316a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a04356b7eacfd51413874352b9e43316a">&sect;&nbsp;</a></span>CountCells()</h2>
 
@@ -131,8 +136,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>VRATI POCET BUNEK V STRINGU (RADKU), ZJISTUJE POMOCI DELICE. </p>
-<p>VRATI POCET BUNEK V STRINGU (RADKU), ZJISTUJE POMOCI DELICE.</p>
+<p>Vrati pocet radku (zaznamu) v souboru. </p>
+<p>Vrati pocet radku (zaznamu) v souboru.</p>
 <ul>
 <li>Priklad: "1 Lukas Stankovic" &ndash;&gt; s delicem ' ' &ndash;&gt; 3 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -164,8 +169,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>VRATI POCET ZAZNAMU (RADKU) V SOUBORU. </p>
-<p>VRATI POCET ZAZNAMU (RADKU) V SOUBORU.</p>
+<p>Vrati pocet bunek v stringu (radku), zjistuje pomoci delice. </p>
+<p>Vrati pocet bunek v stringu (radku), zjistuje pomoci delice.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">f</td><td>Soubor ve kterem chceme spocitat radky </td></tr>
@@ -209,8 +214,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>ROZDELI STRING PODLE DELICE DO VEKTORU. </p>
-<p>ROZDELI STRING PODLE DELICE DO VEKTORU.</p>
+<p>Rozdeli string podle delice do vektoru stringu. </p>
 <ul>
 <li>Priklad: "1 Lukas Stankovic" &ndash;&gt; s delicem ' ' &ndash;&gt; {1,Lukas,Stankoivc} <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -242,10 +246,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Prepise string na mala pismena. </p>
+<p>Vrati ve stringu HTML hlavicku se styly. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">str</td><td>String ktery chceme prepsat na mala pismena </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">title</td><td>Title zalozky HTML souboru </td></tr>
   </table>
   </dd>
 </dl>
@@ -278,8 +282,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>POSILA REFERENCI VEKTORU S CASEM ROZDELENYM NA MINUTY, VTERINY, SETINY. </p>
-<p>POSILA REFERENCI VEKTORU S CASEM ROZDELENYM NA MINUTY, VTERINY, SETINY.</p>
+<p>Vraci pomoci reference vektoru cass rozdeleny na minuty, vteriny, setiny. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">ms</td><td>Cas v milisekundach </td></tr>
@@ -306,8 +309,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>VRATI STRING S CASEM VE FORMATU MIN:SEK:SET. </p>
-<p>VRATI STRING S CASEM VE FORMATU MIN:SEK:SET.</p>
+<p>Vrati string s casem ve tvaru min:s,ms. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">ms</td><td>Cas v milisekundach </td></tr>
@@ -356,8 +358,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>VYPISE DO KONZOLE MENU. </p>
-<p>VYPISE DO KONZOLE MENU.</p>
+<p>Vypise do konzole menu vcetne zadavani volby. </p>
 <ul>
 <li>Kontroluje zda uzivatel zada opravdu spravnou vlobu <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -482,8 +483,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>VRATI CAS V MS ZE STRINGU. </p>
-<p>VRATI CAS V MS ZE STRINGU.</p>
+<p>Prevadi a vrati cas na ms ze stringu. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">time</td><td>Vector stringu ze ktereho se bere cas (cas je jiz rozdelen na 3 casti - min, sek, ms) </td></tr>
