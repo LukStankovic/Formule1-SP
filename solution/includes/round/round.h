@@ -14,18 +14,26 @@ using namespace std;
  *  \param id_pilot          Specificke ID urcene pro identifikaci jezdce - FK
  *  \param time              Cas kola v retezci
  *  \param time_ms           Cas kola prevedeny na ms
+ *  \param position          Pozice casu
  *
  */
 
 typedef struct{
+
     int id_round;
     int id_pilot;
+
     string time;
     int time_ms;
+
+    int position;
 }Round;
 
 /// Naplni strukturu Round datdy z csv souboru
 void FillRounds(ifstream& f, vector<Round>& casy);
+
+/// Prida pozici k casu
+void AddPosition(vector<Round>& allRounds);
 
 /// Vypise seznam casu okruhu do konzole
 void PrintRounds(const vector<Round>& allRounds);

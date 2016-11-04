@@ -74,9 +74,10 @@ int main(int argc, char* argv[]){
 /**
  VLOZENI PORADI
  --------------
-    - Poradi k jezdcum se vklada zde az po setrizeni zaznamu
+    - Poradi k jezdcum a casum se vklada zde az po setrizeni zaznamu
 */
     AddPosition(allPilots);
+    AddPosition(allRounds);
 
 /**
  VYKRESLENI MENU

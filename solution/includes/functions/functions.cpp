@@ -477,7 +477,7 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
 
 
 
-                ExportPilot(allPilots,name,fileName);
+                ExportPilot(allPilots,name,allRounds,fileName);
 
                 cout << endl << " / Pro zobrazeni menu stiskente ENTER. /";
 

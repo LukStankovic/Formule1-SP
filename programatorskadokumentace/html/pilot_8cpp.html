@@ -98,9 +98,9 @@ Functions</h2></td></tr>
 <tr class="memitem:affd8f4f6fac1bdf447e8a010c22de6c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pilot_8cpp.html#affd8f4f6fac1bdf447e8a010c22de6c8">ExportPilots</a> (const vector&lt; <a class="el" href="struct_pilot.html">Pilot</a> &gt; &amp;allPilots, const string &amp;path, const int &amp;num)</td></tr>
 <tr class="memdesc:affd8f4f6fac1bdf447e8a010c22de6c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exportuje seznam jezdcu do html.  <a href="#affd8f4f6fac1bdf447e8a010c22de6c8">More...</a><br /></td></tr>
 <tr class="separator:affd8f4f6fac1bdf447e8a010c22de6c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92a6ff45ad9cbefb40b15a4e530a2ab6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pilot_8cpp.html#a92a6ff45ad9cbefb40b15a4e530a2ab6">ExportPilot</a> (const vector&lt; <a class="el" href="struct_pilot.html">Pilot</a> &gt; &amp;allPilots, string name, const string &amp;path)</td></tr>
-<tr class="memdesc:a92a6ff45ad9cbefb40b15a4e530a2ab6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exportuje jednoho jezdce (popr. vice jezdcu pokud maji stejne jmeno) do konzole + vypise vsechny jeho kola.  <a href="#a92a6ff45ad9cbefb40b15a4e530a2ab6">More...</a><br /></td></tr>
-<tr class="separator:a92a6ff45ad9cbefb40b15a4e530a2ab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab40f3c65bea752ad3fd424d112915ead"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pilot_8cpp.html#ab40f3c65bea752ad3fd424d112915ead">ExportPilot</a> (const vector&lt; <a class="el" href="struct_pilot.html">Pilot</a> &gt; &amp;allPilots, string name, const vector&lt; <a class="el" href="struct_round.html">Round</a> &gt; &amp;allRounds, const string &amp;path)</td></tr>
+<tr class="memdesc:ab40f3c65bea752ad3fd424d112915ead"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exportuje jednoho jezdce (popr. vice jezdcu pokud maji stejne jmeno) do konzole + vypise vsechny jeho kola.  <a href="#ab40f3c65bea752ad3fd424d112915ead">More...</a><br /></td></tr>
+<tr class="separator:ab40f3c65bea752ad3fd424d112915ead"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9bc84f2d3df9ad82fc103989c05ce93d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pilot_8cpp.html#a9bc84f2d3df9ad82fc103989c05ce93d">Sort</a> (vector&lt; <a class="el" href="struct_pilot.html">Pilot</a> &gt; &amp;allPilots)</td></tr>
 <tr class="memdesc:a9bc84f2d3df9ad82fc103989c05ce93d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setridi vsechny jezdce podle nejrychlejsiho casu (od nejrychlejsiho po nejpomalejsi)  <a href="#a9bc84f2d3df9ad82fc103989c05ce93d">More...</a><br /></td></tr>
 <tr class="separator:a9bc84f2d3df9ad82fc103989c05ce93d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,8 +137,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a92a6ff45ad9cbefb40b15a4e530a2ab6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92a6ff45ad9cbefb40b15a4e530a2ab6">&sect;&nbsp;</a></span>ExportPilot()</h2>
+<a id="ab40f3c65bea752ad3fd424d112915ead"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab40f3c65bea752ad3fd424d112915ead">&sect;&nbsp;</a></span>ExportPilot()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -154,6 +154,12 @@ Functions</h2></td></tr>
           <td></td>
           <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const vector&lt; <a class="el" href="struct_round.html">Round</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>allRounds</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -174,6 +180,7 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">allPilots</td><td>Vektor struktury <a class="el" href="struct_pilot.html" title="Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce. ">Pilot</a> ze ktereho se cerpa </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>Jmeno hledaneho jezdce. Muze byt zadano: Jmeno Prijmeni, Prijmeni, Jmeno, ID </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">allRounds</td><td>Vektor struktury <a class="el" href="struct_round.html" title="Struktura pro uchovavani dat zajetych kol. Uchovova cas jak ve stringu ve tvaru m:s,ms tak i ciste v ms. ">Round</a> ze ktereho se cerpaji casy </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>Nazev souboru + cesta </td></tr>
   </table>
   </dd>
@@ -184,7 +191,9 @@ Functions</h2></td></tr>
 <p>NUTNO PREDELENAT NA LOWERCASE Z DUVODOU ZE UZIVATL MUZE MIT ZAPNUTY NAPR CAPS LOCK</p>
 <p>POKUD JE ZADANO JEN JMENO NEBO JEN PRIJMENI</p>
 <p>POKUD JE ZADANO POUZE ID</p>
-<p>VYKRESLENI TABULKY AZ TED Z DUVODU KDYBY BYLO NALEZENO VICE JEZDCU </p>
+<p>VYKRESLENI TABULKY AZ TED Z DUVODU KDYBY BYLO NALEZENO VICE JEZDCU</p>
+<p>DETAIL ZAJETYCH KOL</p>
+<p>KONTROLA ZDA SE SOUBOR VYTVORIL </p>
 
 </div>
 </div>

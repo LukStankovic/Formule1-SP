@@ -53,7 +53,7 @@ void PrintPilot(const vector<Pilot>& allPilots, string name);
 void ExportPilots(const vector<Pilot>& allPilots, const string& path, const int& num);
 
 /// Exportuje jednoho jezdce (popr. vice jezdcu pokud maji stejne jmeno) do konzole + vypise vsechny jeho kola
-void ExportPilot(const vector<Pilot>& allPilots, string name, const string& path);
+void ExportPilot(const vector<Pilot>& allPilots, string name, const vector<Round>& allRounds, const string& path);
 
 /// Setridi vsechny jezdce podle nejrychlejsiho casu (od nejrychlejsiho po nejpomalejsi)
 void Sort(vector<Pilot>& allPilots);

@@ -73,6 +73,23 @@ void FillRounds(ifstream &f, vector<Round> &allRounds){
 }
 
 
+/** \brief Prida pozici k casu
+ *  \param[out] allRounds    Vektor Round, kterym bude zapisovano poradi
+ *
+ */
+void AddPosition(vector<Round> &allRounds){
+    try{
+        for(int i = 0; i < allRounds.size(); i++){
+            allRounds.at(i).position = i+1;
+        }
+    }
+    catch (out_of_range e){
+        cout << endl << " * Chyba! "<< "Jeji popis: " << e.what() << " *" << endl << " * Program bude ukoncen. *" << endl;
+        exit(0);
+    }
+}
+
+
 /** \brief Vypise seznam casu okruhu do konzole
  *  \param[in] allRounds         Vektor struktury Round ze ktereho se cerpa
  */
@@ -89,7 +106,7 @@ void PrintRounds(const vector<Round>& allRounds){
 
     try{
         for(int i = 0; i < allRounds.size(); i++)
-            cout << setw(3) <<  i+1 << "." << " | " << setw(11) << allRounds.at(i).id_pilot << " | " << setw(15) << allRounds.at(i).time << " | " <<  setw(15) <<  allRounds.at(i).time_ms << " |"<< endl;
+            cout << setw(3) <<  allRounds.at(i).position << "." << " | " << setw(11) << allRounds.at(i).id_pilot << " | " << setw(15) << allRounds.at(i).time << " | " <<  setw(15) <<  allRounds.at(i).time_ms << " |"<< endl;
         cout << endl;
     }
     catch (out_of_range e){
@@ -119,7 +136,7 @@ void ExportRounds(const vector<Round>& allRounds, const string& path){
     try{
         for(int i = 0; i < allRounds.size(); i++){
             exp << "<tr>" << endl;
-                exp << "<td>" << i+1 << ". </td>" << endl
+                exp << "<td>" << allRounds.at(i).position << ". </td>" << endl
                     << "<td>" << allRounds.at(i).id_round << "</td>" << endl
                     << "<td>" << allRounds.at(i).id_pilot << "</td>" << endl
                     << "<td>" << allRounds.at(i).time << "</td>" << endl

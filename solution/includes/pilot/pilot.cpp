@@ -97,7 +97,7 @@ void FillPilots(ifstream& f, vector<Pilot>& allPilots, const vector<Round>& allR
  *  \param[out] allPilots    Vektor jezdcu, kterym bude zapisovano poradi
  *
  */
-void AddPosition(vector<Pilot> &allPilots){
+void AddPosition(vector<Pilot>& allPilots){
     try{
         for(int i = 0; i < allPilots.size(); i++){
             allPilots.at(i).position = i+1;
@@ -295,10 +295,11 @@ void ExportPilots(const vector<Pilot>& allPilots, const string& path, const int&
 /** \brief Exportuje jednoho jezdce (popr. vice jezdcu pokud maji stejne jmeno) do konzole + vypise vsechny jeho kola
  *  \param[in] allPilots    Vektor struktury Pilot ze ktereho se cerpa
  *  \param[in] name         Jmeno hledaneho jezdce. Muze byt zadano: Jmeno Prijmeni, Prijmeni, Jmeno, ID
+ *  \param[in] allRounds    Vektor struktury Round ze ktereho se cerpaji casy
  *  \param[in] path         Nazev souboru + cesta
  *
  */
-void ExportPilot(const vector<Pilot>& allPilots, string name, const string& path){
+void ExportPilot(const vector<Pilot>& allPilots, string name, const vector<Round>& allRounds, const string& path){
 
     int numberOfCells = CountCells(' ',name);
     int found = 0;
@@ -365,6 +366,85 @@ void ExportPilot(const vector<Pilot>& allPilots, string name, const string& path
         cout << " * Zadny jezdec nebyl nalezen. *" << endl;
 
     else{
+
+        ofstream exp(path);
+
+        exp << HTMLHead("Pilot"+name);
+        exp << "<body>" << endl
+            << "<h1>Hledany pilot: \""<< name << "\"</h1>" <<  endl
+            << "<table cellspacing='0'>"<< endl
+            << "<thead><tr>" << endl
+            << "<th>Poradi</th><th>ID</th><th>Jmeno</th><th>Prijmeni</th><th>Pocet kol</th><th>Nejrychlejsi kolo</th><th>Nejpomalejsi kolo</th><th>Prumerny cas kola</th>" << endl
+            << "<tr></thead><tbody>" << endl;
+
+        try{
+            for(int i = 0; i < foundPilots.size(); i++){
+                exp << "<tr>" << endl;
+                    exp << "<td>" << foundPilots.at(i).position << ". </td>" << endl
+                        << "<td>" << foundPilots.at(i).id_pilot << "</td>" << endl
+                        << "<td>" << foundPilots.at(i).name << "</td>" << endl
+                        << "<td>" << foundPilots.at(i).surname << "</td>" << endl
+                        << "<td>" << foundPilots.at(i).number_of_rounds << "</td>" << endl
+                        << "<td>" << MsToTime(foundPilots.at(i).best_time) << "</td>" << endl
+                        << "<td>" << MsToTime(foundPilots.at(i).worst_time) << "</td>" << endl
+                        << "<td>" << MsToTime(foundPilots.at(i).mean_time) << "</td>" << endl;
+                exp << "</tr>" << endl;
+            }
+        }
+        catch(out_of_range e){
+            cout << endl << " * Chyba! "<< "Jeji popis: " << e.what() << " *" << endl;
+        }
+
+        exp << "</tbody></table>" << endl;
+
+        /// DETAIL ZAJETYCH KOL
+        try{
+            for(int i = 0; i < foundPilots.size(); i++){
+
+                exp << "<h1>Zajete kola pilota \""<< foundPilots.at(i).name << " " << foundPilots.at(i).surname << "\"</h1>" <<  endl
+                    << "<table cellspacing='0'>"<< endl
+                    << "<thead><tr>" << endl
+                    << "<th>Pozice casu</th><th>ID kola</th><th>Cas kola</th><th>Cas kola v ms</th>" << endl
+                    << "<tr></thead><tbody>" << endl;
+
+
+
+                for(int j = 0; j < allRounds.size(); j++){
+                    if(allRounds.at(j).id_pilot == foundPilots.at(i).id_pilot){
+                        exp << "<tr>" << endl;
+                            exp << "<td>" << allRounds.at(j).position << ". </td>" << endl
+                                << "<td>" << allRounds.at(j).id_round << "</td>" << endl
+                                << "<td>" << allRounds.at(j).time << "</td>" << endl
+                                << "<td>" << allRounds.at(j).time_ms << "</td>" << endl;
+                        exp << "</tr>" << endl;
+                    }
+                }
+
+                exp << "</tbody></table>" << endl;
+            }
+        }
+        catch(out_of_range e){
+            cout << endl << " * Chyba! "<< "Jeji popis: " << e.what() << " *" << endl;
+        }
+
+        exp << "</body></html>" << endl;
+
+        exp.close();
+
+        /// KONTROLA ZDA SE SOUBOR VYTVORIL
+
+        ifstream check(path);
+
+        if(check.fail()){
+            cout << endl << " * Neco se pokazilo... Soubor nebyl vytvoren.*" << endl
+                 << " * Mozna chyba: Neexistujici adresar nebo nedostatecna prava. *" << endl;
+        }
+        else{
+            cout << endl << " * Soubor byl uspesne vytvoren. *" << endl;
+            check.close();
+        }
+
+
 
     }
 

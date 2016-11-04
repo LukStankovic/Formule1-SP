@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1478271743 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/main.cpp
+1478300089 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/main.cpp
 	<iostream>
 	<fstream>
 	<string>
@@ -55,13 +55,13 @@
 1477951724 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/driver/driver.h
 	"../round/round.h"
 
-1478210458 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/round/round.h
+1478300040 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/round/round.h
 
-1478270504 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/functions/functions.h
+1478298505 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/functions/functions.h
 	"../pilot/pilot.h"
 	"../round/round.h"
 
-1478271214 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/functions/functions.cpp
+1478299657 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/functions/functions.cpp
 	<iostream>
 	<fstream>
 	<string>
@@ -69,7 +69,7 @@
 	"../pilot/pilot.h"
 	"../round/round.h"
 
-1478271701 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/round/round.cpp
+1478300277 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/round/round.cpp
 	<iostream>
 	<fstream>
 	<vector>
@@ -78,10 +78,10 @@
 	"../pilot/pilot.h"
 	"../functions/functions.h"
 
-1478296979 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/pilot/pilot.h
+1478299371 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/pilot/pilot.h
 	"../round/round.h"
 
-1478296956 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/pilot/pilot.cpp
+1478300050 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/pilot/pilot.cpp
 	<iostream>
 	<fstream>
 	<string>
