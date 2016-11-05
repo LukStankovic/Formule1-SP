@@ -237,6 +237,59 @@ void PrintPilot(const vector<Pilot>& allPilots, string name){
 }
 
 
+/** \brief Vypise jednoho jezdce na zadane pozici
+ *  \param[in] allPilots    Vektor struktury Pilot ze ktereho se cerpa
+ *  \param[in] allRounds    Vektor struktury Round ze ktereho se cerpaji vsechny kola jezdce
+ *  \param[in] pos          Pozice jezdce, ktery se vypise
+ *
+ */
+void PrintPosition(const vector<Pilot>& allPilots, const vector<Round>& allRounds, const int& pos){
+    int found = 0;
+    try{
+        for(int i = 0; i < allPilots.size(); i++){
+
+            if(allPilots.at(i).position == pos){
+
+                cout << endl << setw(4) << "P " << " | "<< " ID " << " | " << setw(10) << " JMENO " << " | " <<  setw(10) << " PRIJMENI " << " | " << "KOL |" << setw(11) << " NEJLEPSI |"<< setw(11) << " NEJHORSI |"<< setw(9) << " PRUMERNY"<<endl;
+                for(int i = 0; i < 78; i++)
+                    cout << "=";
+                cout << endl;
+
+                 cout << setw(3) << allPilots.at(i).position <<". | " << setw(4) << allPilots.at(i).id_pilot << " | " << setw(10) << allPilots.at(i).name << " | " <<  setw(10) <<  allPilots.at(i).surname << " |" << setw(4) << allPilots.at(i).number_of_rounds << " |"
+                << setw(9) << MsToTime(allPilots.at(i).best_time) << " |" << setw(9) << MsToTime(allPilots.at(i).worst_time) << " |" << setw(9) << MsToTime(allPilots.at(i).mean_time) << endl;
+
+                cout << endl << "Zajete kola jezdce" << endl;
+
+                /// VSECHNY ZAJETE KOLA
+                cout << setw(4) << " P " << " | " << setw(15) << " CAS " << " | " <<  setw(15) << " CAS V MS " << endl;
+                for(int i = 0; i < 47; i++)
+                    cout << "=";
+                cout << endl;
+
+                for(int j = 0; j < allRounds.size(); j++){
+                    if(allRounds.at(j).id_pilot == pos){
+                        cout << setw(3) <<  allRounds.at(j).position << "." << " | " << setw(15) << allRounds.at(j).time << " | " <<  setw(15) <<  allRounds.at(j).time_ms << " |"<< endl;
+                    }
+                }
+                found = 1;
+                /// CYKLUS SE MUZE UKONCIT
+                break;
+            }
+        }
+
+    }
+    catch (out_of_range e){
+        cout << endl << " * Chyba! "<< "Jeji popis: " << e.what() << " *" << endl << " * Program bude ukoncen. *" << endl;
+        exit(0);
+    }
+
+    /// POKUD NEBYL NALEZEN
+    if(found == 0)
+        cout << " * Zadana pozice \"" << pos << "\" nebyla nalezena! *" << endl
+             << " * Maximalni mozna pozice je " << allPilots.at(allPilots.size()-1).position << " *" << endl;
+
+}
+
 /** \brief Exportuje seznam jezdcu do html
  *  \param[in] allPilots     Vektor struktury Pilot
  *  \param[in] path          Nazev souboru + cesta

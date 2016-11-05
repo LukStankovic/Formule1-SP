@@ -49,6 +49,9 @@ void PrintPilots(const vector<Pilot>& allPilots, const int& num);
 /// Vypise jednoho jezdce (popr. vice jezdcu pokud maji stejne jmeno) do konzole
 void PrintPilot(const vector<Pilot>& allPilots, string name);
 
+/// Vypise jednoho jezdce na zadane pozici
+void PrintPosition(const vector<Pilot>& allPilots, const vector<Round>& allRounds, const int& pos);
+
 /// Exportuje seznam jezdcu do html
 void ExportPilots(const vector<Pilot>& allPilots, const string& path, const int& num);
 

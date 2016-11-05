@@ -207,7 +207,8 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
     cout << "1  -  Vypis vsech jezdcu " << endl
          << "2  -  Vypis vsech zajetych kol" << endl
          << "3  -  Vypis postupujicich jezdcu" << endl
-         << "4  -  Vypis detailu pro zadaneho jezdce" << endl;
+         << "4  -  Vypis detailu pro zadaneho jezdce" << endl
+         << "5  -  Vypis jezdce na zadane pozici" << endl;
 
     /// NADPIS V MENU + ODDELOVAC
     cout << endl << "Exporty do HTML" << endl;
@@ -215,11 +216,10 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
         cout << "-";
     cout << endl;
 
-    cout  << "5  -  Export vsech jezdcu" << endl
-          << "6  -  Export vsech zajetych kol" << endl
-          << "7  -  Export postupujicich jezdcu " << endl
-          << "8  -  Export casu daneho jezdce" << endl
-          << "9  -  Export stupne vitezu" << endl;
+    cout  << "6  -  Export vsech jezdcu" << endl
+          << "7  -  Export vsech zajetych kol" << endl
+          << "8  -  Export postupujicich jezdcu " << endl
+          << "9  -  Export casu daneho jezdce" << endl;
 
     cout << endl << "0  -  Ukonceni programu" << endl;
 
@@ -348,13 +348,51 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
 
             }break;
 
+            case 5:{
+                int pos;
+                cout <<  endl
+                     << "HLEDANI JEZDCE NA POZICI" << endl
+                     << "========================" << endl << endl
+                     << " / Pro spravne zobrazeni je nutne si zvetsit okno konzole! / " << endl
+                     << " / Mozne tvary: \"1\", \"2\", ... /"<< endl
+                     << " / Maximlani mozna pozice je " << numberOfPilots << endl << endl;
+
+
+
+                while(true){
+                    cout << "Zadejte pozici jezdce: ";
+                    cin >> pos;
+
+                    if(!cin.fail())
+                        break;
+
+                    cin.clear();
+                    cin.ignore(INT_MAX, '\n');
+
+                    cout << " * Zadejte pouze kladne cele cislo! *" << endl;
+
+                }
+
+
+                PrintPosition(allPilots,allRounds,pos);
+
+
+                cout << endl << " / Pro zobrazeni menu stiskente ENTER. /";
+
+                /// IGNORACE ENTERU A VYCISTENI CIN
+                cin.get();
+                cin.get();
+
+            }break;
+
+
             /**
              ### 5. EXPORT VSECH JEZDCU DO HTML ###
                 - Exportuje a vygeneruje tabulku vsech jezdcu do HTML
                 - Uzivatel musi zadat cestu a jmeno souboru
                 - Program kontroluje zda se soubor vytvoril
             */
-            case 5:{
+            case 6:{
                 string fileName;
                 cout <<  endl
                      << "EXPORT JZDCU" << endl
@@ -378,7 +416,7 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                 - Uzivatel musi zadat cestu a jmeno souboru
                 - Program kontroluje zda se soubor vytvoril
             */
-            case 6:{
+            case 7:{
                 string fileName;
                 cout <<  endl
                      << "EXPORT CASU" << endl
@@ -409,7 +447,7 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                     - Zada cislo vetsi nez doopravdy existuje jezdcu
                     - Zada znak
             */
-            case 7:{
+            case 8:{
                 string fileName;
                 int numberOfQualified;
 
@@ -455,8 +493,9 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                 - Je mozne ze se vypise i vice jezdcu pokud existuji jmenovci!
                 - Nacita se pomoci getline() z duvodu cteni bilych znaku
                 - Program kontroluje zda se soubor vytvoril
+                - Vypise vsechny zajete kola jezdce
             */
-            case 8:{
+            case 9:{
                 string name, fileName;
                 cout <<  endl
                      << "HLEDANI JEZDCE" << endl
@@ -487,15 +526,6 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
 
             }break;
 
-            /**
-             ### 9. Export stupne vitezu ###
-                - Exportuje prvni 3 nejrychlejsi jezdce
-                - Vypise k nim detailnejsi info
-                - Program kontroluje zda se soubor vytvoril
-            */
-            case 9:{
-
-            }break;
 
             /**
              ### 0 - UKONCENI PROGRAMU ###
