@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Semestralni prace - Formule 1
-   &#160;<span id="projectnumber">0.8.5</span>
+   &#160;<span id="projectnumber">0.9</span>
    </div>
   </td>
  </tr>
@@ -101,8 +101,11 @@ Functions</h2></td></tr>
 <tr class="memdesc:aea56b8546ed72ce660f49a7ed96883a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepise string na mala pismena.  <a href="#aea56b8546ed72ce660f49a7ed96883a5">More...</a><br /></td></tr>
 <tr class="separator:aea56b8546ed72ce660f49a7ed96883a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a018d9bb328274c7bb52a575f06377b08"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a018d9bb328274c7bb52a575f06377b08">HTMLHead</a> (const string &amp;title)</td></tr>
-<tr class="memdesc:a018d9bb328274c7bb52a575f06377b08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vrati ve stringu HTML hlavicku se styly.  <a href="#a018d9bb328274c7bb52a575f06377b08">More...</a><br /></td></tr>
+<tr class="memdesc:a018d9bb328274c7bb52a575f06377b08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vrati ve stringu HTML hlavicku s CSS styly.  <a href="#a018d9bb328274c7bb52a575f06377b08">More...</a><br /></td></tr>
 <tr class="separator:a018d9bb328274c7bb52a575f06377b08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9fafa1b12d0c36b085c26bdcba3fa9a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#ab9fafa1b12d0c36b085c26bdcba3fa9a">IsHTML</a> (const string &amp;path)</td></tr>
+<tr class="memdesc:ab9fafa1b12d0c36b085c26bdcba3fa9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kontroluje zda je soubor v HTML.  <a href="#ab9fafa1b12d0c36b085c26bdcba3fa9a">More...</a><br /></td></tr>
+<tr class="separator:ab9fafa1b12d0c36b085c26bdcba3fa9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c0c63bf12d7df7501c15dce3e5b046f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a7c0c63bf12d7df7501c15dce3e5b046f">PrintMenu</a> (vector&lt; <a class="el" href="struct_pilot.html">Pilot</a> &gt; allPilots, vector&lt; <a class="el" href="struct_round.html">Round</a> &gt; allRounds, const int &amp;numberOfPilots, const int &amp;numberOfRounds)</td></tr>
 <tr class="memdesc:a7c0c63bf12d7df7501c15dce3e5b046f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vypise do konzole menu vcetne zadavani volby.  <a href="#a7c0c63bf12d7df7501c15dce3e5b046f">More...</a><br /></td></tr>
 <tr class="separator:a7c0c63bf12d7df7501c15dce3e5b046f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -246,13 +249,40 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Vrati ve stringu HTML hlavicku se styly. </p>
+<p>Vrati ve stringu HTML hlavicku s CSS styly. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">title</td><td>Title zalozky HTML souboru </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ab9fafa1b12d0c36b085c26bdcba3fa9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9fafa1b12d0c36b085c26bdcba3fa9a">&sect;&nbsp;</a></span>IsHTML()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool IsHTML </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Kontroluje zda je soubor v HTML. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>Adresa k souboru </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vraci TRUE pokud je HTML/HTML, 0 pokud neni </dd></dl>
 
 </div>
 </div>
@@ -371,6 +401,7 @@ Functions</h2></td></tr>
 </dl>
 </li>
 </ul>
+<p>PROGRAM SE UKONCI AZ PO VOLBE 0</p>
 <p>NADPIS V MENU + ODDELOVAC</p>
 <p>NADPIS V MENU + ODDELOVAC</p>
 <h2>ZADAVANI DOKUD NEZADA INT </h2>
@@ -413,23 +444,28 @@ Functions</h2></td></tr>
 <li>Pote se opet ceka na zmacknuti ENTER pomoci funkce cin.ignore()</li>
 </ul>
 <p>IGNORACE ENTERU A VYCISTENI CIN</p>
-<h3>5. EXPORT VSECH JEZDCU DO HTML</h3>
+<h3>5. NALEZENI JEZDCE PODLE POZICE</h3>
+<ul>
+<li>Vypise tabulku do konzole jezdce na zadane pozici</li>
+</ul>
+<p>IGNORACE ENTERU A VYCISTENI CIN</p>
+<h3>6. EXPORT VSECH JEZDCU DO HTML</h3>
 <ul>
 <li>Exportuje a vygeneruje tabulku vsech jezdcu do HTML</li>
 <li>Uzivatel musi zadat cestu a jmeno souboru</li>
-<li>Program kontroluje zda se soubor vytvoril</li>
+<li>Funkce ExportPilots kontroluje zda se soubor vytvoril</li>
 </ul>
-<h3>6. EXPORT VSECH ZAJETYCH KOL DO HTML</h3>
+<h3>7. EXPORT VSECH ZAJETYCH KOL DO HTML</h3>
 <ul>
 <li>Exportuje a vygeneruje tabulku vsech zajetych kol do HTML</li>
 <li>Uzivatel musi zadat cestu a jmeno souboru</li>
-<li>Program kontroluje zda se soubor vytvoril</li>
+<li>Funkce ExportRounds kontroluje zda se soubor vytvoril</li>
 </ul>
-<h3>7. EXPORT POSTUPUJICICH JEZDCU DO HTML</h3>
+<h3>8. EXPORT POSTUPUJICICH JEZDCU DO HTML</h3>
 <ul>
 <li>Exportuje a vygeneruje tabulku vsech zajetych kol do HTML</li>
 <li>Uzivatel musi zadat cestu a jmeno souboru</li>
-<li>Program kontroluje zda se soubor vytvoril</li>
+<li>Funkce ExportPilots kontroluje zda se soubor vytvoril</li>
 <li>Uzivatel zada kolik jezdcu ma postupovat</li>
 <li>Case obsahuje cyklus, ktery se opakuje dokud uzivatel spravne nezeada pocet postupujicich</li>
 <li>Osetrene komplikace:<ul>
@@ -439,7 +475,7 @@ Functions</h2></td></tr>
 </ul>
 </li>
 </ul>
-<h3>8. EXPORT ZADANEHO JEZDCE</h3>
+<h3>9. EXPORT ZADANEHO JEZDCE</h3>
 <ul>
 <li>Uzivatel zada jmeno jezdce a ten se exportuje (pokud existuje)</li>
 <li>Mozne tvary zadani jmena:<ul>
@@ -451,15 +487,10 @@ Functions</h2></td></tr>
 </li>
 <li>Je mozne ze se vypise i vice jezdcu pokud existuji jmenovci!</li>
 <li>Nacita se pomoci getline() z duvodu cteni bilych znaku</li>
-<li>Program kontroluje zda se soubor vytvoril</li>
+<li>Funkce ExportPilot kontroluje zda se soubor vytvoril</li>
+<li>Vypise vsechny zajete kola jezdce</li>
 </ul>
 <p>IGNORACE ENTERU A VYCISTENI CIN</p>
-<h3>9. Export stupne vitezu</h3>
-<ul>
-<li>Exportuje prvni 3 nejrychlejsi jezdce</li>
-<li>Vypise k nim detailnejsi info</li>
-<li>Program kontroluje zda se soubor vytvoril</li>
-</ul>
 <h3>0 - UKONCENI PROGRAMU</h3>
 <ul>
 <li>Po zvoleni 0 v menu ihned ukonci program.</li>

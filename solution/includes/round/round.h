@@ -17,8 +17,7 @@ using namespace std;
  *  \param position          Pozice casu
  *
  */
-
-typedef struct{
+struct Round{
 
     int id_round;
     int id_pilot;
@@ -27,7 +26,7 @@ typedef struct{
     int time_ms;
 
     int position;
-}Round;
+};
 
 /// Naplni strukturu Round datdy z csv souboru
 void FillRounds(ifstream& f, vector<Round>& casy);

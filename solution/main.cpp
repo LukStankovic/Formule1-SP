@@ -12,7 +12,7 @@
  *         - CSV soubory se oteviraji pomoci parametru funkce main.
  *               - Prvni parametr je adresa souboru s jezdci
  *               - Druhy parametr je adresa souboru s casy
- *         - Dale se zde nachazi funkce pro vypsani menu, ktere je v nekonecnem cyklu
+ *         - Dale se zde nachazi funkce pro vypsani menu, ktere je v nekonecnem cyklu z duvodu vraceni do menu
  *  \mainpage Semestralni prace k 1. semestru, Lukas Stankovic (STA0445), Formule 1
  */
 
@@ -31,7 +31,7 @@ int main(int argc, char* argv[]){
     if(fPilots.fail()){
         cout << endl << " * Chyba pri nacitani souboru s jezdci!" << endl
         << " * Nazev chyby: " << strerror(errno) << "." << endl
-        << " / POZNAMKA: Prvni argument je soubor s jezdci, druhy s casy! /" << endl;
+        << " / POZNAMKA: Prvni argument je CSV soubor s jezdci, druhy s casy! /" << endl;
         return 0;
     }
 
@@ -39,7 +39,7 @@ int main(int argc, char* argv[]){
     if(fRounds.fail()){
         cout << endl << " * Chyba pri nacitani souboru s casy! *" << endl
         << " * Nazev chyby: " << strerror(errno) << ". *" << endl
-        << " / POZNAMKA: Prvni argument je soubor s jezdci, druhy s casy! /" << endl;
+        << " / POZNAMKA: Prvni argument je CSV soubor s jezdci, druhy s casy! /" << endl;
         return 0;
     }
 
@@ -50,11 +50,11 @@ int main(int argc, char* argv[]){
  VYTVORENI VEKTORU STRKUTUR S CASY A JEZDCI
  ------------------------------------------
     - vector<Round> allRounds(numberOfRounds)
-        - obsahuje struktury Round - ma velikost podle poctu kol v souboru
+        - obsahuje struktury Round - ma velikost podle poctu kol v CSV souboru
     - vector<Pilot> allPilots(numberOfPilots)
-        - obsahuje struktury Pilot - ma velikost podle poctu jezdcu v soubru
+        - obsahuje struktury Pilot - ma velikost podle poctu jezdcu v CSV soubru
+    - Po vytvoreni vektoru se prace se soubory ukonci, protoze uz je nebudeme potrebovat
 */
-
     vector<Round> allRounds(numberOfRounds);
     FillRounds(fRounds,allRounds);
 
@@ -66,7 +66,9 @@ int main(int argc, char* argv[]){
 /**
  SETRIZENI JEZDCU A CASU
  -----------------------
-    - Tridi podle nejrychlejsiho casu pomoci vlastni pretizene funkce Sort (pro strukturu Pilot a Round)
+    - Tridi podle nejrychlejsiho casu
+    - Tridi pomoci bublinkoveho algoritmu - Bubble sort
+    - Vlastni pretizene funkce Sort (pro strukturu Pilot a Round)
 */
    Sort(allPilots);
    Sort(allRounds);
@@ -75,6 +77,7 @@ int main(int argc, char* argv[]){
  VLOZENI PORADI
  --------------
     - Poradi k jezdcum a casum se vklada zde az po setrizeni zaznamu
+    - Pretizena funkce AddPosition pro strukturu Pilot a Round
 */
     AddPosition(allPilots);
     AddPosition(allRounds);
@@ -84,6 +87,7 @@ int main(int argc, char* argv[]){
  ---------------
     - Vykresli kompletni menu
     - Obsahuje i zadavani volby
+    - Menu se vypisuje dokud uzivatel neukonci program pomoci volby 0
 */
     PrintMenu(allPilots,allRounds,numberOfPilots,numberOfRounds);
 

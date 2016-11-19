@@ -189,8 +189,8 @@ void Sort(vector<Round>& allRounds){
 
 /**
  * \brief Vraci, ktery cas je rychlejsi
- * \param a        Struktura Round - prvni jezdec
- * \param b        Struktura Round - druhy jezdec
+ * \param[in] a        Struktura Round - prvni jezdec
+ * \param[in] b        Struktura Round - druhy jezdec
  * \return Vraci false pokud je a rychlejsi, true pokud je a pomalejsi
  */
 bool IsFaster(const Round& a, const Round& b){

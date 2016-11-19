@@ -21,7 +21,7 @@
  *
  */
 
-typedef struct{
+struct Pilot{
 
     int id_pilot;
     int position;
@@ -35,7 +35,7 @@ typedef struct{
     int best_time;
     int worst_time;
 
-}Pilot;
+};
 
 /// Naplni strukturu Pilot daty z CSV souboru
 void FillPilots(ifstream& f, vector<Pilot>& allPilots, const vector<Round>& allRounds,const int& numberOfRounds);

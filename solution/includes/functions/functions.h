@@ -31,8 +31,11 @@ string MsToTime(int ms);
 /// Prepise string na mala pismena
 void ToLower(string& str);
 
-/// Vrati ve stringu HTML hlavicku se styly
+/// Vrati ve stringu HTML hlavicku s CSS styly
 string HTMLHead(const string& title);
+
+/// Kontroluje zda je soubor v HTML
+bool IsHTML(const string& path);
 
 /// Vypise do konzole menu vcetne zadavani volby
 void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numberOfPilots, const int& numberOfRounds);

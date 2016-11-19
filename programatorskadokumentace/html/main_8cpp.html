@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Semestralni prace - Formule 1
-   &#160;<span id="projectnumber">0.8.5</span>
+   &#160;<span id="projectnumber">0.9</span>
    </div>
   </td>
  </tr>
@@ -119,26 +119,31 @@ Functions</h2></td></tr>
 <h2>VYTVORENI VEKTORU STRKUTUR S CASY A JEZDCI </h2>
 <ul>
 <li>vector&lt;Round&gt; allRounds(numberOfRounds)<ul>
-<li>obsahuje struktury <a class="el" href="struct_round.html" title="Struktura pro uchovavani dat zajetych kol. Uchovova cas jak ve stringu ve tvaru m:s,ms tak i ciste v ms. ">Round</a> - ma velikost podle poctu kol v souboru</li>
+<li>obsahuje struktury <a class="el" href="struct_round.html" title="Struktura pro uchovavani dat zajetych kol. Uchovova cas jak ve stringu ve tvaru m:s,ms tak i ciste v ms. ">Round</a> - ma velikost podle poctu kol v CSV souboru</li>
 </ul>
 </li>
 <li>vector&lt;Pilot&gt; allPilots(numberOfPilots)<ul>
-<li>obsahuje struktury <a class="el" href="struct_pilot.html" title="Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce. ">Pilot</a> - ma velikost podle poctu jezdcu v soubru</li>
+<li>obsahuje struktury <a class="el" href="struct_pilot.html" title="Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce. ">Pilot</a> - ma velikost podle poctu jezdcu v CSV soubru</li>
 </ul>
 </li>
+<li>Po vytvoreni vektoru se prace se soubory ukonci, protoze uz je nebudeme potrebovat</li>
 </ul>
 <h2>SETRIZENI JEZDCU A CASU </h2>
 <ul>
-<li>Tridi podle nejrychlejsiho casu pomoci vlastni pretizene funkce Sort (pro strukturu <a class="el" href="struct_pilot.html" title="Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce. ">Pilot</a> a <a class="el" href="struct_round.html" title="Struktura pro uchovavani dat zajetych kol. Uchovova cas jak ve stringu ve tvaru m:s,ms tak i ciste v ms. ">Round</a>)</li>
+<li>Tridi podle nejrychlejsiho casu</li>
+<li>Tridi pomoci bublinkoveho algoritmu - Bubble sort</li>
+<li>Vlastni pretizene funkce Sort (pro strukturu <a class="el" href="struct_pilot.html" title="Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce. ">Pilot</a> a <a class="el" href="struct_round.html" title="Struktura pro uchovavani dat zajetych kol. Uchovova cas jak ve stringu ve tvaru m:s,ms tak i ciste v ms. ">Round</a>)</li>
 </ul>
 <h2>VLOZENI PORADI </h2>
 <ul>
 <li>Poradi k jezdcum a casum se vklada zde az po setrizeni zaznamu</li>
+<li>Pretizena funkce AddPosition pro strukturu <a class="el" href="struct_pilot.html" title="Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce. ">Pilot</a> a <a class="el" href="struct_round.html" title="Struktura pro uchovavani dat zajetych kol. Uchovova cas jak ve stringu ve tvaru m:s,ms tak i ciste v ms. ">Round</a></li>
 </ul>
 <h2>VYKRESLENI MENU </h2>
 <ul>
 <li>Vykresli kompletni menu</li>
 <li>Obsahuje i zadavani volby</li>
+<li>Menu se vypisuje dokud uzivatel neukonci program pomoci volby 0</li>
 </ul>
 
 </div>

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Semestralni prace - Formule 1
-   &#160;<span id="projectnumber">0.8.5</span>
+   &#160;<span id="projectnumber">0.9</span>
    </div>
   </td>
  </tr>
@@ -97,6 +97,9 @@ Functions</h2></td></tr>
 <tr class="memitem:aea15325eb020ef51902c92b2705dda18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pilot_8h.html#aea15325eb020ef51902c92b2705dda18">PrintPilot</a> (const vector&lt; <a class="el" href="struct_pilot.html">Pilot</a> &gt; &amp;allPilots, string name)</td></tr>
 <tr class="memdesc:aea15325eb020ef51902c92b2705dda18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vypise jednoho jezdce (popr. vice jezdcu pokud maji stejne jmeno) do konzole.  <a href="#aea15325eb020ef51902c92b2705dda18">More...</a><br /></td></tr>
 <tr class="separator:aea15325eb020ef51902c92b2705dda18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bad9c8544ee5d14e149b7a5458ea0ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pilot_8h.html#a6bad9c8544ee5d14e149b7a5458ea0ba">PrintPosition</a> (const vector&lt; <a class="el" href="struct_pilot.html">Pilot</a> &gt; &amp;allPilots, const vector&lt; <a class="el" href="struct_round.html">Round</a> &gt; &amp;allRounds, const int &amp;pos)</td></tr>
+<tr class="memdesc:a6bad9c8544ee5d14e149b7a5458ea0ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vypise jednoho jezdce na zadane pozici.  <a href="#a6bad9c8544ee5d14e149b7a5458ea0ba">More...</a><br /></td></tr>
+<tr class="separator:a6bad9c8544ee5d14e149b7a5458ea0ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:affd8f4f6fac1bdf447e8a010c22de6c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pilot_8h.html#affd8f4f6fac1bdf447e8a010c22de6c8">ExportPilots</a> (const vector&lt; <a class="el" href="struct_pilot.html">Pilot</a> &gt; &amp;allPilots, const string &amp;path, const int &amp;num)</td></tr>
 <tr class="memdesc:affd8f4f6fac1bdf447e8a010c22de6c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exportuje seznam jezdcu do html.  <a href="#affd8f4f6fac1bdf447e8a010c22de6c8">More...</a><br /></td></tr>
 <tr class="separator:affd8f4f6fac1bdf447e8a010c22de6c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -328,8 +331,8 @@ Functions</h2></td></tr>
 <p>Vraci, ktery jezdec je rychlejsi. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td>Struktura <a class="el" href="struct_pilot.html" title="Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce. ">Pilot</a> - prvni jezdec </td></tr>
-    <tr><td class="paramname">b</td><td>Struktura <a class="el" href="struct_pilot.html" title="Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce. ">Pilot</a> - druhy jezdec </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">a</td><td>Struktura <a class="el" href="struct_pilot.html" title="Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce. ">Pilot</a> - prvni jezdec </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">b</td><td>Struktura <a class="el" href="struct_pilot.html" title="Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce. ">Pilot</a> - druhy jezdec </td></tr>
   </table>
   </dd>
 </dl>
@@ -422,6 +425,53 @@ Functions</h2></td></tr>
 </dl>
 <p>HLAVICKA TABULKY</p>
 <p>TELO TABULKY </p>
+
+</div>
+</div>
+<a id="a6bad9c8544ee5d14e149b7a5458ea0ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bad9c8544ee5d14e149b7a5458ea0ba">&sect;&nbsp;</a></span>PrintPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PrintPosition </td>
+          <td>(</td>
+          <td class="paramtype">const vector&lt; <a class="el" href="struct_pilot.html">Pilot</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>allPilots</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const vector&lt; <a class="el" href="struct_round.html">Round</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>allRounds</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int &amp;&#160;</td>
+          <td class="paramname"><em>pos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Vypise jednoho jezdce na zadane pozici. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">allPilots</td><td>Vektor struktury <a class="el" href="struct_pilot.html" title="Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce. ">Pilot</a> ze ktereho se cerpa </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">allRounds</td><td>Vektor struktury <a class="el" href="struct_round.html" title="Struktura pro uchovavani dat zajetych kol. Uchovova cas jak ve stringu ve tvaru m:s,ms tak i ciste v ms. ">Round</a> ze ktereho se cerpaji vsechny kola jezdce </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">pos</td><td>Pozice jezdce, ktery se vypise </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>VSECHNY ZAJETE KOLA</p>
+<p>CYKLUS SE MUZE UKONCIT</p>
+<p>POKUD NEBYL NALEZEN </p>
 
 </div>
 </div>

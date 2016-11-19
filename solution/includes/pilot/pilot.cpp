@@ -526,8 +526,8 @@ void Sort(vector<Pilot>& allPilots){
 
 /**
  * \brief Vraci, ktery jezdec je rychlejsi
- * \param a        Struktura Pilot - prvni jezdec
- * \param b        Struktura Pilot - druhy jezdec
+ * \param[in] a        Struktura Pilot - prvni jezdec
+ * \param[in] b        Struktura Pilot - druhy jezdec
  * \return Vraci false pokud je a rychlejsi, true pokud je a pomalejsi
  */
 bool IsFaster(const Pilot& a, const Pilot& b){
