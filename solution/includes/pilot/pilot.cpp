@@ -416,8 +416,7 @@ void ExportPilot(const vector<Pilot>& allPilots, string name, const vector<Round
 
     /// VYKRESLENI TABULKY AZ TED Z DUVODU KDYBY BYLO NALEZENO VICE JEZDCU
     if(found == 0)
-        cout << " * Zadny jezdec nebyl nalezen. *" << endl;
-
+        cout << " * Zadny jezdec nebyl nalezen. Soubor nebyl vytvoren*" << endl;
     else{
 
         ofstream exp(path);
@@ -446,6 +445,7 @@ void ExportPilot(const vector<Pilot>& allPilots, string name, const vector<Round
         }
         catch(out_of_range e){
             cout << endl << " * Chyba! "<< "Jeji popis: " << e.what() << " *" << endl;
+            exit(0);
         }
 
         exp << "</tbody></table>" << endl;

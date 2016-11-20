@@ -32,7 +32,7 @@ int main(int argc, char* argv[]){
         cout << endl << " * Chyba pri nacitani souboru s jezdci!" << endl
         << " * Nazev chyby: " << strerror(errno) << "." << endl
         << " / POZNAMKA: Prvni argument je CSV soubor s jezdci, druhy s casy! /" << endl;
-        return 0;
+        return -1;
     }
 
     ifstream fRounds(argv[2]);
@@ -40,7 +40,7 @@ int main(int argc, char* argv[]){
         cout << endl << " * Chyba pri nacitani souboru s casy! *" << endl
         << " * Nazev chyby: " << strerror(errno) << ". *" << endl
         << " / POZNAMKA: Prvni argument je CSV soubor s jezdci, druhy s casy! /" << endl;
-        return 0;
+        return -1;
     }
 
     int numberOfPilots = CountLines(fPilots);
