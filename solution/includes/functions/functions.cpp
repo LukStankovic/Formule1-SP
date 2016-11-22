@@ -56,7 +56,7 @@ void ExplodeString(const char& delimiter, string str, vector<string>& explodedSt
  *            -  Priklad: "1 Lukas Stankovic" --> s delicem ' ' --> 3
  * \param[in]  delimiter        Znak, pomoci ktereho se rozdeluje string
  * \param[in]  str              String, ktery bude pocitan
- * \return Vrati cele cislo s poctem bunek
+ * \return     int              Vrati cele cislo s poctem bunek
  *
  */
 int CountCells(const char& delimiter, const string& str){
@@ -73,10 +73,10 @@ int CountCells(const char& delimiter, const string& str){
 
 /** \brief Vrati pocet radku (zaznamu) v souboru
  *  \param[in]  f        Soubor ve kterem chceme spocitat radky
- *  \return Vrati cele cislo s poctem radku (zaznamu) v souboru
+ *  \return     int      Vrati cele cislo s poctem radku (zaznamu) v souboru
  *
  */
-int CountLines(ifstream &f){
+int CountLines(ifstream& f){
     int num = 0;
     string line;
 
@@ -94,7 +94,7 @@ int CountLines(ifstream &f){
 
 /** \brief Prevadi a vrati cas na ms ze stringu
  *  \param[in]  time       Vector stringu ze ktereho se bere cas (cas je jiz rozdelen na 3 casti - min, sek, ms)
- *  \return Vraci milisekundy
+ *  \return     int        Vraci milisekundy
  *
  */
 int TimeToMs(const vector<string>& time){
@@ -119,7 +119,7 @@ void MsToTime(int ms, vector<int>& time){
 
 /** \brief Vrati string s casem ve tvaru min:s,ms
  *  \param[in]  ms         Cas v milisekundach
- *  \return String ve tvaru min:s,ms
+ *  \return     string     String ve tvaru min:s,ms
  *
  */
 string MsToTime(int ms){
@@ -166,6 +166,7 @@ void ToLower(string& str){
 /**
  * \brief Vrati ve stringu HTML hlavicku s CSS styly
  * \param[in]  title        Title zalozky HTML souboru
+ * \return     string       HTML hlavicku <head>
  *
  */
 string HTMLHead(const string& title){
@@ -190,9 +191,8 @@ string HTMLHead(const string& title){
 
 /**
  * \brief Kontroluje zda je soubor v HTML
- *
  * \param[in]  path        Adresa k souboru
- * \return Vraci TRUE pokud je HTML/HTML, 0 pokud neni
+ * \return     bool        Vraci TRUE pokud je *.HTML/*.HTM, 0 pokud neni
  *
  */
 bool IsHTML(const string& path){

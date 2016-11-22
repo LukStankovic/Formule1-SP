@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1479850493 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/main.cpp
+1479852243 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/main.cpp
 	<iostream>
 	<fstream>
 	<string>
@@ -61,7 +61,7 @@
 	"../pilot/pilot.h"
 	"../round/round.h"
 
-1479584108 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/functions/functions.cpp
+1479852055 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/functions/functions.cpp
 	<iostream>
 	<fstream>
 	<string>
@@ -69,7 +69,7 @@
 	"../pilot/pilot.h"
 	"../round/round.h"
 
-1479851517 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/round/round.cpp
+1479852148 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/round/round.cpp
 	<iostream>
 	<fstream>
 	<vector>
@@ -81,7 +81,7 @@
 1479113775 /Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/pilot/pilot.h
 	"../round/round.h"
 
-1479851559 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/pilot/pilot.cpp
+1479851773 source:/Users/lukstankovic/Skola/VS/1_sem_z/PRG1/SEMESTRALNI_PRACE/sta0445/solution/includes/pilot/pilot.cpp
 	<iostream>
 	<fstream>
 	<string>

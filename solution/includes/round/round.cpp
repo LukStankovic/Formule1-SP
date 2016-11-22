@@ -17,7 +17,7 @@
  *  \param[in]  f          Soubor ze ktereho se nacitaji jezdci
  *  \param[out] allRounds  Vektor struktury Round do ktereho se vkladaji casy okruhu
  */
-void FillRounds(ifstream &f, vector<Round> &allRounds){
+void FillRounds(ifstream& f, vector<Round>& allRounds){
 
     int i = 0;
     string line;
@@ -77,7 +77,7 @@ void FillRounds(ifstream &f, vector<Round> &allRounds){
  *  \param[out] allRounds    Vektor Round, kterym bude zapisovano poradi
  *
  */
-void AddPosition(vector<Round> &allRounds){
+void AddPosition(vector<Round>& allRounds){
     try{
         for(int i = 0; i < allRounds.size(); i++){
             allRounds.at(i).position = i+1;
