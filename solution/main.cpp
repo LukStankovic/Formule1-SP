@@ -18,15 +18,16 @@
 
 using namespace std;
 
-int main(int argc, char* argv[]){
+int main(int argc, char** argv){
 
 /**
  OTEVRENI SOUBORU
  ----------------
     - adresy k souborum jsou v parametrech fce main (argv)
-        - prvni parametr je adresa CSV souboru s jezdci
-        - druhy parametr je adresa CSV souboru s casy
+        - prvni parametr (argv[1]) je adresa CSV souboru s jezdci
+        - druhy parametr (argv[2])  je adresa CSV souboru s casy
 */
+
     ifstream fPilots(argv[1]);
     if(fPilots.fail()){
         cout << endl << " * Chyba pri nacitani souboru s jezdci!" << endl
