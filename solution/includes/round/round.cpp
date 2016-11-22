@@ -146,6 +146,7 @@ void ExportRounds(const vector<Round>& allRounds, const string& path){
     }
     catch(out_of_range e){
         cout << endl << " * Chyba! "<< "Jeji popis: " << e.what() << " *" << endl;
+        exit(0);
     }
 
     exp << "</tbody></table></body></html>" << endl;
@@ -173,17 +174,23 @@ void ExportRounds(const vector<Round>& allRounds, const string& path){
  *
  */
 void Sort(vector<Round>& allRounds){
+    try{
+        for (int i = 0; i < allRounds.size(); i++){
+		int j = i;
 
-    for(int j = 0; j < allRounds.size()-1; j++){
-        for(int i = 0; i < allRounds.size()-1; i++){
-            if(IsFaster(allRounds.at(i),allRounds.at(i+1))){
-                Round tmp = allRounds.at(i);
-                allRounds.at(i) = allRounds.at(i+1);
-                allRounds.at(i+1) = tmp;
+            while (j > 0 && IsFaster(allRounds.at(j),allRounds.at(j-1))){
+                Round temp = allRounds.at(j);
+                allRounds.at(j) = allRounds.at(j-1);
+                allRounds.at(j-1) = temp;
+                j--;
             }
-
-        }
+		}
     }
+    catch(out_of_range e){
+        cout << endl << " * Chyba! "<< "Jeji popis: " << e.what() << " *" << endl;
+        exit(0);
+    }
+
 
 }
 
@@ -191,8 +198,9 @@ void Sort(vector<Round>& allRounds){
  * \brief Vraci, ktery cas je rychlejsi
  * \param[in] a        Struktura Round - prvni jezdec
  * \param[in] b        Struktura Round - druhy jezdec
- * \return Vraci false pokud je a rychlejsi, true pokud je a pomalejsi
+ * \return    bool     Vraci true pokud je a rychlejsi, false pokud je a pomalejsi
  */
+
 bool IsFaster(const Round& a, const Round& b){
     /**
         OSETRENI ZDA NEMA CAS 0 MS
@@ -213,6 +221,6 @@ bool IsFaster(const Round& a, const Round& b){
         tmp_b = b.time_ms;
 
     /// POROVNANI
-    return tmp_a > tmp_b;
+    return tmp_a < tmp_b;
 
 }

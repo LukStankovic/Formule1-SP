@@ -511,15 +511,21 @@ void ExportPilot(const vector<Pilot>& allPilots, string name, const vector<Round
  */
 void Sort(vector<Pilot>& allPilots){
 
-    for(int j = 0; j < allPilots.size()-1; j++){
-        for(int i = 0; i < allPilots.size()-1; i++){
-            if(IsFaster(allPilots.at(i),allPilots.at(i+1))){
-                Pilot tmp = allPilots.at(i);
-                allPilots.at(i) = allPilots.at(i+1);
-                allPilots.at(i+1) = tmp;
-            }
+    try{
+        for (int i = 0; i < allPilots.size(); i++){
+		int j = i;
 
-        }
+            while (j > 0 && IsFaster(allPilots.at(j),allPilots.at(j-1))){
+                Pilot temp = allPilots.at(j);
+                allPilots.at(j) = allPilots.at(j-1);
+                allPilots.at(j-1) = temp;
+                j--;
+            }
+		}
+    }
+    catch(out_of_range e){
+        cout << endl << " * Chyba! "<< "Jeji popis: " << e.what() << " *" << endl;
+        exit(0);
     }
 
 }
@@ -528,7 +534,7 @@ void Sort(vector<Pilot>& allPilots){
  * \brief Vraci, ktery jezdec je rychlejsi
  * \param[in] a        Struktura Pilot - prvni jezdec
  * \param[in] b        Struktura Pilot - druhy jezdec
- * \return Vraci false pokud je a rychlejsi, true pokud je a pomalejsi
+ * \return Vraci true pokud je a rychlejsi, false pokud je a pomalejsi
  */
 bool IsFaster(const Pilot& a, const Pilot& b){
     /**
@@ -550,7 +556,7 @@ bool IsFaster(const Pilot& a, const Pilot& b){
         tmp_b = b.best_time;
 
     /// POROVNANI
-    return tmp_a > tmp_b;
+    return tmp_a < tmp_b;
 
 }
 

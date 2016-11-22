@@ -67,7 +67,7 @@ int main(int argc, char* argv[]){
  SETRIZENI JEZDCU A CASU
  -----------------------
     - Tridi podle nejrychlejsiho casu
-    - Tridi pomoci bublinkoveho algoritmu - Bubble sort
+    - Tridi pomoci bublinkoveho algoritmu - Insertion sort
     - Vlastni pretizene funkce Sort (pro strukturu Pilot a Round)
 */
    Sort(allPilots);
