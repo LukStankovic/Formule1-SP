@@ -185,11 +185,10 @@ string HTMLHead(const string& title){
     return html;
 }
 
-
 /**
  * \brief Kontroluje zda je soubor v HTML
  * \param[in]  path        Adresa k souboru
- * \return     bool        Vraci TRUE pokud je *.html/*.htm, 0 pokud neni
+ * \return     bool        Vraci TRUE pokud je *.html nebo *.htm, 0 pokud neni
  *
  */
 bool IsHTML(const string& path){
