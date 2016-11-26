@@ -192,7 +192,7 @@ string HTMLHead(const string& title){
 /**
  * \brief Kontroluje zda je soubor v HTML
  * \param[in]  path        Adresa k souboru
- * \return     bool        Vraci TRUE pokud je *.HTML/*.HTM, 0 pokud neni
+ * \return     bool        Vraci TRUE pokud je *.html/*.htm, 0 pokud neni
  *
  */
 bool IsHTML(const string& path){
@@ -213,6 +213,35 @@ bool IsHTML(const string& path){
     ToLower(fileExtension);
 
     if( (fileExtension == "lmth") || (fileExtension == "mth") )
+        return true;
+    else
+        return false;
+}
+
+/**
+ * \brief Kontroluje zda je soubor v CSV
+ * \param[in]  path        Adresa k souboru
+ * \return     bool        Vraci TRUE pokud je *.csv, 0 pokud neni
+ *
+ */
+bool IsCSV(const string& path){
+    int i = path.length()-1;
+    string fileExtension;
+
+    if(i < 4)
+        return false;
+
+    while (path[i] != '.') {
+        fileExtension += path[i];
+        i--;
+
+        if(i == 0)
+            return false;
+    }
+
+    ToLower(fileExtension);
+
+    if(fileExtension == "vsc")
         return true;
     else
         return false;

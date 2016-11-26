@@ -28,7 +28,15 @@ int main(int argc, char** argv){
         - druhy parametr (argv[2])  je adresa CSV souboru s casy
 */
 
+    if(!IsCSV(argv[1])){
+        cout << endl << " * Chyba pri nacitani souboru s jezdci!" << endl
+        << " * Nazev chyby: Soubor neni ve formatu CSV." << endl
+        << " / POZNAMKA: Prvni argument je CSV soubor s jezdci, druhy s casy! /" << endl;
+        return -1;
+    }
+
     ifstream fPilots(argv[1]);
+
     if(fPilots.fail()){
         cout << endl << " * Chyba pri nacitani souboru s jezdci!" << endl
         << " * Nazev chyby: " << strerror(errno) << "." << endl
@@ -36,7 +44,16 @@ int main(int argc, char** argv){
         return -1;
     }
 
+
+    if(!IsCSV(argv[2])){
+        cout << endl << " * Chyba pri nacitani souboru s casy!" << endl
+        << " * Nazev chyby: Soubor neni ve formatu CSV." << endl
+        << " / POZNAMKA: Prvni argument je CSV soubor s jezdci, druhy s casy! /" << endl;
+        return -1;
+    }
+
     ifstream fRounds(argv[2]);
+
     if(fRounds.fail()){
         cout << endl << " * Chyba pri nacitani souboru s casy! *" << endl
         << " * Nazev chyby: " << strerror(errno) << ". *" << endl

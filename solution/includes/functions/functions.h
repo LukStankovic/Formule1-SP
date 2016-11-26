@@ -37,6 +37,9 @@ string HTMLHead(const string& title);
 /// Kontroluje zda je soubor v HTML
 bool IsHTML(const string& path);
 
+/// Kontroluje zda je soubor v CSV
+bool IsCSV(const string& path);
+
 /// Vypise do konzole menu vcetne zadavani volby
 void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numberOfPilots, const int& numberOfRounds);
 

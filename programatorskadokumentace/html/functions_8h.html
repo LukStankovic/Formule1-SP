@@ -22,7 +22,6 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Semestralni prace - Formule 1
-   &#160;<span id="projectnumber">0.9</span>
    </div>
   </td>
  </tr>
@@ -106,6 +105,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ab9fafa1b12d0c36b085c26bdcba3fa9a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#ab9fafa1b12d0c36b085c26bdcba3fa9a">IsHTML</a> (const string &amp;path)</td></tr>
 <tr class="memdesc:ab9fafa1b12d0c36b085c26bdcba3fa9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kontroluje zda je soubor v HTML.  <a href="#ab9fafa1b12d0c36b085c26bdcba3fa9a">More...</a><br /></td></tr>
 <tr class="separator:ab9fafa1b12d0c36b085c26bdcba3fa9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64c10ec41efc3700d21c8320c487991f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a64c10ec41efc3700d21c8320c487991f">IsCSV</a> (const string &amp;path)</td></tr>
+<tr class="memdesc:a64c10ec41efc3700d21c8320c487991f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kontroluje zda je soubor v CSV.  <a href="#a64c10ec41efc3700d21c8320c487991f">More...</a><br /></td></tr>
+<tr class="separator:a64c10ec41efc3700d21c8320c487991f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c0c63bf12d7df7501c15dce3e5b046f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="functions_8h.html#a7c0c63bf12d7df7501c15dce3e5b046f">PrintMenu</a> (vector&lt; <a class="el" href="struct_pilot.html">Pilot</a> &gt; allPilots, vector&lt; <a class="el" href="struct_round.html">Round</a> &gt; allRounds, const int &amp;numberOfPilots, const int &amp;numberOfRounds)</td></tr>
 <tr class="memdesc:a7c0c63bf12d7df7501c15dce3e5b046f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Vypise do konzole menu vcetne zadavani volby.  <a href="#a7c0c63bf12d7df7501c15dce3e5b046f">More...</a><br /></td></tr>
 <tr class="separator:a7c0c63bf12d7df7501c15dce3e5b046f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -149,7 +151,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Vrati cele cislo s poctem bunek </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>int Vrati cele cislo s poctem bunek </dd></dl>
 </li>
 </ul>
 <p>+1 KVULI POSLEDNI BUNCE </p>
@@ -180,7 +182,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Vrati cele cislo s poctem radku (zaznamu) v souboru </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>int Vrati cele cislo s poctem radku (zaznamu) v souboru </dd></dl>
 <p>PRESUNTUI "KURZORU" NA ZACATEK SOUBORU </p>
 
 </div>
@@ -256,6 +258,34 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>string HTML hlavicku &lt;head&gt; </dd></dl>
+
+</div>
+</div>
+<a id="a64c10ec41efc3700d21c8320c487991f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64c10ec41efc3700d21c8320c487991f">&sect;&nbsp;</a></span>IsCSV()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool IsCSV </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Kontroluje zda je soubor v CSV. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">path</td><td>Adresa k souboru </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>bool Vraci TRUE pokud je *.csv, 0 pokud neni </dd></dl>
 
 </div>
 </div>
@@ -282,7 +312,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Vraci TRUE pokud je HTML/HTML, 0 pokud neni </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>bool Vraci TRUE pokud je *.html/*.htm, 0 pokud neni </dd></dl>
 
 </div>
 </div>
@@ -313,10 +343,11 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Vraci pomoci reference vektoru cass rozdeleny na minuty, vteriny, setiny. </p>
+<p>Vraci pomoci reference vektoru cass rozdeleny na minuty, vteriny, setiny.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">ms</td><td>Cas v milisekundach </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">time</td><td>Vektor intu do ktereho se posila </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">time</td><td>Rozdeleny cas </td></tr>
   </table>
   </dd>
 </dl>
@@ -346,7 +377,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>String ve tvaru min:s,ms </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>string String ve tvaru min:s,ms </dd></dl>
 <p>DOROVNANI NUL U SEKUND</p>
 <p>DOROVNANI NUL U MILISEKUND </p>
 
@@ -392,7 +423,7 @@ Functions</h2></td></tr>
 
 <p>Vypise do konzole menu vcetne zadavani volby. </p>
 <ul>
-<li>Kontroluje zda uzivatel zada opravdu spravnou vlobu <dl class="params"><dt>Parameters</dt><dd>
+<li>Kontroluje zda uzivatel zada opravdu spravnou volbu <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">allPilots</td><td>Vektor vsech jezdcu </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">allRounds</td><td>Vektor vsech casu </td></tr>
@@ -517,13 +548,14 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Prevadi a vrati cas na ms ze stringu. </p>
+<p>Prevadi a vrati cas na ms ze stringu.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">time</td><td>Vector stringu ze ktereho se bere cas (cas je jiz rozdelen na 3 casti - min, sek, ms) </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Vraci milisekundy </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>int Vraci milisekundy </dd></dl>
 
 </div>
 </div>
