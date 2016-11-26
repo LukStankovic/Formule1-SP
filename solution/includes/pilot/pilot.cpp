@@ -267,7 +267,7 @@ void PrintPosition(const vector<Pilot>& allPilots, const vector<Round>& allRound
                 cout << endl;
 
                 for(int j = 0; j < allRounds.size(); j++){
-                    if(allRounds.at(j).id_pilot == pos){
+                    if(allRounds.at(j).id_pilot == allPilots.at(i).id_pilot){
                         cout << setw(3) <<  allRounds.at(j).position << "." << " | " << setw(15) << allRounds.at(j).time << " | " <<  setw(15) <<  allRounds.at(j).time_ms << " |"<< endl;
                     }
                 }
@@ -421,7 +421,7 @@ void ExportPilot(const vector<Pilot>& allPilots, string name, const vector<Round
 
         ofstream exp(path);
 
-        exp << HTMLHead("Pilot"+name);
+        exp << HTMLHead("Jezdec "+name);
         exp << "<body>" << endl
             << "<h1>Hledany pilot: \""<< name << "\"</h1>" <<  endl
             << "<table cellspacing='0'>"<< endl

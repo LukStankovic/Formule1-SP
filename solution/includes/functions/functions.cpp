@@ -92,7 +92,7 @@ int CountLines(ifstream& f){
 }
 
 
-/** \brief Prevadi a vrati cas na ms ze stringu
+/** \brief Prevadi a vrati cas na ms z vektoru stringu
  *  \param[in]  time       Vector stringu ze ktereho se bere cas (cas je jiz rozdelen na 3 casti - min, sek, ms)
  *  \return     int        Vraci milisekundy
  *
@@ -102,9 +102,9 @@ int TimeToMs(const vector<string>& time){
 }
 
 
-/** \brief Vraci pomoci reference vektoru cass rozdeleny na minuty, vteriny, setiny
+/** \brief Vraci pomoci reference vektoru cas rozdeleny na minuty, vteriny, setiny
  *  \param[in]   ms         Cas v milisekundach
- *  \param[out]  time       Vektor intu do ktereho se posila
+ *  \param[out]  time       Rozdeleny cas
  *
  */
 void MsToTime(int ms, vector<int>& time){
@@ -198,6 +198,10 @@ string HTMLHead(const string& title){
 bool IsHTML(const string& path){
     int i = path.length()-1;
     string fileExtension;
+
+    if(i < 4)
+        return false;
+
     while (path[i] != '.') {
         fileExtension += path[i];
         i--;
@@ -217,7 +221,7 @@ bool IsHTML(const string& path){
 
 /**
  * \brief Vypise do konzole menu vcetne zadavani volby
- *          - Kontroluje zda uzivatel zada opravdu spravnou vlobu
+ *          - Kontroluje zda uzivatel zada opravdu spravnou volbu
  * \param[in]  allPilots        Vektor vsech jezdcu
  * \param[in]  allRounds        Vektor vsech casu
  * \param[in]  numberOfPilots   Pocet jezdcu
@@ -371,7 +375,7 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                     cout <<  endl
                          << "HLEDANI JEZDCE" << endl
                          << "==============" << endl << endl
-                         << " / Mozne tvary: \"1\", \"Jmeno Prijmeni\", nebo \"Jmeno\", nebo \"Prijmeni\" /"<< endl << endl
+                         << " / Mozne tvary: \"ID\", \"Jmeno Prijmeni\", nebo \"Jmeno\", nebo \"Prijmeni\" /"<< endl << endl
                          << "Zadejte jmeno (nebo pouze ID jezdce): ";
 
                     getline(cin,name);
@@ -397,7 +401,7 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                          << "========================" << endl << endl
                          << " / Pro spravne zobrazeni je nutne si zvetsit okno konzole! / " << endl
                          << " / Mozne tvary: \"1\", \"2\", ... /"<< endl
-                         << " / Maximlani mozna pozice je " << numberOfPilots << endl << endl;
+                         << " / Maximlani mozna pozice je " << numberOfPilots << " /" << endl << endl;
 
 
 
@@ -481,7 +485,7 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                         if(IsHTML(fileName))
                             break;
                         else
-                            cout << endl << " * Adresa souboru neni ve formatu HTML. (*.HTML anebo *.HTM) *" << endl << endl;
+                            cout << endl << " * Adresa souboru neni ve formatu HTML. (*.html anebo *.htm) *" << endl << endl;
                     }
 
                     ExportRounds(allRounds,fileName);
@@ -512,8 +516,7 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                          << "EXPORT POSTUPUJICICH JZDCU" << endl
                          << "==========================" << endl << endl
                          << " / Mozny tvar: /Users/Jmeno/programs/formule/vypis_vsech_jezdcu.html /"<< endl
-                         << " / SOUBOR JE VE FORMATU HTML! /"<< endl << endl
-                         << "Zadejte adresu a nazev souboru: ";
+                         << " / SOUBOR JE VE FORMATU HTML! /"<< endl << endl;
 
                     while(true){
                         cout << "Zadejte adresu a nazev souboru: " << endl;
@@ -568,8 +571,7 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                          << "HLEDANI JEZDCE" << endl
                          << "==============" << endl << endl
                          << " / Mozny tvar: /Users/Jmeno/programs/formule/vypis_vsech_jezdcu.html /"<< endl
-                         << " / SOUBOR JE VE FORMATU HTML! /"<< endl << endl
-                         << "Zadejte adresu a nazev souboru: ";
+                         << " / SOUBOR JE VE FORMATU HTML! /"<< endl << endl;
 
                     while(true){
                         cout << "Zadejte adresu a nazev souboru: " << endl;
@@ -584,7 +586,7 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                     cin.clear();
                     cin.ignore(INT_MAX,'\n');
 
-                    cout << endl << " / Mozne tvary : \"1\", \"Jmeno Prijmeni\", nebo \"Jmeno\", nebo \"Prijmeni\" /"<< endl << endl
+                    cout << endl << " / Mozne tvary : \"ID\", \"Jmeno Prijmeni\", nebo \"Jmeno\", nebo \"Prijmeni\" /"<< endl << endl
                          << "Zadejte jmeno hledaneho jezdce (nebo pouze ID jezdce): ";
                     getline(cin,name);
 
