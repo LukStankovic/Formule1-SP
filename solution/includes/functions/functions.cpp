@@ -145,11 +145,8 @@ string MsToTime(int ms){
     else if(milisecs < 100)
         milisecs_str = "0" + milisecs_str;
 
-    string str = to_string(mins) + ":" + secs_str + "," + milisecs_str;
-
-    return str;
+    return (to_string(mins) + ":" + secs_str + "," + milisecs_str);
 }
-
 
 /**
  * \brief Prepise string na mala pismena
@@ -246,7 +243,6 @@ bool IsCSV(const string& path){
     else
         return false;
 }
-
 
 /**
  * \brief Vypise do konzole menu vcetne zadavani volby
@@ -361,16 +357,14 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                 case 3:{
                     int numberOfQualified;
 
-
                     do{
-
                         cout << "Zadejte kolik jezdcu postupuje: ";
                         cin >> numberOfQualified;
 
                         if(cin.fail()){
                             cout << " * Nemuzete zadat znak. Zadejte pouze kladne cele cislo! *" << endl;
                             cin.clear();
-                            cin.ignore();
+                            cin.ignore(INT_MAX,'\n');
                         }
                         else if(numberOfQualified > numberOfPilots)
                             cout << " * Nemuze postoupit vice jezdcu nez jich doopravdy existuje! *" << endl;
@@ -445,7 +439,6 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                         cin.ignore(INT_MAX, '\n');
 
                         cout << " * Zadejte pouze kladne cele cislo! *" << endl;
-
                     }
 
 
@@ -472,7 +465,7 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                          << "EXPORT JZDCU" << endl
                          << "============" << endl << endl
                          << " / Mozny tvar: /Users/Jmeno/programs/formule/vypis_vsech_jezdcu.html /"<< endl
-                         << " / SOUBOR JE VE FORMATU HTML! /"<< endl << endl;
+                         << " / SOUBOR MUSI BYT VE FORMATU HTML! /"<< endl << endl;
 
 
                     while(true){
@@ -504,7 +497,7 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                          << "EXPORT CASU" << endl
                          << "===========" << endl << endl
                          << " / Mozny tvar: /Users/Jmeno/programs/formule/vypis_vsech_jezdcu.html /"<< endl
-                         << " / SOUBOR JE VE FORMATU HTML! /"<< endl << endl
+                         << " / SOUBOR MUSI BYT VE FORMATU HTML! /"<< endl << endl
                          << "Zadejte adresu a nazev souboru: ";
 
                     while(true){
@@ -545,7 +538,7 @@ void PrintMenu(vector<Pilot> allPilots, vector<Round> allRounds, const int& numb
                          << "EXPORT POSTUPUJICICH JZDCU" << endl
                          << "==========================" << endl << endl
                          << " / Mozny tvar: /Users/Jmeno/programs/formule/vypis_vsech_jezdcu.html /"<< endl
-                         << " / SOUBOR JE VE FORMATU HTML! /"<< endl << endl;
+                         << " / SOUBOR MUSI BYT VE FORMATU HTML! /"<< endl << endl;
 
                     while(true){
                         cout << "Zadejte adresu a nazev souboru: " << endl;

@@ -4,23 +4,21 @@
 #include "../round/round.h"
 
 /** \brief Hlavickovy soubor pro strukturu Pilot
- *  \file includes/pilot/pilot.h
+ *  \file  includes/pilot/pilot.h
  */
-
 
 /** \struct Pilot
- *  \brief Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce.
- *  \param id_pilot             Specificke ID urcene pro identifikaci jezdce
- *  \param position             Poradi jezdce, ktere se vklada az po setrizeni jezdcu
- *  \param surname              Krestni jmeno jezdce
- *  \param prijmeni             Prijmeni jezdce
- *  \param number_of_rounds     Pocet okruhu, ktere jezdec zajel - dopocitava se automaticky podle zaznamu v souboru casy.csv
- *  \param mean_time            Celkovy prumerny cas
- *  \param best_time            Nejlepe zajety cas
- *  \param worst_time           Nejhure zajety cas
+ *  \brief  Struktura pro uchovavani dat jezdcu z csv souboru. Uchovava jednak jmeno a prijmeni, ale i nejrychlejsi, nejpomalejsi a prumerny cas. Dale uchovava i poradi daneho jezdce.
+ *  \param  id_pilot             Specificke ID urcene pro identifikaci jezdce
+ *  \param  position             Poradi jezdce, ktere se vklada az po setrizeni jezdcu
+ *  \param  surname              Krestni jmeno jezdce
+ *  \param  prijmeni             Prijmeni jezdce
+ *  \param  number_of_rounds     Pocet okruhu, ktere jezdec zajel - dopocitava se automaticky podle zaznamu v CSV souboru s casy
+ *  \param  mean_time            Celkovy prumerny cas
+ *  \param  best_time            Nejlepe zajety cas
+ *  \param  worst_time           Nejhure zajety cas
  *
  */
-
 struct Pilot{
 
     int id_pilot;

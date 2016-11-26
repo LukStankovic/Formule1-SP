@@ -1,20 +1,19 @@
 #ifndef ROUND_H
 #define ROUND_H
 
-
 /** \brief Hlavickovy soubor pro strukturu Round
- *  \file includes/round/round.h
+ *  \file  includes/round/round.h
  */
 
 using namespace std;
 
 /** \struct Round
- *  \brief Struktura pro uchovavani dat zajetych kol. Uchovova cas jak ve stringu ve tvaru m:s,ms tak i ciste v ms.
- *  \param id_round          Specificke ID urcene pro identifikaci casu - PK
- *  \param id_pilot          Specificke ID urcene pro identifikaci jezdce - FK
- *  \param time              Cas kola v retezci
- *  \param time_ms           Cas kola prevedeny na ms
- *  \param position          Pozice casu
+ *  \brief  Struktura pro uchovavani dat zajetych kol. Uchovova cas jak ve stringu ve tvaru m:s,ms tak i ciste v ms.
+ *  \param  id_round          Specificke ID urcene pro identifikaci casu - PK
+ *  \param  id_pilot          Specificke ID urcene pro identifikaci jezdce - FK
+ *  \param  time              Cas kola v retezci
+ *  \param  time_ms           Cas kola prevedeny na ms
+ *  \param  position          Pozice casu
  *
  */
 struct Round{
