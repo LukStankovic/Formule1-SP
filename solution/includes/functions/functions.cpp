@@ -159,7 +159,6 @@ void ToLower(string& str){
             str[i] = str[i]+32;
 }
 
-
 /**
  * \brief Vrati ve stringu HTML hlavicku s CSS styly
  * \param[in]  title        Title zalozky HTML souboru

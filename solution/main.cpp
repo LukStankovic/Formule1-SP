@@ -107,6 +107,7 @@ int main(int argc, char** argv){
     - Obsahuje i zadavani volby
     - Menu se vypisuje dokud uzivatel neukonci program pomoci volby 0
 */
+
     PrintMenu(allPilots,allRounds,numberOfPilots,numberOfRounds);
 
     return 0;
